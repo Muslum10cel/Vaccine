@@ -26,5 +26,5 @@
     * Maven
 
 # ER Diagram
-    
-     http://hackengine-er.com/er/er.pdf
+
+http://hackengine-er.com/er/er.pdf
