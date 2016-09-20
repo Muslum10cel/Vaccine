@@ -39,5 +39,6 @@ public class Vaccines {
         "Second Opa",
         "First Rva",
         "Second Rva",
-        "Third Rva"};
+        "Third Rva"
+    };
 }

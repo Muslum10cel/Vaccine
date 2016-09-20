@@ -24,5 +24,12 @@ public class Tags {
     public static final String USER_URL_PATTERN = "/user/*";
     public static final String ADMIN_URL_PATTERN = "/admin/*";
     public static final String DOCTOR_URL_PATTERN = "/doctor/*";
-    public static final String SECOND_KKK = "İlköğretim 1. Sınıf";
+    public static final String DETAILS_URL_PATTERN = "/details/*";
+    public static final String SECOND_KKK = "Ilkogretim 1. Sinif";
+    public static final String FIFTH_DABT_IPA_HIB = "Ilkogretim 1. Sinif";
+    public static final String SIXTH_DABT_IPA_HIB = "Ilkogretim 8. Sinif";
+    public static final String DABT_IPA = "Ilkogretim 8. Sinif";
+    public static final String KMA4 = "Uygulama onerileri cercevesinde, aileye bilgi verilerek 1 ya da 2 asi";
+    public static final String HPA = "Ilkogretim 8. Sinif";
+    public static final String INFLUENZA = "6. aydan sonra her yil(yasa uygun doz ve sayida)";
 }

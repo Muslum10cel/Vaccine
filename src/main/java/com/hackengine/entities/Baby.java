@@ -65,9 +65,18 @@ public class Baby implements Serializable {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
     private Kpa kpa;
-    
-     @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
     private Kkk kkk;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
+    private HepatitisB hepatitisB;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
+    private DabtIpaHib dabtIpaHib;
+    
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
+    private OtherVaccines otherVaccines;
     
     public Baby() {
     }
@@ -156,6 +165,30 @@ public class Baby implements Serializable {
 
     public Kkk getKkk() {
         return kkk;
+    }
+
+    public HepatitisB getHepatitisB() {
+        return hepatitisB;
+    }
+
+    public void setHepatitisB(HepatitisB hepatitisB) {
+        this.hepatitisB = hepatitisB;
+    }
+
+    public void setDabtIpaHib(DabtIpaHib dabtIpaHib) {
+        this.dabtIpaHib = dabtIpaHib;
+    }
+
+    public DabtIpaHib getDabtIpaHib() {
+        return dabtIpaHib;
+    }
+
+    public void setOtherVaccines(OtherVaccines otherVaccines) {
+        this.otherVaccines = otherVaccines;
+    }
+
+    public OtherVaccines getOtherVaccines() {
+        return otherVaccines;
     }
 
     @Override

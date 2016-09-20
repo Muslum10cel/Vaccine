@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author muslumoncel
  */
-@WebFilter(urlPatterns = {Tags.USER_URL_PATTERN, Tags.DOCTOR_URL_PATTERN, Tags.ADMIN_URL_PATTERN})
+@WebFilter(urlPatterns = {Tags.USER_URL_PATTERN, Tags.DOCTOR_URL_PATTERN, Tags.ADMIN_URL_PATTERN, Tags.DETAILS_URL_PATTERN})
 public class LoginFilter implements Filter {
 
     @Override

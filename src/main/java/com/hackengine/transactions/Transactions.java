@@ -7,17 +7,20 @@ package com.hackengine.transactions;
 
 import com.hackengine.entities.Baby;
 import com.hackengine.entities.Comment;
+import com.hackengine.entities.DabtIpaHib;
 import com.hackengine.entities.HepatitisA;
+import com.hackengine.entities.HepatitisB;
 import com.hackengine.entities.Kkk;
 import com.hackengine.entities.Kpa;
 import com.hackengine.entities.Opa;
+import com.hackengine.entities.OtherVaccines;
 import com.hackengine.entities.Rva;
 import com.hackengine.entities.User;
 import com.hackengine.loglevel.LogLevel;
 import com.hackengine.queries.Queries;
+import com.hackengine.service.Service;
 import com.hackengine.tags.Tags;
 import com.hackengine.utils.SessionUtils;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.Session;
@@ -30,17 +33,8 @@ import org.hibernate.cfg.Configuration;
  */
 public class Transactions {
 
-    private final Integer[] OPA_DATES = {180, 540};
-    private final Integer[] HEPATIT_A_DATES = {540, 720};
-    private final Integer[] HEPATIT_B_DATES = {0, 30, 180};
-    private final Integer[] BCG_DATES = {60};
-    private final Integer[] DaBT_IPA_HIB_DATES = {60, 120, 180, 540};
-    private final Integer[] KPA_DATES = {60, 120, 180, 360};
-    private final Integer[] KKK_DATES = {360};
-    private final Integer[] VARICELLA_DATES = {360};
-    private final Integer[] RVA_DATES = {60, 120, 180};
-
     private static final SessionFactory factory = new Configuration().configure().buildSessionFactory();
+    private static final Service service = new Service();
     private static Session session = null;
 
     private void openSession() {
@@ -127,11 +121,14 @@ public class Transactions {
 
     public void mapBabyToUser(User user, Baby baby) {
         Date birthday = baby.getDateOfBirth();
-        Opa opa = createOpa(birthday);
-        HepatitisA hepatitisA = createHepatitisA(birthday);
-        Rva rva = createRva(birthday);
-        Kpa kpa = createKpa(birthday);
-        Kkk kkk = createKkk(birthday);
+        Opa opa = service.createOpa(birthday);
+        HepatitisA hepatitisA = service.createHepatitisA(birthday);
+        Rva rva = service.createRva(birthday);
+        Kpa kpa = service.createKpa(birthday);
+        Kkk kkk = service.createKkk(birthday);
+        HepatitisB hepatitisB = service.createHepatitisB(birthday);
+        DabtIpaHib dabtIpaHib = service.createDabtIpaHib(birthday);
+        OtherVaccines otherVaccines = service.createOtherVaccines(birthday);
         try {
             openSession();
             session.beginTransaction();
@@ -141,12 +138,18 @@ public class Transactions {
             rva.setBaby(baby);
             kpa.setBaby(baby);
             kkk.setBaby(baby);
+            hepatitisB.setBaby(baby);
+            dabtIpaHib.setBaby(baby);
+            otherVaccines.setBaby(baby);
             baby.setUser(user);
             baby.setOpa(opa);
             baby.setHepatitisA(hepatitisA);
             baby.setRva(rva);
             baby.setKpa(kpa);
             baby.setKkk(kkk);
+            baby.setHepatitisB(hepatitisB);
+            baby.setDabtIpaHib(dabtIpaHib);
+            baby.setOtherVaccines(otherVaccines);
             user.getBabies().add(baby);
             session.getTransaction().commit();
         } catch (Exception e) {
@@ -175,110 +178,6 @@ public class Transactions {
         } catch (Exception e) {
             System.out.println(e.toString());
         }
-    }
-
-    private Opa createOpa(Date birthday) {
-        Opa opa = new Opa();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(birthday);
-
-        calendar.add(Calendar.DATE, OPA_DATES[0]);
-        opa.setFirstOpaDate(calendar.getTime());
-        opa.setFirstOpaStatus(false);
-
-        calendar.setTime(birthday);
-
-        calendar.add(Calendar.DATE, OPA_DATES[1]);
-        opa.setSecondOpaDate(calendar.getTime());
-        opa.setSecondOpaStatus(false);
-        return opa;
-    }
-
-    private HepatitisA createHepatitisA(Date birthday) {
-        HepatitisA hepatitisA = new HepatitisA();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(birthday);
-
-        calendar.add(Calendar.DATE, HEPATIT_A_DATES[0]);
-        hepatitisA.setFirstHepatitisADate(calendar.getTime());
-        hepatitisA.setFirstHepatitisAStatus(false);
-
-        calendar.setTime(birthday);
-
-        calendar.add(Calendar.DATE, HEPATIT_A_DATES[1]);
-        hepatitisA.setSecondHepatitisADate(calendar.getTime());
-        hepatitisA.setSecondHepatitisAStatus(false);
-
-        return hepatitisA;
-    }
-
-    private Rva createRva(Date birthday) {
-        Rva rva = new Rva();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(birthday);
-
-        calendar.add(Calendar.DATE, RVA_DATES[0]);
-        rva.setFirstRvaDate(calendar.getTime());
-        rva.setFirstRvaStatus(false);
-
-        calendar.setTime(birthday);
-
-        calendar.add(Calendar.DATE, RVA_DATES[1]);
-        rva.setSecondRvaDate(calendar.getTime());
-        rva.setSecondRvaStatus(false);
-
-        calendar.setTime(birthday);
-
-        calendar.add(Calendar.DATE, RVA_DATES[2]);
-        rva.setThirdRvaDate(calendar.getTime());
-        rva.setThirdRvaStatus(false);
-
-        return rva;
-    }
-
-    private Kpa createKpa(Date birthday) {
-        Kpa kpa = new Kpa();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(birthday);
-
-        calendar.add(Calendar.DATE, KPA_DATES[0]);
-        kpa.setFirstKpaDate(calendar.getTime());
-        kpa.setFirstKpaStatus(false);
-
-        calendar.setTime(birthday);
-
-        calendar.add(Calendar.DATE, KPA_DATES[1]);
-        kpa.setSecondKpaDate(calendar.getTime());
-        kpa.setSecondKpaStatus(false);
-
-        calendar.setTime(birthday);
-
-        calendar.add(Calendar.DATE, KPA_DATES[2]);
-        kpa.setThirdKpaDate(calendar.getTime());
-        kpa.setThirdKpaStatus(false);
-
-        calendar.setTime(birthday);
-
-        calendar.add(Calendar.DATE, KPA_DATES[3]);
-        kpa.setFourthKpaDate(calendar.getTime());
-        kpa.setFourthKpaStatus(false);
-
-        return kpa;
-    }
-
-    private Kkk createKkk(Date birthday) {
-        Kkk kkk = new Kkk();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(birthday);
-
-        calendar.add(Calendar.DATE, KKK_DATES[0]);
-        kkk.setFirstKkkDate(calendar.getTime());
-        kkk.setFirstKkkStatus(false);
-
-        kkk.setSecondKkkDate(Tags.SECOND_KKK);
-        kkk.setSeconKkkStatus(false);
-
-        return kkk;
     }
 
     public static void closeSession() {

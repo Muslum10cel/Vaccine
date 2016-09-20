@@ -19,4 +19,7 @@ public class TableNames {
     public static final String RVA = "RVA";
     public static final String KPA = "KPA";
     public static final String KKK = "KKK";
+    public static final String HEPATITIS_B = "HEPATITIS_B";
+    public static final String DABT_IPA_HIB = "DABT_IPA_HIB";
+    public static final String OTHER_VACCINES = "OTHER_VACCINES";
 }
