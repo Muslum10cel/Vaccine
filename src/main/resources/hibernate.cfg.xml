@@ -19,6 +19,6 @@
         <mapping class="com.hackengine.entities.Kkk"/>
         <mapping class="com.hackengine.entities.HepatitisB"/>
         <mapping class="com.hackengine.entities.DabtIpaHib"/>
-        <mapping class="com.hackengine.entities.OtherVaccines"/>
+        <mapping class="com.hackengine.entities.OtherVaccines"/> 
     </session-factory>
 </hibernate-configuration>
