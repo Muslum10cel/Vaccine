@@ -14,5 +14,8 @@
         <mapping class="com.hackengine.entities.Comment"/>
         <mapping class="com.hackengine.entities.Opa"/>
         <mapping class="com.hackengine.entities.HepatitisA"/>
+        
+        
+        
     </session-factory>
 </hibernate-configuration>
