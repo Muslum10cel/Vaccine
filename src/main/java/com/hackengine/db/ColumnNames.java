@@ -53,4 +53,34 @@ public class ColumnNames {
     public static final String FIRST_HEPATITIS_A_STATUS = "FIRST_HEPATITIS_A_STATUS";
     public static final String SECOND_HEPATITIS_A = "SECOND_HEPATITIS_A";
     public static final String SECOND_HEPATITIS_A_STATUS = "SECOND_HEPATITIS_A_STATUS";
+
+    /**
+     * Column names of Rva table
+     */
+    public static final String FIRST_RVA = "FIRST_RVA";
+    public static final String FIRST_RVA_STATUS = "FIRST_RVA_STATUS";
+    public static final String SECOND_RVA = "SECOND_RVA";
+    public static final String SECOND_RVA_STATUS = "SECOND_RVA_STATUS";
+    public static final String THIRD_RVA = "THIRD_RVA";
+    public static final String THIRD_RVA_STATUS = "THIRD_RVA_STATUS";
+
+    /**
+     * Column names of Kpa table
+     */
+    public static final String FIRST_KPA = "FIRST_KPA";
+    public static final String FIRST_KPA_STATUS = "FIRST_KPA_STATUS";
+    public static final String SECOND_KPA = "SECOND_KPA";
+    public static final String SECOND_KPA_STATUS = "SECOND_KPA_STATUS";
+    public static final String THIRD_KPA = "THIRD_KPA";
+    public static final String THIRD_KPA_STATUS = "THIRD_KPA_STATUS";
+    public static final String FOURTH_KPA = "FOURTH_KPA";
+    public static final String FOURTH_KPA_STATUS = "FOURTH_KPA_STATUS";
+
+    /**
+     * Column names of Kkk table
+     */
+    public static final String FIRST_KKK = "FIRST_KKK";
+    public static final String FIRST_KKK_STATUS = "FIRST_KKK_STATUS";
+    public static final String SECOND_KKK = "SECOND_KKK";
+    public static final String SECOND_KKK_STATUS = "SECOND_KKK_STATUS";
 }

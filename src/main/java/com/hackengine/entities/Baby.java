@@ -53,12 +53,21 @@ public class Baby implements Serializable {
     @ManyToOne
     @JoinColumn(name = ColumnNames.USER_ID)
     private User user;
-    
+
     @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
     private Opa opa;
-    
+
     @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
     private HepatitisA hepatitisA;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
+    private Rva rva;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
+    private Kpa kpa;
+    
+     @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
+    private Kkk kkk;
     
     public Baby() {
     }
@@ -107,7 +116,7 @@ public class Baby implements Serializable {
 
     public User getUser() {
         return user;
-    } 
+    }
 
     public Opa getOpa() {
         return opa;
@@ -123,6 +132,30 @@ public class Baby implements Serializable {
 
     public HepatitisA getHepatitisA() {
         return hepatitisA;
+    }
+
+    public void setRva(Rva rva) {
+        this.rva = rva;
+    }
+
+    public Rva getRva() {
+        return rva;
+    }
+
+    public void setKpa(Kpa kpa) {
+        this.kpa = kpa;
+    }
+
+    public Kpa getKpa() {
+        return kpa;
+    }
+
+    public void setKkk(Kkk kkk) {
+        this.kkk = kkk;
+    }
+
+    public Kkk getKkk() {
+        return kkk;
     }
 
     @Override

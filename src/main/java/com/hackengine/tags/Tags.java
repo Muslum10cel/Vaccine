@@ -24,4 +24,5 @@ public class Tags {
     public static final String USER_URL_PATTERN = "/user/*";
     public static final String ADMIN_URL_PATTERN = "/admin/*";
     public static final String DOCTOR_URL_PATTERN = "/doctor/*";
+    public static final String SECOND_KKK = "İlköğretim 1. Sınıf";
 }
