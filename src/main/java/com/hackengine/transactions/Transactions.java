@@ -29,6 +29,13 @@ public class Transactions {
 
     private final Integer[] OPA_DATES = {180, 540};
     private final Integer[] HEPATIT_A_DATES = {540, 720};
+    private final Integer[] HEPATIT_B_DATES = {0, 30, 180};
+    private final Integer[] BCG_DATES = {60};
+    private final Integer[] DaBT_IPA_HIB_DATES = {60, 120, 180, 540};
+    private final Integer[] KPA_DATES = {60, 120, 180, 360};
+    private final Integer[] KKK_DATES = {360};
+    private final Integer[] VARICELLA_DATES = {360};
+    private final Integer[] RVA_DATES = {60, 120, 180};
 
     private static final SessionFactory factory = new Configuration().configure().buildSessionFactory();
     private static Session session = null;
