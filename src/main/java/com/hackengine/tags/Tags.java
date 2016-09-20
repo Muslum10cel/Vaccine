@@ -18,6 +18,7 @@ public class Tags {
     public static final String SUCCESS = "success";
     public static final String FAIL = "fail";
     public static final String MAPPED_BY_USER = "user";
+    public static final String MAAPED_BY_BABY = "baby";
     public static final String THANKS = "thanks";
     public static final String INDEX_PAGE = "/index.xhtml";
     public static final String USER_URL_PATTERN = "/user/*";

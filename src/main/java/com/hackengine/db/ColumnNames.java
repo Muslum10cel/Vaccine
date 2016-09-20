@@ -22,6 +22,7 @@ public class ColumnNames {
     public static final String JOINED_DATE = "JOINED_DATE";
 
     public static final String USER_ID = "USER_ID";
+    public static final String BABY_ID = "BABY_ID";
 
     /**
      * Column names of Baby table
@@ -36,4 +37,13 @@ public class ColumnNames {
     public static final String VACCINE_NAME = "VACCINE_NAME";
     public static final String COMMENT = "COMMENT";
     public static final String COMMENT_DATE = "COMMENT_DATE";
+
+    /**
+     * Column names of Opa table
+     */
+    public static final String FIRST_OPA = "FIRST_OPA";
+    public static final String FIRST_OPA_STATUS = "FIRST_OPA_STATUS";
+    public static final String SECOND_OPA = "SECOND_OPA";
+    public static final String SECOND_OPA_STATUS = "SECOND_OPA_STATUS";
+
 }

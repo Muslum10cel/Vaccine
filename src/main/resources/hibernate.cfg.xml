@@ -12,5 +12,6 @@
         <mapping class="com.hackengine.entities.User"/>
         <mapping class="com.hackengine.entities.Baby"/>
         <mapping class="com.hackengine.entities.Comment"/>
+        <mapping class="com.hackengine.entities.Opa"/>
     </session-factory>
 </hibernate-configuration>

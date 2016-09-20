@@ -7,11 +7,14 @@ package com.hackengine.transactions;
 
 import com.hackengine.entities.Baby;
 import com.hackengine.entities.Comment;
+import com.hackengine.entities.Opa;
 import com.hackengine.entities.User;
 import com.hackengine.loglevel.LogLevel;
 import com.hackengine.queries.Queries;
 import com.hackengine.tags.Tags;
 import com.hackengine.utils.SessionUtils;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,6 +25,8 @@ import org.hibernate.cfg.Configuration;
  * @author muslumoncel
  */
 public class Transactions {
+
+    private final Integer[] OPA_DATES = {180, 540};
 
     private static final SessionFactory factory = new Configuration().configure().buildSessionFactory();
     private static Session session = null;
@@ -109,11 +114,14 @@ public class Transactions {
     }
 
     public void mapBabyToUser(User user, Baby baby) {
+        Opa opa = createOpa(baby.getDateOfBirth());
         try {
             openSession();
             session.beginTransaction();
             session.save(baby);
+            opa.setBaby(baby);
             baby.setUser(user);
+            baby.setOpa(opa);
             user.getBabies().add(baby);
             session.getTransaction().commit();
         } catch (Exception e) {
@@ -142,6 +150,22 @@ public class Transactions {
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+    }
+
+    private Opa createOpa(Date birthday) {
+        Opa opa = new Opa();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(birthday);
+        
+        calendar.add(Calendar.DATE, OPA_DATES[0]);
+        opa.setFirstOpaDate(calendar.getTime());
+        opa.setFirstOpaStatus(false);
+        
+        calendar.setTime(birthday);
+        calendar.add(Calendar.DATE, OPA_DATES[1]);
+        opa.setSecondOpaDate(calendar.getTime());
+        opa.setSecondOpaStatus(false);
+        return opa;
     }
 
     public static void closeSession() {
