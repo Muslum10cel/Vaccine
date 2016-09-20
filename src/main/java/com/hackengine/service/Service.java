@@ -27,7 +27,7 @@ public class Service {
     private static final Integer[] HEPATIT_A_DATES = {540, 720};
     private static final Integer[] HEPATIT_B_DATES = {0, 30, 180};
     private static final Integer[] BCG_DATES = {60};
-    private static final Integer[] DaBT_IPA_HIB_DATES = {60, 120, 180, 540};
+    private static final Integer[] DABT_IPA_HIB_DATES = {60, 120, 180, 540};
     private static final Integer[] KPA_DATES = {60, 120, 180, 360};
     private static final Integer[] KKK_DATES = {360};
     private static final Integer[] VARICELLA_DATES = {360};
@@ -157,22 +157,22 @@ public class Service {
         Calendar calendar = Calendar.getInstance();
 
         calendar.setTime(birthday);
-        calendar.add(Calendar.DATE, DaBT_IPA_HIB_DATES[0]);
+        calendar.add(Calendar.DATE, DABT_IPA_HIB_DATES[0]);
         dabtIpaHib.setFirstDabtIpaHib(calendar.getTime());
         dabtIpaHib.setFirstDabtIpaHibStatus(false);
 
         calendar.setTime(birthday);
-        calendar.add(Calendar.DATE, DaBT_IPA_HIB_DATES[1]);
+        calendar.add(Calendar.DATE, DABT_IPA_HIB_DATES[1]);
         dabtIpaHib.setSecondDabtIpaHib(calendar.getTime());
         dabtIpaHib.setSecondDabtIpaHibStatus(false);
 
         calendar.setTime(birthday);
-        calendar.add(Calendar.DATE, DaBT_IPA_HIB_DATES[2]);
+        calendar.add(Calendar.DATE, DABT_IPA_HIB_DATES[2]);
         dabtIpaHib.setThirdDabtIpaHib(calendar.getTime());
         dabtIpaHib.setThirdDabtIpaHibStatus(false);
 
         calendar.setTime(birthday);
-        calendar.add(Calendar.DATE, DaBT_IPA_HIB_DATES[3]);
+        calendar.add(Calendar.DATE, DABT_IPA_HIB_DATES[3]);
         dabtIpaHib.setFourthDabtIpaHib(calendar.getTime());
         dabtIpaHib.setFourthDabtIpaHibStatus(false);
 
