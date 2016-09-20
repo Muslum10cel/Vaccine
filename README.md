@@ -1,5 +1,3 @@
-# Vaccine
-
 # About 
     
     
@@ -14,3 +12,15 @@
         2-) Doctor Users : Doctors will display comments that written by normal users. They have privilege for deleting comments.
 
         3-) Admin User : Admin may delete any user from system.
+
+# Used Technologies
+
+    * MySQL as database.
+    
+    * Primefaces for I/O processes
+
+    * Hibernate for database transactions such as insert, delete etc.
+
+    * JSF for view
+
+    * Maven
