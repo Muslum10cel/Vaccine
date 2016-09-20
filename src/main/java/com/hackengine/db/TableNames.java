@@ -15,4 +15,5 @@ public class TableNames {
     public static final String BABIES = "BABIES";
     public static final String COMMENT = "COMMENTS";
     public static final String OPA = "OPA";
+    public static final String HEPATITIS_A = "HEPATITIS_A";
 }

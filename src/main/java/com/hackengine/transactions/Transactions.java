@@ -7,6 +7,7 @@ package com.hackengine.transactions;
 
 import com.hackengine.entities.Baby;
 import com.hackengine.entities.Comment;
+import com.hackengine.entities.HepatitisA;
 import com.hackengine.entities.Opa;
 import com.hackengine.entities.User;
 import com.hackengine.loglevel.LogLevel;
@@ -27,6 +28,7 @@ import org.hibernate.cfg.Configuration;
 public class Transactions {
 
     private final Integer[] OPA_DATES = {180, 540};
+    private final Integer[] HEPATIT_A_DATES = {540, 720};
 
     private static final SessionFactory factory = new Configuration().configure().buildSessionFactory();
     private static Session session = null;
@@ -115,13 +117,16 @@ public class Transactions {
 
     public void mapBabyToUser(User user, Baby baby) {
         Opa opa = createOpa(baby.getDateOfBirth());
+        HepatitisA hepatitisA = createHepatitisA(baby.getDateOfBirth());
         try {
             openSession();
             session.beginTransaction();
             session.save(baby);
             opa.setBaby(baby);
+            hepatitisA.setBaby(baby);
             baby.setUser(user);
             baby.setOpa(opa);
+            baby.setHepatitisA(hepatitisA);
             user.getBabies().add(baby);
             session.getTransaction().commit();
         } catch (Exception e) {
@@ -156,16 +161,35 @@ public class Transactions {
         Opa opa = new Opa();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(birthday);
-        
+
         calendar.add(Calendar.DATE, OPA_DATES[0]);
         opa.setFirstOpaDate(calendar.getTime());
         opa.setFirstOpaStatus(false);
-        
+
         calendar.setTime(birthday);
+
         calendar.add(Calendar.DATE, OPA_DATES[1]);
         opa.setSecondOpaDate(calendar.getTime());
         opa.setSecondOpaStatus(false);
         return opa;
+    }
+
+    private HepatitisA createHepatitisA(Date birthday) {
+        HepatitisA hepatitisA = new HepatitisA();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(birthday);
+
+        calendar.add(Calendar.DATE, HEPATIT_A_DATES[0]);
+        hepatitisA.setFirstHepatitisADate(calendar.getTime());
+        hepatitisA.setFirstHepatitisAStatus(false);
+
+        calendar.setTime(birthday);
+
+        calendar.add(Calendar.DATE, HEPATIT_A_DATES[1]);
+        hepatitisA.setSecondHepatitisADate(calendar.getTime());
+        hepatitisA.setSecondHepatitisAStatus(false);
+
+        return hepatitisA;
     }
 
     public static void closeSession() {

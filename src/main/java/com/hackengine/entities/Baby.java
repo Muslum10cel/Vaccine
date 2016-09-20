@@ -54,8 +54,11 @@ public class Baby implements Serializable {
     @JoinColumn(name = ColumnNames.USER_ID)
     private User user;
     
-    @OneToOne(fetch = FetchType.LAZY,mappedBy = Tags.MAAPED_BY_BABY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
     private Opa opa;
+    
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
+    private HepatitisA hepatitisA;
     
     public Baby() {
     }
@@ -112,6 +115,14 @@ public class Baby implements Serializable {
 
     public void setOpa(Opa opa) {
         this.opa = opa;
+    }
+
+    public void setHepatitisA(HepatitisA hepatitisA) {
+        this.hepatitisA = hepatitisA;
+    }
+
+    public HepatitisA getHepatitisA() {
+        return hepatitisA;
     }
 
     @Override
