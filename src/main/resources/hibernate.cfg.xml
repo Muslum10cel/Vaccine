@@ -15,7 +15,8 @@
         <mapping class="com.hackengine.entities.Opa"/>
         <mapping class="com.hackengine.entities.HepatitisA"/>
         <mapping class="com.hackengine.entities.Rva"/>
-       
+        <mapping class="com.hackengine.entities.Ka"/>
+        <mapping class="com.hackengine.entities.Kkk"/>
         
     </session-factory>
 </hibernate-configuration>
