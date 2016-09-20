@@ -24,3 +24,5 @@
     * JSF for view
 
     * Maven
+
+# ER Diagram : http://hackengine-er.com/er/er.pdf
