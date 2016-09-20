@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <div>
+            <h:form id="loginForm">
+                <p:panelGrid columns="3">
+                    <f:facet name="header">Giriş Formu</f:facet>
+                    <p:inputText id="username" 
+                                 value="#{loginBean.username}" 
+                                 required="true"
+                                 requiredMessage="Enter username!"/>
+                    <p:watermark for="username" value="Kullanıcı Adı *"/>
+                    <p:message for="username"/>
+
+                    <p:password id="password"
+                                value="#{loginBean.password}"
+                                required="true"
+                                requiredMessage="Provide Password"/>
+                    <p:watermark for="password" value="Şifre *"/>
+                    <p:message for="password"/>
+                    <p:commandButton value="Giriş Yap" action="#{loginBean.logIn()}"/>
+                </p:panelGrid>
+            </h:form>
+        </div>
+    </h:body>
+</html>
