@@ -9,6 +9,7 @@ import com.hackengine.entities.Comment;
 import com.hackengine.tags.Tags;
 import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
+import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -20,7 +21,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean
 @SessionScoped
-public class DoctorBean {
+public class DoctorBean implements Serializable{
 
     private List<Comment> comments;
 
