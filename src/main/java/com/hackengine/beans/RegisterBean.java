@@ -8,6 +8,7 @@ package com.hackengine.beans;
 import com.hackengine.entities.User;
 import com.hackengine.loglevel.LogLevel;
 import com.hackengine.transactions.Transactions;
+import java.io.Serializable;
 import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -19,7 +20,7 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class RegisterBean {
+public class RegisterBean implements Serializable{
 
     private String username;
 
