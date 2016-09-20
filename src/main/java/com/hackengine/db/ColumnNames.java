@@ -50,7 +50,7 @@ public class ColumnNames {
      * Column names of Hepatitis A table
      */
     public static final String FIRST_HEPATITIS_A = "FIRST_HEPATITIS_A";
-    public static final String FIRST_HEPATITIS_A_STATUS = "FIRST_HEPATITI_A_STATUS";
+    public static final String FIRST_HEPATITIS_A_STATUS = "FIRST_HEPATITIS_A_STATUS";
     public static final String SECOND_HEPATITIS_A = "SECOND_HEPATITIS_A";
     public static final String SECOND_HEPATITIS_A_STATUS = "SECOND_HEPATITIS_A_STATUS";
 }
