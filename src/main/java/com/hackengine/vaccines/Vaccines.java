@@ -45,13 +45,13 @@ public class Vaccines {
     };
 
     public static final String[] vaccines = {
-        TableNames.DABT_IPA_HIB,
-        TableNames.HEPATITIS_A,
-        TableNames.HEPATITIS_B,
-        TableNames.KKK,
-        TableNames.KPA,
-        TableNames.OPA,
-        TableNames.OTHER_VACCINES,
-        TableNames.RVA
+        "Dabt Ipa Hib",
+        "Hepatitis A",
+        "Hepatitis B",
+        "Kkk",
+        "Kpa",
+        "Opa",
+        "Rva",
+        "Others"
     };
 }

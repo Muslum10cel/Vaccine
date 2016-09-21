@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <div>TODO write content</div>
+        <h:form>
+            <p:dataTable id="others"
+                         var="ot"
+                         value="#{otherVaccinesBean.others}">
+                <f:facet name="header">Other Vaccine Details</f:facet>
+                <p:columnGroup type="header">
+                    <p:row>
+                        <p:column headerText="BCG" colspan="3"/>
+                        <p:column headerText="Dabt Ipa" colspan="3"/>
+                        <p:column headerText="Hpa" colspan="3"/>
+                        <p:column headerText="Influenza" colspan="3"/>
+                        <p:column headerText="Kma4" colspan="3"/>
+                        <p:column headerText="Varicella" colspan="3"/>
+                    </p:row>
+                    <p:row>
+                        <p:column headerText="Date"/>
+                        <p:column headerText="Status"/>
+                        <p:column headerText="Action"/>
+                        <p:column headerText="Date"/>
+                        <p:column headerText="Status"/>
+                        <p:column headerText="Action"/>
+                        <p:column headerText="Date"/>
+                        <p:column headerText="Status"/>
+                        <p:column headerText="Action"/>
+                        <p:column headerText="Date"/>
+                        <p:column headerText="Status"/>
+                        <p:column headerText="Action"/>
+                        <p:column headerText="Date"/>
+                        <p:column headerText="Status"/>
+                        <p:column headerText="Action"/>
+                        <p:column headerText="Date"/>
+                        <p:column headerText="Status"/>
+                        <p:column headerText="Action"/>
+                    </p:row>
+                </p:columnGroup>
+                <p:column>
+                    <p:outputLabel value="#{ot.bcgDate}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{ot.bcgStatus}"/>
+                </p:column>
+                <p:column>
+                    <p:commandLink value="Update" action="#{otherVaccinesBean.updateOtherVaccines(1)}" ajax="true" update="others"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{ot.dabtIpa}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{ot.dabtIpaStatus}"/>
+                </p:column>
+                <p:column>
+                    <p:commandLink value="Update" action="#{otherVaccinesBean.updateOtherVaccines(2)}" ajax="true" update="others"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{ot.hpa}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{ot.hpaStatus}"/>
+                </p:column>
+                <p:column>
+                    <p:commandLink value="Update" action="#{otherVaccinesBean.updateOtherVaccines(3)}" ajax="true" update="others"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{ot.influenza}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{ot.influenzaStatus}"/>
+                </p:column>
+                <p:column>
+                    <p:commandLink value="Update" action="#{otherVaccinesBean.updateOtherVaccines(4)}" ajax="true" update="others"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{ot.kma4}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{ot.kma4Status}"/>
+                </p:column>
+                <p:column>
+                    <p:commandLink value="Update" action="#{otherVaccinesBean.updateOtherVaccines(5)}" ajax="true" update="others"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{ot.varicellaDate}"/>
+                </p:column>
+                <p:column>
+                    <p:outputLabel value="#{ot.varicellaStatus}"/>
+                </p:column>
+                <p:column>
+                    <p:commandLink value="Update" action="#{otherVaccinesBean.updateOtherVaccines(6)}" ajax="true" update="others"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

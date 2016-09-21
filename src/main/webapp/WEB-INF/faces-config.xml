@@ -75,4 +75,48 @@
         </navigation-case>
     </navigation-rule>
     
+    <navigation-rule>
+        <from-view-id>/details/detail.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>dabtipahib</from-outcome>
+            <to-view-id>/details/dabtipahib.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>hepatitisa</from-outcome>
+            <to-view-id>/details/hepatitisa.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>hepatitisb</from-outcome>
+            <to-view-id>/details/hepatitisb.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>kpa</from-outcome>
+            <to-view-id>/details/kpa.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>kkk</from-outcome>
+            <to-view-id>/details/kkk.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>opa</from-outcome>
+            <to-view-id>/details/opa.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>rva</from-outcome>
+            <to-view-id>/details/rva.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>others</from-outcome>
+            <to-view-id>/details/othervaccines.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
 </faces-config>
