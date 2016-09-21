@@ -125,7 +125,7 @@ public class Service {
         kkk.setFirstKkkStatus(false);
 
         kkk.setSecondKkkDate(Tags.SECOND_KKK);
-        kkk.setSeconKkkStatus(false);
+        kkk.setSecondKkkStatus(false);
 
         return kkk;
     }
@@ -141,12 +141,12 @@ public class Service {
 
         calendar.setTime(birthday);
         calendar.add(Calendar.DATE, HEPATIT_B_DATES[1]);
-        hepatitisB.setScondHepatitsB(calendar.getTime());
+        hepatitisB.setSecondHepatitisBDate(calendar.getTime());
         hepatitisB.setSecondHepatitisBStatus(false);
 
         calendar.setTime(birthday);
         calendar.add(Calendar.DATE, HEPATIT_B_DATES[2]);
-        hepatitisB.setThirdHepatitsB(calendar.getTime());
+        hepatitisB.setThirdHepatitisBDate(calendar.getTime());
         hepatitisB.setThirdHepatitisBStatus(false);
 
         return hepatitisB;

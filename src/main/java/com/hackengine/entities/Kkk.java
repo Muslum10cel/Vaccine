@@ -44,7 +44,7 @@ public class Kkk implements Serializable {
     private String secondKkkDate;
 
     @Column(name = ColumnNames.SECOND_KKK_STATUS, nullable = false)
-    private boolean seconKkkStatus;
+    private boolean secondKkkStatus;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = ColumnNames.BABY_ID)
@@ -82,12 +82,12 @@ public class Kkk implements Serializable {
         this.secondKkkDate = secondKkkDate;
     }
 
-    public boolean isSeconKkkStatus() {
-        return seconKkkStatus;
+    public boolean isSecondKkkStatus() {
+        return secondKkkStatus;
     }
 
-    public void setSeconKkkStatus(boolean seconKkkStatus) {
-        this.seconKkkStatus = seconKkkStatus;
+    public void setSecondKkkStatus(boolean secondKkkStatus) {
+        this.secondKkkStatus = secondKkkStatus;
     }
 
     public Baby getBaby() {
@@ -100,6 +100,6 @@ public class Kkk implements Serializable {
 
     @Override
     public String toString() {
-        return "Kkk{" + "firstKkkDate=" + firstKkkDate + ", firstKkkStatus=" + firstKkkStatus + ", secondKkkDate=" + secondKkkDate + ", seconKkkStatus=" + seconKkkStatus + '}';
+        return "Kkk{" + "firstKkkDate=" + firstKkkDate + ", firstKkkStatus=" + firstKkkStatus + ", secondKkkDate=" + secondKkkDate + ", seconKkkStatus=" + secondKkkStatus + '}';
     }
 }

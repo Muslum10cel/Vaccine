@@ -92,7 +92,31 @@ public class Transactions {
     }
 
     public static List<HepatitisA> hepatitisAs(int baby_id) {
-        return session.createQuery(Queries.GET_HEPATITS_IS_A).setInteger(0, baby_id).list();
+        return session.createQuery(Queries.GET_HEPATITIS_A).setInteger(0, baby_id).list();
+    }
+
+    public static List<HepatitisB> hepatitisBs(int baby_id) {
+        return session.createQuery(Queries.GET_HEPATITIS_B).setInteger(0, baby_id).list();
+    }
+
+    public static List<Kkk> kkks(int baby_id) {
+        return session.createQuery(Queries.GET_KKK).setInteger(0, baby_id).list();
+    }
+
+    public static List<Kpa> kpas(int baby_id) {
+        return session.createQuery(Queries.GET_KPA).setInteger(0, baby_id).list();
+    }
+
+    public static List<Opa> opas(int baby_id) {
+        return session.createQuery(Queries.GET_OPA).setInteger(0, baby_id).list();
+    }
+
+    public static List<Rva> rvas(int baby_id) {
+        return session.createQuery(Queries.GET_RVA).setInteger(0, baby_id).list();
+    }
+
+    public static List<OtherVaccines> otherVaccines(int baby_id) {
+        return session.createQuery(Queries.GET_OTHER_VACCINES).setInteger(0, baby_id).list();
     }
 
     public void addDoctor(User doctor) {
@@ -204,6 +228,72 @@ public class Transactions {
             openSession();
             session.beginTransaction();
             session.update(hepatitisA);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void updateHepatitisB(HepatitisB hepatitisB) {
+        try {
+            openSession();
+            session.beginTransaction();
+            session.update(hepatitisB);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void updateKkk(Kkk kkk) {
+        try {
+            openSession();
+            session.beginTransaction();
+            session.update(kkk);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void updateKpa(Kpa kpa) {
+        try {
+            openSession();
+            session.beginTransaction();
+            session.update(kpa);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void updateOpa(Opa opa) {
+        try {
+            openSession();
+            session.beginTransaction();
+            session.update(opa);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void updateRva(Rva rva) {
+        try {
+            openSession();
+            session.beginTransaction();
+            session.update(rva);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void updateOtherVaccines(OtherVaccines otherVaccines) {
+        try {
+            openSession();
+            session.beginTransaction();
+            session.update(otherVaccines);
             session.getTransaction().commit();
         } catch (Exception e) {
             System.out.println(e.toString());

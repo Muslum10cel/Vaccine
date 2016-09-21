@@ -35,21 +35,21 @@ public class HepatitisB implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(name = ColumnNames.FIRST_HEPATITIS_B, nullable = false)
-    private Date firstHepatitsB;
+    private Date firstHepatitisBDate;
 
     @Column(name = ColumnNames.FIRST_HEPATITIS_B_STATUS, nullable = false)
     private boolean firstHepatitisBStatus;
 
     @Temporal(TemporalType.DATE)
     @Column(name = ColumnNames.SECOND_HEPATITIS_B, nullable = false)
-    private Date scondHepatitsB;
+    private Date secondHepatitisBDate;
 
     @Column(name = ColumnNames.SECOND_HEPATITIS_B_STATUS, nullable = false)
     private boolean secondHepatitisBStatus;
 
     @Temporal(TemporalType.DATE)
     @Column(name = ColumnNames.THIRD_HEPATITIS_B, nullable = false)
-    private Date thirdHepatitsB;
+    private Date thirdHepatitisBDate;
 
     @Column(name = ColumnNames.THIRD_HEPATITIS_B_STATUS, nullable = false)
     private boolean thirdHepatitisBStatus;
@@ -67,11 +67,11 @@ public class HepatitisB implements Serializable {
     }
 
     public Date getFirstHepatitsB() {
-        return firstHepatitsB;
+        return firstHepatitisBDate;
     }
 
-    public void setFirstHepatitsB(Date firstHepatitsB) {
-        this.firstHepatitsB = firstHepatitsB;
+    public void setFirstHepatitsB(Date firstHepatitisBDate) {
+        this.firstHepatitisBDate = firstHepatitisBDate;
     }
 
     public boolean isFirstHepatitisBStatus() {
@@ -82,28 +82,12 @@ public class HepatitisB implements Serializable {
         this.firstHepatitisBStatus = firstHepatitisBStatus;
     }
 
-    public Date getScondHepatitsB() {
-        return scondHepatitsB;
-    }
-
-    public void setScondHepatitsB(Date scondHepatitsB) {
-        this.scondHepatitsB = scondHepatitsB;
-    }
-
     public boolean isSecondHepatitisBStatus() {
         return secondHepatitisBStatus;
     }
 
     public void setSecondHepatitisBStatus(boolean secondHepatitisBStatus) {
         this.secondHepatitisBStatus = secondHepatitisBStatus;
-    }
-
-    public Date getThirdHepatitsB() {
-        return thirdHepatitsB;
-    }
-
-    public void setThirdHepatitsB(Date thirdHepatitsB) {
-        this.thirdHepatitsB = thirdHepatitsB;
     }
 
     public boolean isThirdHepatitisBStatus() {
@@ -122,8 +106,33 @@ public class HepatitisB implements Serializable {
         this.baby = baby;
     }
 
+    public Date getFirstHepatitisBDate() {
+        return firstHepatitisBDate;
+    }
+
+    public void setFirstHepatitisBDate(Date firstHepatitisBDate) {
+        this.firstHepatitisBDate = firstHepatitisBDate;
+    }
+
+    public Date getSecondHepatitisBDate() {
+        return secondHepatitisBDate;
+    }
+
+    public void setSecondHepatitisBDate(Date secondHepatitisBDate) {
+        this.secondHepatitisBDate = secondHepatitisBDate;
+    }
+
+    public Date getThirdHepatitisBDate() {
+        return thirdHepatitisBDate;
+    }
+
+    public void setThirdHepatitisBDate(Date thirdHepatitisBDate) {
+        this.thirdHepatitisBDate = thirdHepatitisBDate;
+    }
+
     @Override
     public String toString() {
-        return "HepatitisB{" + "firstHepatitsB=" + firstHepatitsB + ", firstHepatitisBStatus=" + firstHepatitisBStatus + ", scondHepatitsB=" + scondHepatitsB + ", secondHepatitisBStatus=" + secondHepatitisBStatus + ", thirdHepatitsB=" + thirdHepatitsB + ", thirdHepatitisBStatus=" + thirdHepatitisBStatus + '}';
+        return "HepatitisB{" + "firstHepatitisBDate=" + firstHepatitisBDate + ", firstHepatitisBStatus=" + firstHepatitisBStatus + ", scondHepatitisBDate=" + secondHepatitisBDate + ", secondHepatitisBStatus=" + secondHepatitisBStatus + ", thirdHepatitisBDate=" + thirdHepatitisBDate + ", thirdHepatitisBStatus=" + thirdHepatitisBStatus + '}';
     }
+
 }
