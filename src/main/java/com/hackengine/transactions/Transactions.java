@@ -91,6 +91,10 @@ public class Transactions {
         return session.createQuery(Queries.GET_DABT_IPA_HIB).setInteger(0, baby_id).list();
     }
 
+    public static List<HepatitisA> hepatitisAs(int baby_id) {
+        return session.createQuery(Queries.GET_HEPATITS_IS_A).setInteger(0, baby_id).list();
+    }
+
     public void addDoctor(User doctor) {
         try {
             openSession();
@@ -189,6 +193,17 @@ public class Transactions {
             openSession();
             session.beginTransaction();
             session.update(dabtIpaHib);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void updateHepatitisA(HepatitisA hepatitisA) {
+        try {
+            openSession();
+            session.beginTransaction();
+            session.update(hepatitisA);
             session.getTransaction().commit();
         } catch (Exception e) {
             System.out.println(e.toString());

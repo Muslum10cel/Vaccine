@@ -16,4 +16,5 @@ public class Queries {
     public static final String GET_BABIES = "FROM Baby B WHERE B.user.ID = ?";
     public static final String GET_COMMENTS = "FROM Comment C";
     public static final String GET_DABT_IPA_HIB = "FROM DabtIpaHib DIH WHERE DIH.baby.ID = ?";
+    public static final String GET_HEPATITS_IS_A = "FROM HepatitisA HA WHERE HA.baby.ID = ?";
 }

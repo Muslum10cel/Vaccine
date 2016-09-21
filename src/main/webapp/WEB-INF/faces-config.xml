@@ -75,13 +75,4 @@
         </navigation-case>
     </navigation-rule>
     
-    <navigation-rule>
-        <from-view-id>/details/detail.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>dabtipahib</from-outcome>
-            <to-view-id>/details/dabtipahib.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
-    
 </faces-config>

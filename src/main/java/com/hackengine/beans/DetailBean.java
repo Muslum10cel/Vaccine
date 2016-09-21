@@ -5,14 +5,12 @@
  */
 package com.hackengine.beans;
 
-import com.hackengine.db.TableNames;
 import com.hackengine.entities.Baby;
 import com.hackengine.entities.DabtIpaHib;
-import com.hackengine.pages.Pages;
+import com.hackengine.entities.HepatitisA;
 import com.hackengine.tags.Tags;
 import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
-import com.hackengine.vaccines.Vaccines;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -28,28 +26,19 @@ import javax.faces.bean.SessionScoped;
 public class DetailBean implements Serializable {
 
     private Baby baby;
-    
-    private Transactions transaction=null;
+
+    private Transactions transaction = null;
 
     private List<DabtIpaHib> dabtIpaHibs = null;
+
+    private List<HepatitisA> hepatitisA = null;
 
     @PostConstruct
     public void init() {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
         dabtIpaHibs = Transactions.dabtIpaHibs(baby.getID());
-        transaction=new Transactions();
-    }
-
-    public String[] getVaccineNames() {
-        return Vaccines.vaccines;
-    }
-
-    public String goSubDetailOfVaccine(String vaccineName) {
-        switch (vaccineName) {
-            case TableNames.DABT_IPA_HIB:
-                return Pages.DABT_IPA_PAGES;
-        }
-        return null;
+        hepatitisA = Transactions.hepatitisAs(baby.getID());
+        transaction = new Transactions();
     }
 
     public List<DabtIpaHib> getDabtIpaHibs() {
@@ -58,6 +47,14 @@ public class DetailBean implements Serializable {
 
     public void setDabtIpaHibs(List<DabtIpaHib> dabtIpaHibs) {
         this.dabtIpaHibs = dabtIpaHibs;
+    }
+
+    public List<HepatitisA> getHepatitisA() {
+        return hepatitisA;
+    }
+
+    public void setHepatitisA(List<HepatitisA> hepatitisA) {
+        this.hepatitisA = hepatitisA;
     }
 
     public void updateDabtIpaHib(int item) {
@@ -104,8 +101,27 @@ public class DetailBean implements Serializable {
                     baby.getDabtIpaHib().setSixthDabtIpaHibStatus(true);
                 }
         }
-        System.out.println(baby.getDabtIpaHib());
         transaction.updateDabtIpaHib(baby.getDabtIpaHib());
         dabtIpaHibs = Transactions.dabtIpaHibs(baby.getID());
+    }
+
+    public void updateHepatitisA(int item) {
+        switch (item) {
+            case 1:
+                if (baby.getHepatitisA().isFirstHepatitisAStatus()) {
+                    baby.getHepatitisA().setFirstHepatitisAStatus(false);
+                } else {
+                    baby.getHepatitisA().setFirstHepatitisAStatus(true);
+                }
+                break;
+            case 2:
+                if (baby.getHepatitisA().isSecondHepatitisAStatus()) {
+                    baby.getHepatitisA().setSecondHepatitisAStatus(false);
+                } else {
+                    baby.getHepatitisA().setSecondHepatitisAStatus(true);
+                }
+        }
+        transaction.updateHepatitisA(baby.getHepatitisA());
+        hepatitisA = Transactions.hepatitisAs(baby.getID());
     }
 }
