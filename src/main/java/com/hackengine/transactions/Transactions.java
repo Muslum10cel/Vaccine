@@ -87,6 +87,10 @@ public class Transactions {
         return session.createQuery(Queries.GET_COMMENTS).list();
     }
 
+    public static List<DabtIpaHib> dabtIpaHibs(int baby_id) {
+        return session.createQuery(Queries.GET_DABT_IPA_HIB).setInteger(0, baby_id).list();
+    }
+
     public void addDoctor(User doctor) {
         try {
             openSession();
@@ -174,6 +178,17 @@ public class Transactions {
         try {
             session.beginTransaction();
             session.delete(comment);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    public void updateDabtIpaHib(DabtIpaHib dabtIpaHib) {
+        try {
+            openSession();
+            session.beginTransaction();
+            session.update(dabtIpaHib);
             session.getTransaction().commit();
         } catch (Exception e) {
             System.out.println(e.toString());

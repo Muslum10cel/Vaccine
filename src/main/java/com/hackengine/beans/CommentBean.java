@@ -74,7 +74,7 @@ public class CommentBean implements Serializable {
     }
 
     public String[] getVaccines() {
-        return Vaccines.vaccines;
+        return Vaccines.allVaccines;
     }
 
     public void addComment() {

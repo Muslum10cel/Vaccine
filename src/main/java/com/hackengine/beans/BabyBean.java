@@ -8,6 +8,7 @@ package com.hackengine.beans;
 import com.hackengine.entities.Baby;
 import com.hackengine.entities.User;
 import com.hackengine.genders.Gender;
+import com.hackengine.pages.Pages;
 import com.hackengine.tags.Tags;
 import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
@@ -89,5 +90,10 @@ public class BabyBean implements Serializable {
     public void deleteBaby(Baby baby) {
         transaction.deleteBaby(baby);
         babies = Transactions.getBabies(user.getID());
+    }
+
+    public String goToDetails(Baby baby) {
+        SessionUtils.getSession().setAttribute(Tags.MAPPED_BY_BABY, baby);
+        return Pages.DETAILS_PAGE;
     }
 }

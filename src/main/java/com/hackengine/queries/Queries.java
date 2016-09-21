@@ -15,4 +15,5 @@ public class Queries {
     public static final String GET_USERS = "FROM User U WHERE U.logLevel = ?";
     public static final String GET_BABIES = "FROM Baby B WHERE B.user.ID = ?";
     public static final String GET_COMMENTS = "FROM Comment C";
+    public static final String GET_DABT_IPA_HIB = "FROM DabtIpaHib DIH WHERE DIH.baby.ID = ?";
 }

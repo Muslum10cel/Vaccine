@@ -5,13 +5,15 @@
  */
 package com.hackengine.vaccines;
 
+import com.hackengine.db.TableNames;
+
 /**
  *
  * @author muslumoncel
  */
 public class Vaccines {
 
-    public static final String[] vaccines = {
+    public static final String[] allVaccines = {
         "BCG",
         "DaBT IPA",
         "Varicella",
@@ -27,7 +29,7 @@ public class Vaccines {
         "First Kpa",
         "Second Kpa",
         "Third Kpa",
-        "Fourt Kpa",
+        "Fourth Kpa",
         "First Kkk",
         "Second Kkk",
         "First Hepatitis A",
@@ -40,5 +42,16 @@ public class Vaccines {
         "First Rva",
         "Second Rva",
         "Third Rva"
+    };
+
+    public static final String[] vaccines = {
+        TableNames.DABT_IPA_HIB,
+        TableNames.HEPATITIS_A,
+        TableNames.HEPATITIS_B,
+        TableNames.KKK,
+        TableNames.KPA,
+        TableNames.OPA,
+        TableNames.OTHER_VACCINES,
+        TableNames.RVA
     };
 }

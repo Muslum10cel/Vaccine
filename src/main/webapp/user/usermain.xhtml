@@ -69,6 +69,8 @@ and open the template in the editor.
                 </p:column>
                 <p:column headerText="Action">
                     <p:commandLink value="Delete Baby" action="#{babyBean.deleteBaby(baby)}" ajax="true" update="babies"/>
+                    <p:outputLabel value="&#160;"/>
+                    <p:commandLink value="Details" action="#{babyBean.goToDetails(baby)}"/>
                 </p:column>
             </p:dataTable>
         </h:form>
