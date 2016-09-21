@@ -7,11 +7,13 @@
     
     <navigation-rule>
         <from-view-id>/register/register.xhtml</from-view-id>
+        
         <navigation-case>
             <from-outcome>success</from-outcome>
             <to-view-id>/registersuccess.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>fail</from-outcome>
             <to-view-id>/error.xhtml</to-view-id>
@@ -21,21 +23,25 @@
     
     <navigation-rule>
         <from-view-id>/login/login.xhtml</from-view-id>
+        
         <navigation-case>
             <from-outcome>user page</from-outcome>
             <to-view-id>/user/usermain.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>doctor page</from-outcome>
             <to-view-id>/doctor/doctormain.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>admin page</from-outcome>
             <to-view-id>/admin/admin.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>fail</from-outcome>
             <to-view-id>/error.xhtml</to-view-id>
@@ -45,11 +51,13 @@
     
     <navigation-rule>
         <from-view-id>/user/usermain.xhtml</from-view-id>
+        
         <navigation-case>
             <from-outcome>thanks</from-outcome>
             <to-view-id>/thanks.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>details</from-outcome>
             <to-view-id>/details/detail.xhtml</to-view-id>
@@ -59,6 +67,7 @@
     
     <navigation-rule>
         <from-view-id>/admin/admin.xhtml</from-view-id>
+        
         <navigation-case>
             <from-outcome>thanks</from-outcome>
             <to-view-id>/thanks.xhtml</to-view-id>
@@ -68,6 +77,7 @@
     
     <navigation-rule>
         <from-view-id>/doctor/doctormain.xhtml</from-view-id>
+        
         <navigation-case>
             <from-outcome>thanks</from-outcome>
             <to-view-id>/thanks.xhtml</to-view-id>
@@ -77,46 +87,54 @@
     
     <navigation-rule>
         <from-view-id>/details/detail.xhtml</from-view-id>
+        
         <navigation-case>
             <from-outcome>dabtipahib</from-outcome>
             <to-view-id>/details/dabtipahib.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>hepatitisa</from-outcome>
             <to-view-id>/details/hepatitisa.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>hepatitisb</from-outcome>
             <to-view-id>/details/hepatitisb.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>kpa</from-outcome>
             <to-view-id>/details/kpa.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>kkk</from-outcome>
             <to-view-id>/details/kkk.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>opa</from-outcome>
             <to-view-id>/details/opa.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>rva</from-outcome>
             <to-view-id>/details/rva.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>others</from-outcome>
             <to-view-id>/details/othervaccines.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
     </navigation-rule>
-    
 </faces-config>
