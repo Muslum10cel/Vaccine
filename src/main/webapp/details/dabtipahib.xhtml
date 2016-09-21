@@ -15,8 +15,8 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <div>TODO write content</div>
+         <p:separator/>
         <h:form>
-            <p:separator/>
             <p:dataTable id="dabt"
                          var="dabtipahib"
                          value="#{dabtIpaHibBean.dabtIpaHibs}">
@@ -106,7 +106,7 @@ and open the template in the editor.
                     <p:commandLink value="Update" action="#{dabtIpaHibBean.updateDabtIpaHib(6)}" ajax="true" update="dabt"/>
                 </p:column>
             </p:dataTable>
-            <p:separator/>
         </h:form>
+        <p:separator/>
     </h:body>
 </html>
