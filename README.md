@@ -27,9 +27,4 @@ http://hackengine-er.com/er/er.pdf
 
 # Demo Link
 
-http://vaccineweb.us-west-2.elasticbeanstalk.com/index.xhtml (without any design)
-
-After log in you may get an 500 error, please go back to login page and try again!
-
-Login Credentials -> Username : user1 / Password : 12345
 
