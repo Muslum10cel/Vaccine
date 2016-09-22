@@ -23,61 +23,53 @@ and open the template in the editor.
                 <f:facet name="header">Kpa Details</f:facet>
                 <p:columnGroup type="header">
                     <p:row>
-                        <p:column headerText="First" colspan="3"/>
-                        <p:column headerText="Second" colspan="3"/>
-                        <p:column headerText="Third" colspan="3"/>
-                        <p:column headerText="Fourth" colspan="3"/>
+                        <p:column headerText="First" colspan="2"/>
+                        <p:column headerText="Second" colspan="2"/>
+                        <p:column headerText="Third" colspan="2"/>
+                        <p:column headerText="Fourth" colspan="2"/>
                     </p:row>
                     <p:row>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                     </p:row>
                 </p:columnGroup>
                 <p:column>
                     <p:outputLabel value="#{kp.firstKpaDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{kp.firstKpaStatus}"/>
-                </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{kpaBean.updateKpa(1)}" ajax="true" update="kpa"/>
+                    <p:selectBooleanCheckbox value="#{kp.firstKpaStatus}">
+                        <p:ajax listener="#{kpaBean.updateKpa(1)}" update="kpa" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="#{kp.secondKpaDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{kp.secondKpaStatus}"/>
-                </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{kpaBean.updateKpa(2)}" ajax="true" update="kpa"/>
+                    <p:selectBooleanCheckbox value="#{kp.secondKpaStatus}">
+                        <p:ajax listener="#{kpaBean.updateKpa(2)}" update="kpa" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="#{kp.thirdKpaDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{kp.thirdKpaStatus}"/>
-                </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{kpaBean.updateKpa(3)}" ajax="true" update="kpa"/>
+                    <p:selectBooleanCheckbox value="#{kp.thirdKpaStatus}">
+                        <p:ajax listener="#{kpaBean.updateKpa(3)}" update="kpa" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="#{kp.fourthKpaDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{kp.fourthKpaStatus}"/>
-                </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{kpaBean.updateKpa(4)}" ajax="true" update="kpa"/>
+                    <p:selectBooleanCheckbox value="#{kp.fourthKpaStatus}">
+                        <p:ajax listener="#{kpaBean.updateKpa(4)}" update="kpa" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
             </p:dataTable>
         </h:form>

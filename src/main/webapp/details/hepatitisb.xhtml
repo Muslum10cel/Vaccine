@@ -23,48 +23,43 @@ and open the template in the editor.
                 <f:facet name="header">Hepatitis B Details</f:facet>
                 <p:columnGroup type="header">
                     <p:row>
-                        <p:column headerText="First" colspan="3"/>
-                        <p:column headerText="Second" colspan="3"/>
-                        <p:column headerText="Third" colspan="3"/>
+                        <p:column headerText="First" colspan="2"/>
+                        <p:column headerText="Second" colspan="2"/>
+                        <p:column headerText="Third" colspan="2"/>
                     </p:row>
                     <p:row>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                     </p:row>
                 </p:columnGroup>
                 <p:column>
                     <p:outputLabel value="#{hepb.firstHepatitisBDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{hepb.firstHepatitisBStatus}"/>
+                    <p:selectBooleanCheckbox value="#{hepb.firstHepatitisBStatus}">
+                        <p:ajax listener="#{hepatitisBBean.updateHepatitisB(1)}" update="hepatitisb" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{hepatitisBBean.updateHepatitisB(1)}" ajax="true" update="hepatitisb"/>
-                </p:column>
+
                 <p:column>
                     <p:outputLabel value="#{hepb.secondHepatitisBDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{hepb.secondHepatitisBStatus}"/>
-                </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{hepatitisBBean.updateHepatitisB(2)}" ajax="true" update="hepatitisb"/>
+                    <p:selectBooleanCheckbox value="#{hepb.secondHepatitisBStatus}">
+                        <p:ajax listener="#{hepatitisBBean.updateHepatitisB(2)}" update="hepatitisb" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="#{hepb.thirdHepatitisBDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{hepb.thirdHepatitisBStatus}"/>
-                </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{hepatitisBBean.updateHepatitisB(3)}" ajax="true" update="hepatitisb"/>
+                    <p:selectBooleanCheckbox value="#{hepb.thirdHepatitisBStatus}">
+                        <p:ajax listener="#{hepatitisBBean.updateHepatitisB(3)}" update="hepatitisb" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
             </p:dataTable>
         </h:form>
