@@ -23,88 +23,82 @@ and open the template in the editor.
                 <f:facet name="header">Other Vaccine Details</f:facet>
                 <p:columnGroup type="header">
                     <p:row>
-                        <p:column headerText="BCG" colspan="3"/>
-                        <p:column headerText="Dabt Ipa" colspan="3"/>
-                        <p:column headerText="Hpa" colspan="3"/>
-                        <p:column headerText="Influenza" colspan="3"/>
-                        <p:column headerText="Kma4" colspan="3"/>
-                        <p:column headerText="Varicella" colspan="3"/>
+                        <p:column headerText="BCG" colspan="2"/>
+                        <p:column headerText="Dabt Ipa" colspan="2"/>
+                        <p:column headerText="Hpa" colspan="2"/>
+                        <p:column headerText="Influenza" colspan="2"/>
+                        <p:column headerText="Kma4" colspan="2"/>
+                        <p:column headerText="Varicella" colspan="2"/>
                     </p:row>
                     <p:row>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                     </p:row>
                 </p:columnGroup>
                 <p:column>
                     <p:outputLabel value="#{ot.bcgDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{ot.bcgStatus}"/>
+                    <p:selectBooleanCheckbox value="#{ot.bcgStatus}">
+                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(1)}" update="others" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{otherVaccinesBean.updateOtherVaccines(1)}" ajax="true" update="others"/>
-                </p:column>
+
                 <p:column>
                     <p:outputLabel value="#{ot.dabtIpa}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{ot.dabtIpaStatus}"/>
+                    <p:selectBooleanCheckbox value="#{ot.dabtIpaStatus}">
+                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(2)}" update="others" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{otherVaccinesBean.updateOtherVaccines(2)}" ajax="true" update="others"/>
-                </p:column>
+
                 <p:column>
                     <p:outputLabel value="#{ot.hpa}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{ot.hpaStatus}"/>
+                    <p:selectBooleanCheckbox value="#{ot.hpaStatus}">
+                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(3)}" update="others" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{otherVaccinesBean.updateOtherVaccines(3)}" ajax="true" update="others"/>
-                </p:column>
+
                 <p:column>
                     <p:outputLabel value="#{ot.influenza}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{ot.influenzaStatus}"/>
+                    <p:selectBooleanCheckbox value="#{ot.influenzaStatus}">
+                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(4)}" update="others" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{otherVaccinesBean.updateOtherVaccines(4)}" ajax="true" update="others"/>
-                </p:column>
+
                 <p:column>
                     <p:outputLabel value="#{ot.kma4}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{ot.kma4Status}"/>
+                    <p:selectBooleanCheckbox value="#{ot.kma4Status}">
+                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(5)}" update="others" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{otherVaccinesBean.updateOtherVaccines(5)}" ajax="true" update="others"/>
-                </p:column>
+
                 <p:column>
                     <p:outputLabel value="#{ot.varicellaDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{ot.varicellaStatus}"/>
+                    <p:selectBooleanCheckbox value="#{ot.varicellaStatus}">
+                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(6)}" update="others" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{otherVaccinesBean.updateOtherVaccines(6)}" ajax="true" update="others"/>
-                </p:column>
+
             </p:dataTable>
         </h:form>
         <p:separator/>
