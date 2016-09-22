@@ -18,6 +18,7 @@ and open the template in the editor.
         <h:form>
             <p:commandLink value="Log Out" action="#{doctorBean.logOut()}"/>
             <p:separator/>
+            <p:poll interval="360" listener="#{doctorBean.newComments()}" update="comments"/>
             <p:dataTable id="comments"
                          var="comment"
                          value="#{doctorBean.comments}"

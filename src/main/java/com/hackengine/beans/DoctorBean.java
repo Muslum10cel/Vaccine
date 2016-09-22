@@ -21,7 +21,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean
 @SessionScoped
-public class DoctorBean implements Serializable{
+public class DoctorBean implements Serializable {
 
     private List<Comment> comments;
 
@@ -49,6 +49,10 @@ public class DoctorBean implements Serializable{
 
     public void deleteComment(Comment comment) {
         transaction.deleteComment(comment);
-        comments=Transactions.getComments();
+        comments = Transactions.getComments();
+    }
+    
+    public void newComments(){
+        comments = Transactions.getComments();
     }
 }
