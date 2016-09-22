@@ -26,6 +26,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.exception.JDBCConnectionException;
 
 /**
  *
@@ -55,18 +56,22 @@ public class Transactions {
     }
 
     public String logIn(String username, String password) {
-        openSession();
-        User u = (User) session.createQuery(Queries.LOG_IN_QUERY).setString(0, username).uniqueResult();
-        if (u != null && u.getPassword().equals(password)) {
-            SessionUtils.getSession().setAttribute(Tags.LOGGED_USER, u);
-            switch (u.getLogLevel()) {
-                case USER:
-                    return Tags.USER_PAGE;
-                case DOCTOR:
-                    return Tags.DOCTOR_PAGE;
-                case ADMIN:
-                    return Tags.ADMIN_PAGE;
+        try {
+            openSession();
+            User u = (User) session.createQuery(Queries.LOG_IN_QUERY).setString(0, username).uniqueResult();
+            if (u != null && u.getPassword().equals(password)) {
+                SessionUtils.getSession().setAttribute(Tags.LOGGED_USER, u);
+                switch (u.getLogLevel()) {
+                    case USER:
+                        return Tags.USER_PAGE;
+                    case DOCTOR:
+                        return Tags.DOCTOR_PAGE;
+                    case ADMIN:
+                        return Tags.ADMIN_PAGE;
+                }
             }
+        } catch (JDBCConnectionException e) {
+            System.out.println(e.toString());
         }
         return Tags.FAIL;
     }
