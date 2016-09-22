@@ -31,7 +31,7 @@ and open the template in the editor.
                                 requiredMessage="Provide Password"/>
                     <p:watermark for="password" value="Şifre *"/>
                     <p:message for="password"/>
-                    <p:commandButton value="Giriş Yap" action="#{loginBean.logIn()}"/>
+                    <p:commandButton value="Giriş Yap" action="#{loginBean.logIn()}" ajax="false"/>
                 </p:panelGrid>
             </h:form>
         </div>
