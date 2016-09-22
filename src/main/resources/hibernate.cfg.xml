@@ -4,9 +4,9 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/vaccine?zeroDateTimeBehavior=convertToNull</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.url">jdbc:mysql://mysql5016.smarterasp.net:3306/db_9c4db8_vaccine?zeroDateTimeBehavior=convertToNull</property>
+        <property name="hibernate.connection.username">9c4db8_vaccine</property>
+        <property name="hibernate.connection.password">Muslum_10cel</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class="com.hackengine.entities.User"/>

@@ -14,10 +14,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <div style="width:800px; margin:0 auto;">
+        <div>
             <h:form id="registerForm">
                 <p:panelGrid columns="3">
-                    <f:facet name="header">Kayıt Formu</f:facet>
+                    <f:facet name="header">Registration Form</f:facet>
 
                     <p:outputLabel value="Username : "/>
                     <p:inputText value="#{registerBean.username}" 
@@ -62,7 +62,6 @@ and open the template in the editor.
                     <p:outputLabel value="Full Name:"/>
                     <p:inputText value="#{registerBean.fullname}"/>
                 </p:panelGrid>
-                <p:separator/>
                 <p:commandButton value="Kaydol" action="#{registerBean.register()}" update=":registerForm"/>
             </h:form>
         </div>
