@@ -23,35 +23,31 @@ and open the template in the editor.
                 <f:facet name="header">Opa Details</f:facet>
                 <p:columnGroup type="header">
                     <p:row>
-                        <p:column headerText="First" colspan="3"/>
-                        <p:column headerText="Second" colspan="3"/>
+                        <p:column headerText="First" colspan="2"/>
+                        <p:column headerText="Second" colspan="2"/>
                     </p:row>
                     <p:row>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark as Done/Undone"/>
                     </p:row>
                 </p:columnGroup>
                 <p:column>
                     <p:outputLabel value="#{op.firstOpaDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{op.firstOpaStatus}"/>
-                </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{opaBean.updateOpa(1)}" ajax="true" update="opa"/>
+                    <p:selectBooleanCheckbox value="#{op.firstOpaStatus}">
+                        <p:ajax listener="#{opaBean.updateOpa(1)}" update="opa" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="#{op.secondOpaDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{op.secondOpaStatus}"/>
-                </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{opaBean.updateOpa(2)}" ajax="true" update="opa"/>
+                    <p:selectBooleanCheckbox value="#{op.secondOpaStatus}">
+                        <p:ajax listener="#{opaBean.updateOpa(2)}" update="opa" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
             </p:dataTable>
         </h:form>
