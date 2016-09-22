@@ -24,3 +24,7 @@ There will be 3 types of user in this application:
 # ER Diagram
 
 http://hackengine-er.com/er/er.pdf
+
+# Demo Link
+
+http://vaccineweb.us-west-2.elasticbeanstalk.com/index.xhtml (without any design)
