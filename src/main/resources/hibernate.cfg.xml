@@ -9,7 +9,12 @@
         <property name="hibernate.connection.password"></property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
+        
         <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.acquire_increment">1</property>
+        <property name="hibernate.c3p0.max_size">25</property>
+        <property name="hibernate.c3p0.min_size">1</property>
+        <property name="hibernate.c3p0.idle_test_period">300</property>
         
         <mapping class="com.hackengine.entities.User"/>
         <mapping class="com.hackengine.entities.Baby"/>
