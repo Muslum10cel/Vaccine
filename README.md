@@ -1,7 +1,3 @@
-# About 
-    
-    
-
 # Users
 
 There will be 3 types of user in this application:
