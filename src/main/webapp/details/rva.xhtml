@@ -23,48 +23,42 @@ and open the template in the editor.
                 <f:facet name="header">Rva Details</f:facet>
                 <p:columnGroup type="header">
                     <p:row>
-                        <p:column headerText="First" colspan="3"/>
-                        <p:column headerText="Second" colspan="3"/>
-                        <p:column headerText="Third" colspan="3"/>
+                        <p:column headerText="First" colspan="2"/>
+                        <p:column headerText="Second" colspan="2"/>
+                        <p:column headerText="Third" colspan="2"/>
                     </p:row>
                     <p:row>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark As Done/Undone"/>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark As Done/Undone"/>
                         <p:column headerText="Date"/>
-                        <p:column headerText="Status"/>
-                        <p:column headerText="Action"/>
+                        <p:column headerText="Mark As Done/Undone"/>
                     </p:row>
                 </p:columnGroup>
                 <p:column>
                     <p:outputLabel value="#{rv.firstRvaDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{rv.firstRvaStatus}"/>
-                </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{rvaBean.updateRva(1)}" ajax="true" update="rva"/>
+                    <p:selectBooleanCheckbox value="#{rv.firstRvaStatus}">
+                        <p:ajax listener="#{rvaBean.updateRva(1)}" update="rva" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="#{rv.secondRvaDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{rv.secondRvaStatus}"/>
-                </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{rvaBean.updateRva(2)}" ajax="true" update="rva"/>
+                    <p:selectBooleanCheckbox value="#{rv.secondRvaStatus}">
+                        <p:ajax listener="#{rvaBean.updateRva(2)}" update="rva" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
                     <p:outputLabel value="#{rv.thirdRvaDate}"/>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{rv.thirdRvaStatus}"/>
-                </p:column>
-                <p:column>
-                    <p:commandLink value="Update" action="#{rvaBean.updateRva(3)}" ajax="true" update="rva"/>
+                    <p:selectBooleanCheckbox value="#{rv.thirdRvaStatus}">
+                        <p:ajax listener="#{rvaBean.updateRva(3)}" update="rva" immediate="true"/>
+                    </p:selectBooleanCheckbox>
                 </p:column>
             </p:dataTable>
         </h:form>
