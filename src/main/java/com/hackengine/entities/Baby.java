@@ -190,7 +190,7 @@ public class Baby implements Serializable {
     public OtherVaccines getOtherVaccines() {
         return otherVaccines;
     }
-
+    
     @Override
     public String toString() {
         return "Baby{" + "babyName=" + babyName + ", gender=" + gender + ", dateOfBirth=" + dateOfBirth + '}';
