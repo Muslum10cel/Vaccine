@@ -16,7 +16,8 @@ and open the template in the editor.
     <h:body>
         <div>TODO write content</div>
         <p:separator/>
-        <h:form>
+        <h:form id="form1">
+            <p:growl id="msg"/>
             <p:dataTable id="opa"
                          var="op"
                          value="#{opaBean.opas}">
@@ -38,7 +39,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{op.firstOpaStatus}">
-                        <p:ajax listener="#{opaBean.updateOpa(1)}" update="opa" immediate="true"/>
+                        <p:ajax listener="#{opaBean.updateOpa(1)}" update="opa :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
@@ -46,7 +47,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{op.secondOpaStatus}">
-                        <p:ajax listener="#{opaBean.updateOpa(2)}" update="opa" immediate="true"/>
+                        <p:ajax listener="#{opaBean.updateOpa(2)}" update="opa :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
             </p:dataTable>

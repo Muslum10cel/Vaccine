@@ -16,7 +16,8 @@ and open the template in the editor.
     <h:body>
         <div>TODO write content</div>
         <p:separator/>
-        <h:form>
+        <h:form id="form1">
+            <p:growl id="msg"/>
             <p:dataTable id="rva"
                          var="rv"
                          value="#{rvaBean.rvas}">
@@ -41,7 +42,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{rv.firstRvaStatus}">
-                        <p:ajax listener="#{rvaBean.updateRva(1)}" update="rva" immediate="true"/>
+                        <p:ajax listener="#{rvaBean.updateRva(1)}" update="rva :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
@@ -49,7 +50,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{rv.secondRvaStatus}">
-                        <p:ajax listener="#{rvaBean.updateRva(2)}" update="rva" immediate="true"/>
+                        <p:ajax listener="#{rvaBean.updateRva(2)}" update="rva :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
@@ -57,7 +58,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{rv.thirdRvaStatus}">
-                        <p:ajax listener="#{rvaBean.updateRva(3)}" update="rva" immediate="true"/>
+                        <p:ajax listener="#{rvaBean.updateRva(3)}" update="rva :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
             </p:dataTable>

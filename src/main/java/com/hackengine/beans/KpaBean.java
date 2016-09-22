@@ -7,14 +7,18 @@ package com.hackengine.beans;
 
 import com.hackengine.entities.Baby;
 import com.hackengine.entities.Kpa;
+import com.hackengine.messages.Messages;
 import com.hackengine.tags.Tags;
 import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
+import com.hackengine.vaccines.Vaccines;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -54,6 +58,7 @@ public class KpaBean implements Serializable {
     }
 
     public void updateKpa(int item) {
+        String msg = "";
         switch (item) {
             case 1:
                 if (baby.getKpa().isFirstKpaStatus()) {
@@ -61,6 +66,7 @@ public class KpaBean implements Serializable {
                 } else {
                     baby.getKpa().setFirstKpaStatus(true);
                 }
+                msg = Vaccines.allVaccines[12];
                 break;
             case 2:
                 if (baby.getKpa().isSecondKpaStatus()) {
@@ -68,6 +74,7 @@ public class KpaBean implements Serializable {
                 } else {
                     baby.getKpa().setSecondKpaStatus(true);
                 }
+                msg = Vaccines.allVaccines[13];
                 break;
             case 3:
                 if (baby.getKpa().isThirdKpaStatus()) {
@@ -75,6 +82,7 @@ public class KpaBean implements Serializable {
                 } else {
                     baby.getKpa().setThirdKpaStatus(true);
                 }
+                msg = Vaccines.allVaccines[14];
                 break;
             case 4:
                 if (baby.getKpa().isFourthKpaStatus()) {
@@ -82,8 +90,13 @@ public class KpaBean implements Serializable {
                 } else {
                     baby.getKpa().setFourthKpaStatus(true);
                 }
+                msg = Vaccines.allVaccines[15];
         }
-        transaction.updateKpa(baby.getKpa());
+        if (transaction.updateKpa(baby.getKpa())) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATED));
+        }else{
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATE_ERROR));
+        }
         kpas = Transactions.kpas(baby.getID());
     }
 }

@@ -214,92 +214,108 @@ public class Transactions {
         }
     }
 
-    public void updateDabtIpaHib(DabtIpaHib dabtIpaHib) {
+    public boolean updateDabtIpaHib(DabtIpaHib dabtIpaHib) {
         try {
             openSession();
             session.beginTransaction();
             session.update(dabtIpaHib);
             session.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+        return false;
     }
 
-    public void updateHepatitisA(HepatitisA hepatitisA) {
+    public boolean updateHepatitisA(HepatitisA hepatitisA) {
         try {
             openSession();
             session.beginTransaction();
             session.update(hepatitisA);
             session.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+        return false;
     }
 
-    public void updateHepatitisB(HepatitisB hepatitisB) {
+    public boolean updateHepatitisB(HepatitisB hepatitisB) {
         try {
             openSession();
             session.beginTransaction();
             session.update(hepatitisB);
             session.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+        return false;
     }
 
-    public void updateKkk(Kkk kkk) {
+    public boolean updateKkk(Kkk kkk) {
         try {
             openSession();
             session.beginTransaction();
             session.update(kkk);
             session.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+        return false;
     }
 
-    public void updateKpa(Kpa kpa) {
+    public boolean updateKpa(Kpa kpa) {
         try {
             openSession();
             session.beginTransaction();
             session.update(kpa);
             session.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+        return false;
     }
 
-    public void updateOpa(Opa opa) {
+    public boolean updateOpa(Opa opa) {
         try {
             openSession();
             session.beginTransaction();
             session.update(opa);
             session.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+        return false;
     }
 
-    public void updateRva(Rva rva) {
+    public boolean updateRva(Rva rva) {
         try {
             openSession();
             session.beginTransaction();
             session.update(rva);
             session.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+        return false;
     }
 
-    public void updateOtherVaccines(OtherVaccines otherVaccines) {
+    public boolean updateOtherVaccines(OtherVaccines otherVaccines) {
         try {
             openSession();
             session.beginTransaction();
             session.update(otherVaccines);
             session.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+        return false;
     }
 
     public static void closeSession() {

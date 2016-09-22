@@ -16,7 +16,8 @@ and open the template in the editor.
     <h:body>
         <div>TODO write content</div>
         <p:separator/>
-        <h:form>
+        <h:form id="form1">
+            <p:growl id="msg"/>
             <p:dataTable id="kkk"
                          var="k"
                          value="#{kkkBean.kkks}">
@@ -38,7 +39,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{k.firstKkkStatus}">
-                        <p:ajax listener="#{kkkBean.updateKkk(1)}" update="kkk" immediate="true"/>
+                        <p:ajax listener="#{kkkBean.updateKkk(1)}" update="kkk :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
@@ -46,7 +47,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{k.secondKkkStatus}">
-                        <p:ajax listener="#{kkkBean.updateKkk(2)}" update="kkk" immediate="true"/>
+                        <p:ajax listener="#{kkkBean.updateKkk(2)}" update="kkk :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
             </p:dataTable>

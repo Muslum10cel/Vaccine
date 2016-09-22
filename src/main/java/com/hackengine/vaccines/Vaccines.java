@@ -5,8 +5,6 @@
  */
 package com.hackengine.vaccines;
 
-import com.hackengine.db.TableNames;
-
 /**
  *
  * @author muslumoncel

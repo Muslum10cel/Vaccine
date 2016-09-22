@@ -7,14 +7,18 @@ package com.hackengine.beans;
 
 import com.hackengine.entities.Baby;
 import com.hackengine.entities.Rva;
+import com.hackengine.messages.Messages;
 import com.hackengine.tags.Tags;
 import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
+import com.hackengine.vaccines.Vaccines;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -54,6 +58,7 @@ public class RvaBean implements Serializable {
     }
 
     public void updateRva(int item) {
+        String msg = "";
         switch (item) {
             case 1:
                 if (baby.getRva().isFirstRvaStatus()) {
@@ -61,6 +66,7 @@ public class RvaBean implements Serializable {
                 } else {
                     baby.getRva().setFirstRvaStatus(true);
                 }
+                msg = Vaccines.allVaccines[25];
                 break;
             case 2:
                 if (baby.getRva().isSecondRvaStatus()) {
@@ -68,6 +74,7 @@ public class RvaBean implements Serializable {
                 } else {
                     baby.getRva().setSecondRvaStatus(true);
                 }
+                msg = Vaccines.allVaccines[26];
                 break;
             case 3:
                 if (baby.getRva().isThirdRvaStatus()) {
@@ -75,8 +82,13 @@ public class RvaBean implements Serializable {
                 } else {
                     baby.getRva().setThirdRvaStatus(true);
                 }
+                msg = Vaccines.allVaccines[27];
         }
-        transaction.updateRva(baby.getRva());
+        if (transaction.updateRva(baby.getRva())) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATED));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATE_ERROR));
+        }
         rvas = Transactions.rvas(baby.getID());
     }
 }

@@ -8,6 +8,7 @@ package com.hackengine.beans;
 import com.hackengine.entities.Comment;
 import com.hackengine.entities.User;
 import com.hackengine.genders.Gender;
+import com.hackengine.messages.Messages;
 import com.hackengine.tags.Tags;
 import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
@@ -80,11 +81,10 @@ public class CommentBean implements Serializable {
     }
 
     public void addComment() {
-        boolean result = transaction.addComment(user, new Comment(vaccinename, gender, new Date(), comment));
-        if (result) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Comment Uploaded Successfully."));
+        if (transaction.addComment(user, new Comment(vaccinename, gender, new Date(), comment))) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(Messages.COMMENT_UPLOADED));
         } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Comment Could not Be Uploaded!"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(Messages.COMMENT_UPLOAD_ERROR));
         }
     }
 }

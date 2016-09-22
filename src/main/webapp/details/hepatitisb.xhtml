@@ -16,7 +16,8 @@ and open the template in the editor.
     <h:body>
         <div>TODO write content</div>
         <p:separator/>
-        <h:form>
+        <h:form id="form1">
+            <p:growl id="msg"/>
             <p:dataTable id="hepatitisb"
                          var="hepb"
                          value="#{hepatitisBBean.hepatitisB}">
@@ -41,7 +42,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{hepb.firstHepatitisBStatus}">
-                        <p:ajax listener="#{hepatitisBBean.updateHepatitisB(1)}" update="hepatitisb" immediate="true"/>
+                        <p:ajax listener="#{hepatitisBBean.updateHepatitisB(1)}" update="hepatitisb :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
 
@@ -50,7 +51,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{hepb.secondHepatitisBStatus}">
-                        <p:ajax listener="#{hepatitisBBean.updateHepatitisB(2)}" update="hepatitisb" immediate="true"/>
+                        <p:ajax listener="#{hepatitisBBean.updateHepatitisB(2)}" update="hepatitisb :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
@@ -58,7 +59,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{hepb.thirdHepatitisBStatus}">
-                        <p:ajax listener="#{hepatitisBBean.updateHepatitisB(3)}" update="hepatitisb" immediate="true"/>
+                        <p:ajax listener="#{hepatitisBBean.updateHepatitisB(3)}" update="hepatitisb :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
             </p:dataTable>

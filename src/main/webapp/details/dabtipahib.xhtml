@@ -16,7 +16,8 @@ and open the template in the editor.
     <h:body>
         <div>TODO write content</div>
         <p:separator/>
-        <h:form>
+        <h:form id="form1">
+            <p:growl id="msg"/>
             <p:dataTable id="dabt"
                          var="dabtipahib"
                          value="#{dabtIpaHibBean.dabtIpaHibs}">
@@ -42,7 +43,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{dabtipahib.firstDabtIpaHibStatus}">
-                        <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(1)}" update="dabt" immediate="true"/>
+                        <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(1)}" update="dabt :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
@@ -50,7 +51,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{dabtipahib.secondDabtIpaHibStatus}">
-                        <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(2)}" update="dabt" immediate="true"/>
+                        <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(2)}" update="dabt :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
@@ -58,7 +59,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{dabtipahib.thirdDabtIpaHibStatus}">
-                        <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(3)}" update="dabt" immediate="true"/>
+                        <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(3)}" update="dabt :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
 
@@ -67,7 +68,7 @@ and open the template in the editor.
             <p:separator/>
 
             <p:dataTable id="dabtt"
-                         var="dabtiphaibb"
+                         var="dabtipahibb"
                          value="#{dabtIpaHibBean.dabtIpaHibs}">
                 <p:columnGroup type="header">
                     <p:row>
@@ -85,27 +86,27 @@ and open the template in the editor.
                     </p:row>
                 </p:columnGroup>
                 <p:column>
-                    <p:outputLabel value="#{dabtiphaibb.fourthDabtIpaHib}"/>
+                    <p:outputLabel value="#{dabtipahibb.fourthDabtIpaHib}"/>
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{dabtipahibb.fourthDabtIpaHibStatus}">
-                        <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(4)}" update="dabtt" immediate="true"/>
+                        <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(4)}" update="dabtt :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{dabtiphaibb.fifthDabtIpaHib}"/>
+                    <p:outputLabel value="#{dabtipahibb.fifthDabtIpaHib}"/>
                 </p:column>
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{dabtiphaibb.fifthDabtIpaHibStatus}">
-                        <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(5)}" update="dabtt" immediate="true"/>
+                    <p:selectBooleanCheckbox value="#{dabtipahibb.fifthDabtIpaHibStatus}">
+                        <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(5)}" update="dabtt :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
                 <p:column>
-                    <p:outputLabel value="#{dabtiphaibb.sixthDabtIpaHib}"/>
+                    <p:outputLabel value="#{dabtipahibb.sixthDabtIpaHib}"/>
                 </p:column>
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{dabtiphaibb.sixthDabtIpaHibStatus}">
-                        <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(6)}" update="dabtt" immediate="true"/>
+                    <p:selectBooleanCheckbox value="#{dabtipahibb.sixthDabtIpaHibStatus}">
+                        <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(6)}" update="dabtt :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
             </p:dataTable>

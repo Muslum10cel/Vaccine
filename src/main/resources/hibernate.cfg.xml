@@ -9,6 +9,8 @@
         <property name="hibernate.connection.password"></property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+        
         <mapping class="com.hackengine.entities.User"/>
         <mapping class="com.hackengine.entities.Baby"/>
         <mapping class="com.hackengine.entities.Comment"/>

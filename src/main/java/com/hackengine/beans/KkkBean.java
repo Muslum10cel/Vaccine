@@ -7,13 +7,17 @@ package com.hackengine.beans;
 
 import com.hackengine.entities.Baby;
 import com.hackengine.entities.Kkk;
+import com.hackengine.messages.Messages;
 import com.hackengine.tags.Tags;
 import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
+import com.hackengine.vaccines.Vaccines;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -53,6 +57,7 @@ public class KkkBean {
     }
 
     public void updateKkk(int item) {
+        String msg = "";
         switch (item) {
             case 1:
                 if (baby.getKkk().isFirstKkkStatus()) {
@@ -60,6 +65,7 @@ public class KkkBean {
                 } else {
                     baby.getKkk().setFirstKkkStatus(true);
                 }
+                msg = Vaccines.allVaccines[16];
                 break;
             case 2:
                 if (baby.getKkk().isSecondKkkStatus()) {
@@ -67,8 +73,13 @@ public class KkkBean {
                 } else {
                     baby.getKkk().setSecondKkkStatus(true);
                 }
+                msg = Vaccines.allVaccines[17];
         }
-        transaction.updateKkk(baby.getKkk());
+        if (transaction.updateKkk(baby.getKkk())) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATED));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATE_ERROR));
+        }
         kkks = Transactions.kkks(baby.getID());
     }
 }

@@ -7,14 +7,18 @@ package com.hackengine.beans;
 
 import com.hackengine.entities.Baby;
 import com.hackengine.entities.DabtIpaHib;
+import com.hackengine.messages.Messages;
 import com.hackengine.tags.Tags;
 import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
+import com.hackengine.vaccines.Vaccines;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -52,8 +56,9 @@ public class DabtIpaHibBean implements Serializable {
     public void setBaby(Baby baby) {
         this.baby = baby;
     }
-    
+
     public void updateDabtIpaHib(int item) {
+        String msg = "";
         switch (item) {
             case 1:
                 if (baby.getDabtIpaHib().isFirstDabtIpaHibStatus()) {
@@ -61,6 +66,7 @@ public class DabtIpaHibBean implements Serializable {
                 } else {
                     baby.getDabtIpaHib().setFirstDabtIpaHibStatus(true);
                 }
+                msg = Vaccines.allVaccines[6];
                 break;
             case 2:
                 if (baby.getDabtIpaHib().isSecondDabtIpaHibStatus()) {
@@ -68,6 +74,7 @@ public class DabtIpaHibBean implements Serializable {
                 } else {
                     baby.getDabtIpaHib().setSecondDabtIpaHibStatus(true);
                 }
+                msg = Vaccines.allVaccines[7];
                 break;
             case 3:
                 if (baby.getDabtIpaHib().isThirdDabtIpaHibStatus()) {
@@ -75,6 +82,7 @@ public class DabtIpaHibBean implements Serializable {
                 } else {
                     baby.getDabtIpaHib().setThirdDabtIpaHibStatus(true);
                 }
+                msg = Vaccines.allVaccines[8];
                 break;
             case 4:
                 if (baby.getDabtIpaHib().isFourthDabtIpaHibStatus()) {
@@ -82,6 +90,7 @@ public class DabtIpaHibBean implements Serializable {
                 } else {
                     baby.getDabtIpaHib().setFourthDabtIpaHibStatus(true);
                 }
+                msg = Vaccines.allVaccines[9];
                 break;
             case 5:
                 if (baby.getDabtIpaHib().isFifthDabtIpaHibStatus()) {
@@ -89,6 +98,7 @@ public class DabtIpaHibBean implements Serializable {
                 } else {
                     baby.getDabtIpaHib().setFifthDabtIpaHibStatus(true);
                 }
+                msg = Vaccines.allVaccines[10];
                 break;
             case 6:
                 if (baby.getDabtIpaHib().isSixthDabtIpaHibStatus()) {
@@ -96,8 +106,13 @@ public class DabtIpaHibBean implements Serializable {
                 } else {
                     baby.getDabtIpaHib().setSixthDabtIpaHibStatus(true);
                 }
+                msg = Vaccines.allVaccines[11];
         }
-        transaction.updateDabtIpaHib(baby.getDabtIpaHib());
+        if (transaction.updateDabtIpaHib(baby.getDabtIpaHib())) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATED));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATE_ERROR));
+        }
         dabtIpaHibs = Transactions.dabtIpaHibs(baby.getID());
     }
 }

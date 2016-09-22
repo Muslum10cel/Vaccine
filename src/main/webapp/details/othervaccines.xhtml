@@ -16,7 +16,8 @@ and open the template in the editor.
     <h:body>
         <div>TODO write content</div>
         <p:separator/>
-        <h:form>
+        <h:form id="form1">
+            <p:growl id="msg"/>
             <p:dataTable id="others"
                          var="ot"
                          value="#{otherVaccinesBean.others}">
@@ -41,7 +42,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{ot.bcgStatus}">
-                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(1)}" update="others" immediate="true"/>
+                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(1)}" update="others :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
 
@@ -50,7 +51,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{ot.dabtIpaStatus}">
-                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(2)}" update="others" immediate="true"/>
+                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(2)}" update="others :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
 
@@ -59,7 +60,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{ot.hpaStatus}">
-                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(3)}" update="others" immediate="true"/>
+                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(3)}" update="others :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
             </p:dataTable>
@@ -89,7 +90,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{oth.influenzaStatus}">
-                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(4)}" update="otherss" immediate="true"/>
+                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(4)}" update="otherss :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
 
@@ -98,7 +99,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{oth.kma4Status}">
-                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(5)}" update="otherss" immediate="true"/>
+                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(5)}" update="otherss :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
 
@@ -107,7 +108,7 @@ and open the template in the editor.
                 </p:column>
                 <p:column>
                     <p:selectBooleanCheckbox value="#{oth.varicellaStatus}">
-                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(6)}" update="otherss" immediate="true"/>
+                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(6)}" update="otherss :form1:msg" immediate="true"/>
                     </p:selectBooleanCheckbox>
                 </p:column>
             </p:dataTable>

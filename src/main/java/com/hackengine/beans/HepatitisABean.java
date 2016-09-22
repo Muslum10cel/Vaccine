@@ -7,14 +7,18 @@ package com.hackengine.beans;
 
 import com.hackengine.entities.Baby;
 import com.hackengine.entities.HepatitisA;
+import com.hackengine.messages.Messages;
 import com.hackengine.tags.Tags;
 import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
+import com.hackengine.vaccines.Vaccines;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -52,8 +56,9 @@ public class HepatitisABean implements Serializable {
     public void setBaby(Baby baby) {
         this.baby = baby;
     }
-    
+
     public void updateHepatitisA(int item) {
+        String msg = "";
         switch (item) {
             case 1:
                 if (baby.getHepatitisA().isFirstHepatitisAStatus()) {
@@ -61,6 +66,7 @@ public class HepatitisABean implements Serializable {
                 } else {
                     baby.getHepatitisA().setFirstHepatitisAStatus(true);
                 }
+                msg = Vaccines.allVaccines[18];
                 break;
             case 2:
                 if (baby.getHepatitisA().isSecondHepatitisAStatus()) {
@@ -68,8 +74,13 @@ public class HepatitisABean implements Serializable {
                 } else {
                     baby.getHepatitisA().setSecondHepatitisAStatus(true);
                 }
+                msg = Vaccines.allVaccines[19];
         }
-        transaction.updateHepatitisA(baby.getHepatitisA());
+        if (transaction.updateHepatitisA(baby.getHepatitisA())) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATED));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATE_ERROR));
+        }
         hepatitisA = Transactions.hepatitisAs(baby.getID());
     }
 }

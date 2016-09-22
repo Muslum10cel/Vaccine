@@ -7,14 +7,18 @@ package com.hackengine.beans;
 
 import com.hackengine.entities.Baby;
 import com.hackengine.entities.HepatitisB;
+import com.hackengine.messages.Messages;
 import com.hackengine.tags.Tags;
 import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
+import com.hackengine.vaccines.Vaccines;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -46,6 +50,7 @@ public class HepatitisBBean implements Serializable {
     }
 
     public void updateHepatitisB(int item) {
+        String msg = "";
         switch (item) {
             case 1:
                 if (baby.getHepatitisB().isFirstHepatitisBStatus()) {
@@ -53,6 +58,7 @@ public class HepatitisBBean implements Serializable {
                 } else {
                     baby.getHepatitisB().setFirstHepatitisBStatus(true);
                 }
+                msg = Vaccines.allVaccines[20];
                 break;
             case 2:
                 if (baby.getHepatitisB().isSecondHepatitisBStatus()) {
@@ -60,6 +66,7 @@ public class HepatitisBBean implements Serializable {
                 } else {
                     baby.getHepatitisB().setSecondHepatitisBStatus(true);
                 }
+                msg = Vaccines.allVaccines[21];
                 break;
             case 3:
                 if (baby.getHepatitisB().isThirdHepatitisBStatus()) {
@@ -67,8 +74,13 @@ public class HepatitisBBean implements Serializable {
                 } else {
                     baby.getHepatitisB().setThirdHepatitisBStatus(true);
                 }
+                msg = Vaccines.allVaccines[22];
         }
-        transaction.updateHepatitisB(baby.getHepatitisB());
+        if (transaction.updateHepatitisB(baby.getHepatitisB())) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATED));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATE_ERROR));
+        }
         hepatitisB = Transactions.hepatitisBs(baby.getID());
     }
 }
