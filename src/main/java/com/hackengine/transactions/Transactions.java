@@ -189,7 +189,7 @@ public class Transactions {
         }
     }
 
-    public void addComment(User user, Comment comment) {
+    public boolean addComment(User user, Comment comment) {
         try {
             openSession();
             session.beginTransaction();
@@ -197,9 +197,11 @@ public class Transactions {
             comment.setUser(user);
             user.getComments().add(comment);
             session.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+        return false;
     }
 
     public void deleteComment(Comment comment) {

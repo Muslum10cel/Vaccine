@@ -17,6 +17,7 @@ and open the template in the editor.
         <div>TODO write content</div>
         <h:form>
             <p:commandLink value="Log Out" action="#{userBean.logOut()}"/>
+            <p:growl id="msg"/>
             <p:separator/>
             <p:panelGrid columns="2">
                 <f:facet name="header">Add Baby</f:facet>
@@ -50,7 +51,7 @@ and open the template in the editor.
 
                 <p:outputLabel value="Comment:"/>
                 <p:inputTextarea value="#{commentBean.comment}"/>
-                <p:commandButton value="Add Comment" action="#{commentBean.addComment()}"/>
+                <p:commandButton value="Add Comment" action="#{commentBean.addComment()}" ajax="true" update="msg"/>
             </p:panelGrid>
             <p:separator/>
             <p:dataTable id="babies"

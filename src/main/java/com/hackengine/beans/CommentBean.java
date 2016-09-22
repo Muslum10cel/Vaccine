@@ -15,8 +15,10 @@ import com.hackengine.vaccines.Vaccines;
 import java.io.Serializable;
 import java.util.Date;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -78,6 +80,11 @@ public class CommentBean implements Serializable {
     }
 
     public void addComment() {
-        transaction.addComment(user, new Comment(vaccinename, gender, new Date(), comment));
+        boolean result = transaction.addComment(user, new Comment(vaccinename, gender, new Date(), comment));
+        if (result) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Comment Uploaded Successfully."));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Comment Could not Be Uploaded!"));
+        }
     }
 }
