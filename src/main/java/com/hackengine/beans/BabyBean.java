@@ -43,7 +43,7 @@ public class BabyBean implements Serializable {
     public void init() {
         user = (User) SessionUtils.getSession().getAttribute(Tags.LOGGED_USER);
         transaction = new Transactions();
-        babies = Transactions.getBabies(user.getID());
+        babies = transaction.getBabies(user.getID());
     }
 
     public List<Baby> getBabies() {
@@ -84,12 +84,12 @@ public class BabyBean implements Serializable {
 
     public void addBaby() {
         transaction.mapBabyToUser(user, new Baby(babyname, gender, birthday));
-        babies = Transactions.getBabies(user.getID());
+        babies = transaction.getBabies(user.getID());
     }
 
     public void deleteBaby(Baby baby) {
         transaction.deleteBaby(baby);
-        babies = Transactions.getBabies(user.getID());
+        babies = transaction.getBabies(user.getID());
     }
 
     public String goToDetails(Baby baby) {

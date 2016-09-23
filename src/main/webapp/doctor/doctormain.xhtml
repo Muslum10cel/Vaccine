@@ -16,9 +16,14 @@ and open the template in the editor.
     <h:body>
         <div>TODO write content</div>
         <h:form>
-            <p:commandLink value="Log Out" action="#{doctorBean.logOut()}"/>
+            <p:commandLink value="Log Out" action="#{doctorBean.logOut()}" global="false"/>
             <p:separator/>
-            <p:poll interval="360" listener="#{doctorBean.newComments()}" update="comments"/>
+            <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
+                <f:facet name="header">Checking for new comments...</f:facet>
+                <p:graphicImage library="images" name="gear.gif" />
+            </p:dialog>
+            <p:poll interval="10" listener="#{doctorBean.newComments()}" update="comments"/>
             <p:dataTable id="comments"
                          var="comment"
                          value="#{doctorBean.comments}"

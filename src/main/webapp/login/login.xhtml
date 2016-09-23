@@ -22,16 +22,16 @@ and open the template in the editor.
                                  value="#{loginBean.username}" 
                                  required="true"
                                  requiredMessage="Enter username!"/>
-                    <p:watermark for="username" value="Kullanıcı Adı *"/>
+                    <p:watermark for="username" value="Username *"/>
                     <p:message for="username"/>
 
                     <p:password id="password"
                                 value="#{loginBean.password}"
                                 required="true"
                                 requiredMessage="Provide Password"/>
-                    <p:watermark for="password" value="Şifre *"/>
+                    <p:watermark for="password" value="Password *"/>
                     <p:message for="password"/>
-                    <p:commandButton value="Log In" action="#{loginBean.logIn()}" ajax="false"/>
+                    <p:commandButton value="Log In" action="#{loginBean.logIn()}" ajax="true"/>
                 </p:panelGrid>
             </div>
         </h:form>

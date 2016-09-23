@@ -30,11 +30,11 @@ public class DoctorBean implements Serializable {
     @PostConstruct
     public void init() {
         transaction = new Transactions();
-        comments = Transactions.getComments();
+        comments = transaction.getComments();
     }
 
     public String logOut() {
-        Transactions.closeSession();
+        transaction.closeSession();
         SessionUtils.getSession().invalidate();
         return Tags.THANKS;
     }
@@ -49,10 +49,10 @@ public class DoctorBean implements Serializable {
 
     public void deleteComment(Comment comment) {
         transaction.deleteComment(comment);
-        comments = Transactions.getComments();
+        comments = transaction.getComments();
     }
     
     public void newComments(){
-        comments = Transactions.getComments();
+        comments = transaction.getComments();
     }
 }

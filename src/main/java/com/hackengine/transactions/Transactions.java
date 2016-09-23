@@ -36,7 +36,7 @@ public class Transactions {
 
     private static final SessionFactory factory = new Configuration().configure().buildSessionFactory();
     private static final Service service = new Service();
-    private static Session session = null;
+    private Session session = null;
 
     private void openSession() {
         session = factory.openSession();
@@ -76,51 +76,63 @@ public class Transactions {
         return Tags.FAIL;
     }
 
-    public static List<User> getDoctors() {
+    public List<User> getDoctors() {
+        openSession();
         return session.createQuery(Queries.GET_USERS).setString(0, LogLevel.DOCTOR.name()).list();
     }
 
-    public static List<User> getNormalUsers() {
+    public List<User> getNormalUsers() {
+        openSession();
         return session.createQuery(Queries.GET_USERS).setString(0, LogLevel.USER.name()).list();
     }
 
-    public static List<Baby> getBabies(int id) {
+    public List<Baby> getBabies(int id) {
+        openSession();
         return session.createQuery(Queries.GET_BABIES).setInteger(0, id).list();
     }
 
-    public static List<Comment> getComments() {
+    public List<Comment> getComments() {
+        openSession();
         return session.createQuery(Queries.GET_COMMENTS).list();
     }
 
-    public static List<DabtIpaHib> dabtIpaHibs(int baby_id) {
+    public List<DabtIpaHib> dabtIpaHibs(int baby_id) {
+        openSession();
         return session.createQuery(Queries.GET_DABT_IPA_HIB).setInteger(0, baby_id).list();
     }
 
-    public static List<HepatitisA> hepatitisAs(int baby_id) {
+    public List<HepatitisA> hepatitisAs(int baby_id) {
+        openSession();
         return session.createQuery(Queries.GET_HEPATITIS_A).setInteger(0, baby_id).list();
     }
 
-    public static List<HepatitisB> hepatitisBs(int baby_id) {
+    public List<HepatitisB> hepatitisBs(int baby_id) {
+        openSession();
         return session.createQuery(Queries.GET_HEPATITIS_B).setInteger(0, baby_id).list();
     }
 
-    public static List<Kkk> kkks(int baby_id) {
+    public List<Kkk> kkks(int baby_id) {
+        openSession();
         return session.createQuery(Queries.GET_KKK).setInteger(0, baby_id).list();
     }
 
-    public static List<Kpa> kpas(int baby_id) {
+    public List<Kpa> kpas(int baby_id) {
+        openSession();
         return session.createQuery(Queries.GET_KPA).setInteger(0, baby_id).list();
     }
 
-    public static List<Opa> opas(int baby_id) {
+    public List<Opa> opas(int baby_id) {
+        openSession();
         return session.createQuery(Queries.GET_OPA).setInteger(0, baby_id).list();
     }
 
-    public static List<Rva> rvas(int baby_id) {
+    public List<Rva> rvas(int baby_id) {
+        openSession();
         return session.createQuery(Queries.GET_RVA).setInteger(0, baby_id).list();
     }
 
-    public static List<OtherVaccines> otherVaccines(int baby_id) {
+    public List<OtherVaccines> otherVaccines(int baby_id) {
+        openSession();
         return session.createQuery(Queries.GET_OTHER_VACCINES).setInteger(0, baby_id).list();
     }
 
@@ -323,7 +335,8 @@ public class Transactions {
         return false;
     }
 
-    public static void closeSession() {
+    public void closeSession() {
+        openSession();
         session.clear();
         session.disconnect();
         session.close();

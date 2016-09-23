@@ -18,6 +18,11 @@ and open the template in the editor.
         <p:separator/>
         <h:form id="form1">
             <p:growl id="msg"/>
+            <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
+                <f:facet name="header">Status is updating...</f:facet>
+                <p:graphicImage library="images" name="gear.gif" />
+            </p:dialog>
             <p:dataTable id="kkk"
                          var="k"
                          value="#{kkkBean.kkks}">

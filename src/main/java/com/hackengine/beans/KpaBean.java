@@ -37,8 +37,9 @@ public class KpaBean implements Serializable {
     @PostConstruct
     public void init() {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
-        kpas = Transactions.kpas(baby.getID());
         transaction = new Transactions();
+        kpas = transaction.kpas(baby.getID());
+        
     }
 
     public void setKpas(List<Kpa> kpas) {
@@ -97,6 +98,6 @@ public class KpaBean implements Serializable {
         }else{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATE_ERROR));
         }
-        kpas = Transactions.kpas(baby.getID());
+        kpas = transaction.kpas(baby.getID());
     }
 }

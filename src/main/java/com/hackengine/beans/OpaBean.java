@@ -37,8 +37,9 @@ public class OpaBean implements Serializable {
     @PostConstruct
     public void init() {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
-        opas = Transactions.opas(baby.getID());
         transaction = new Transactions();
+        opas = transaction.opas(baby.getID());
+        
     }
 
     public List<Opa> getOpas() {
@@ -82,7 +83,7 @@ public class OpaBean implements Serializable {
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATE_ERROR));
         }
-        opas = Transactions.opas(baby.getID());
+        opas = transaction.opas(baby.getID());
     }
 
 }

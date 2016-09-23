@@ -37,8 +37,9 @@ public class RvaBean implements Serializable {
     @PostConstruct
     public void init() {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
-        rvas = Transactions.rvas(baby.getID());
         transaction = new Transactions();
+        rvas = transaction.rvas(baby.getID());
+        
     }
 
     public List<Rva> getRvas() {
@@ -89,6 +90,6 @@ public class RvaBean implements Serializable {
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATE_ERROR));
         }
-        rvas = Transactions.rvas(baby.getID());
+        rvas = transaction.rvas(baby.getID());
     }
 }

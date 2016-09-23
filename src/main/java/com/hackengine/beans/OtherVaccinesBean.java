@@ -37,8 +37,9 @@ public class OtherVaccinesBean implements Serializable {
     @PostConstruct
     public void init() {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
-        others = Transactions.otherVaccines(baby.getID());
         transaction = new Transactions();
+        others = transaction.otherVaccines(baby.getID());
+        
     }
 
     public List<OtherVaccines> getOthers() {
@@ -113,6 +114,6 @@ public class OtherVaccinesBean implements Serializable {
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATE_ERROR));
         }
-        others = Transactions.otherVaccines(baby.getID());
+        others = transaction.otherVaccines(baby.getID());
     }
 }

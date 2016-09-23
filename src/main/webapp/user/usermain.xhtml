@@ -16,8 +16,27 @@ and open the template in the editor.
     <h:body>
         <div>TODO write content</div>
         <h:form>
-            <p:commandLink value="Log Out" action="#{userBean.logOut()}"/>
+            <p:commandLink value="Log Out" action="#{userBean.logOut()}" global="false"/>
             <p:growl id="msg"/>
+            
+            <p:ajaxStatus/>
+            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
+                <f:facet name="header">Baby is adding. It may take long time.</f:facet>
+                <p:graphicImage library="images" name="gear.gif" />
+            </p:dialog>
+            
+            <p:ajaxStatus/>
+            <p:dialog widgetVar="commentDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
+                <f:facet name="header">Comment is updating...</f:facet>
+                <p:graphicImage library="images" name="gear.gif" />
+            </p:dialog>
+            
+            <p:ajaxStatus/>
+            <p:dialog widgetVar="deleteDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
+                <f:facet name="header">Baby is deleting. It may take long time...</f:facet>
+                <p:graphicImage library="images" name="gear.gif" />
+            </p:dialog>
+            
             <p:separator/>
             <p:panelGrid columns="2">
                 <f:facet name="header">Add Baby</f:facet>
@@ -33,7 +52,7 @@ and open the template in the editor.
                 <p:outputLabel value="Birthday:"/>
                 <p:calendar value="#{babyBean.birthday}"/>
 
-                <p:commandButton value="Add Baby" action="#{babyBean.addBaby()}" ajax="true" update="babies"/>
+                <p:commandButton value="Add Baby" action="#{babyBean.addBaby()}" ajax="true" update="babies" onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()"/>
             </p:panelGrid>
             <p:separator/>
             <p:panelGrid columns="2">
@@ -51,7 +70,7 @@ and open the template in the editor.
 
                 <p:outputLabel value="Comment:"/>
                 <p:inputTextarea value="#{commentBean.comment}"/>
-                <p:commandButton value="Add Comment" action="#{commentBean.addComment()}" ajax="true" update="msg"/>
+                <p:commandButton value="Add Comment" action="#{commentBean.addComment()}" ajax="true" update="msg" onstart="PF('commentDialog').show()" onsuccess="PF('commentDialog').hide()"/>
             </p:panelGrid>
             <p:separator/>
             <p:dataTable id="babies"
@@ -69,7 +88,7 @@ and open the template in the editor.
                     <p:outputLabel value="#{baby.dateOfBirth}"/>
                 </p:column>
                 <p:column headerText="Action">
-                    <p:commandLink value="Delete Baby" action="#{babyBean.deleteBaby(baby)}" ajax="true" update="babies"/>
+                    <p:commandLink value="Delete Baby" action="#{babyBean.deleteBaby(baby)}" ajax="true" update="babies" onstart="PF('deleteDialog').show()" onsuccess="PF('deleteDialog').hide()"/>
                     <p:outputLabel value="&#160;"/>
                     <p:commandLink value="Details" action="#{babyBean.goToDetails(baby)}"/>
                 </p:column>

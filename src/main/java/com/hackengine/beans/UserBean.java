@@ -21,7 +21,7 @@ import javax.faces.bean.SessionScoped;
 public class UserBean implements Serializable {
 
     public String logOut() {
-        Transactions.closeSession();
+        new Transactions().closeSession();
         SessionUtils.getSession().invalidate();
         return Tags.THANKS;
     }

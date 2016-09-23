@@ -37,8 +37,8 @@ public class HepatitisBBean implements Serializable {
     @PostConstruct
     public void init() {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
-        hepatitisB = Transactions.hepatitisBs(baby.getID());
-        transaction = new Transactions();
+         transaction = new Transactions();
+        hepatitisB = transaction.hepatitisBs(baby.getID());
     }
 
     public void setHepatitisB(List<HepatitisB> hepatitisB) {
@@ -81,6 +81,6 @@ public class HepatitisBBean implements Serializable {
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATE_ERROR));
         }
-        hepatitisB = Transactions.hepatitisBs(baby.getID());
+        hepatitisB = transaction.hepatitisBs(baby.getID());
     }
 }

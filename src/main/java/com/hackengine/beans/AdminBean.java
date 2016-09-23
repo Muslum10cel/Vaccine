@@ -50,12 +50,12 @@ public class AdminBean implements Serializable{
     @PostConstruct
     public void init() {
         transaction = new Transactions();
-        doctors = Transactions.getDoctors();
-        users = Transactions.getNormalUsers();
+        doctors = transaction.getDoctors();
+        users = transaction.getNormalUsers();
     }
 
     public String logOut() {
-        Transactions.closeSession();
+        transaction.closeSession();
         SessionUtils.getSession().invalidate();
         return Tags.THANKS;
     }
@@ -94,16 +94,16 @@ public class AdminBean implements Serializable{
 
     public void addDoctor() {
         transaction.addDoctor(new User(doctorusername, doctorpassword, doctormail, doctorfullname, LogLevel.DOCTOR, new Date()));
-        doctors = Transactions.getDoctors();
+        doctors = transaction.getDoctors();
     }
 
     public void deleteDoctor(User doctor) {
         transaction.deleteUser(doctor);
-        doctors = Transactions.getDoctors();
+        doctors = transaction.getDoctors();
     }
 
     public void deleteUser(User user) {
         transaction.deleteUser(user);
-        users = Transactions.getNormalUsers();
+        users = transaction.getNormalUsers();
     }
 }

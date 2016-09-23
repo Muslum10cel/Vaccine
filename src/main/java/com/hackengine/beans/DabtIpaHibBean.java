@@ -37,8 +37,8 @@ public class DabtIpaHibBean implements Serializable {
     @PostConstruct
     public void init() {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
-        dabtIpaHibs = Transactions.dabtIpaHibs(baby.getID());
         transaction = new Transactions();
+        dabtIpaHibs = transaction.dabtIpaHibs(baby.getID());
     }
 
     public List<DabtIpaHib> getDabtIpaHibs() {
@@ -113,6 +113,6 @@ public class DabtIpaHibBean implements Serializable {
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATE_ERROR));
         }
-        dabtIpaHibs = Transactions.dabtIpaHibs(baby.getID());
+        dabtIpaHibs = transaction.dabtIpaHibs(baby.getID());
     }
 }

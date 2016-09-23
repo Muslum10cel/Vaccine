@@ -36,8 +36,9 @@ public class KkkBean {
     @PostConstruct
     public void init() {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
-        kkks = Transactions.kkks(baby.getID());
         transaction = new Transactions();
+        kkks = transaction.kkks(baby.getID());
+        
     }
 
     public List<Kkk> getKkks() {
@@ -80,6 +81,6 @@ public class KkkBean {
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg + Messages.VACCINE_STATUS_UPDATE_ERROR));
         }
-        kkks = Transactions.kkks(baby.getID());
+        kkks = transaction.kkks(baby.getID());
     }
 }
