@@ -14,8 +14,8 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <div>
-            <h:form id="loginForm">
+        <h:form id="loginForm">
+            <div>
                 <p:panelGrid columns="3">
                     <f:facet name="header">Login Form</f:facet>
                     <p:inputText id="username" 
@@ -33,7 +33,7 @@ and open the template in the editor.
                     <p:message for="password"/>
                     <p:commandButton value="Log In" action="#{loginBean.logIn()}" ajax="false"/>
                 </p:panelGrid>
-            </h:form>
-        </div>
+            </div>
+        </h:form>
     </h:body>
 </html>
