@@ -5,23 +5,33 @@
  */
 package com.hackengine.beans;
 
+import com.hackengine.entities.Baby;
 import com.hackengine.pages.Pages;
 import com.hackengine.tags.Tags;
+import com.hackengine.utils.SessionUtils;
 import com.hackengine.vaccines.Vaccines;
 import java.io.Serializable;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 /**
  *
  * @author muslumoncel
  */
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class DetailBean implements Serializable {
+
+    private Baby baby = null;
 
     public String[] getVaccines() {
         return Vaccines.vaccines;
+    }
+
+    @PostConstruct
+    public void init() {
+        baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
     }
 
     public String displayDetailsOfVaccine(String vaccine) {
@@ -44,5 +54,9 @@ public class DetailBean implements Serializable {
                 return Pages.OTHERS_PAGE;
         }
         return null;
+    }
+
+    public Baby getBaby() {
+        return baby;
     }
 }
