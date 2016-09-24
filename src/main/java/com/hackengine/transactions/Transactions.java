@@ -23,6 +23,8 @@ import com.hackengine.tags.Tags;
 import com.hackengine.utils.SessionUtils;
 import java.util.Date;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -58,22 +60,31 @@ public class Transactions {
     public String logIn(String username, String password) {
         try {
             openSession();
-            User u = (User) session.createQuery(Queries.LOG_IN_QUERY).setString(0, username).uniqueResult();
-            if (u != null && u.getPassword().equals(password)) {
-                SessionUtils.getSession().setAttribute(Tags.LOGGED_USER, u);
-                switch (u.getLogLevel()) {
-                    case USER:
-                        return Tags.USER_PAGE;
-                    case DOCTOR:
-                        return Tags.DOCTOR_PAGE;
-                    case ADMIN:
-                        return Tags.ADMIN_PAGE;
+            if (session.isConnected() && session.isOpen()) {
+                User u = (User) session.createQuery(Queries.LOG_IN_QUERY).setString(0, username).uniqueResult();
+                if (u != null) {
+                    if (u.getPassword().equals(password)) {
+                        SessionUtils.getSession().setAttribute(Tags.LOGGED_USER, u);
+                        switch (u.getLogLevel()) {
+                            case USER:
+                                return Tags.USER_PAGE;
+                            case DOCTOR:
+                                return Tags.DOCTOR_PAGE;
+                            case ADMIN:
+                                return Tags.ADMIN_PAGE;
+                        }
+                    } else {
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Pasword Error", "Password is not correct for " + username));
+                    }
+                } else {
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Login Error", username + " is not a valid username"));
                 }
             }
-        } catch (JDBCConnectionException e) {
+        } catch (Exception e) {
             System.out.println(e.toString());
+            return Tags.FAIL;
         }
-        return Tags.FAIL;
+        return null;
     }
 
     public List<User> getDoctors() {

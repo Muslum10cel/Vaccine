@@ -15,6 +15,7 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <h:form id="loginForm">
+            <p:growl id="msg" showDetail="true"/>
             <div>
                 <p:panelGrid columns="3">
                     <f:facet name="header">Login Form</f:facet>
@@ -31,7 +32,7 @@ and open the template in the editor.
                                 requiredMessage="Provide Password"/>
                     <p:watermark for="password" value="Password *"/>
                     <p:message for="password"/>
-                    <p:commandButton value="Log In" action="#{loginBean.logIn()}" ajax="true"/>
+                    <p:commandButton value="Log In" action="#{loginBean.logIn()}" ajax="true" update="msg"/>
                 </p:panelGrid>
             </div>
         </h:form>
