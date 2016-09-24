@@ -21,7 +21,9 @@ and open the template in the editor.
             <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
             <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
                 <f:facet name="header">Checking for new comments...</f:facet>
-                <p:graphicImage library="images" name="gear.gif" />
+                <center>
+                    <p:graphicImage library="images" name="gear.gif" />
+                </center>
             </p:dialog>
             <p:poll interval="10" listener="#{doctorBean.newComments()}" update="comments"/>
             <p:dataTable id="comments"

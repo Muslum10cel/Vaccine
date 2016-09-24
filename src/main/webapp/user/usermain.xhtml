@@ -18,25 +18,31 @@ and open the template in the editor.
         <h:form>
             <p:commandLink value="Log Out" action="#{userBean.logOut()}" global="false"/>
             <p:growl id="msg"/>
-            
+
             <p:ajaxStatus/>
             <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
                 <f:facet name="header">Baby is adding. It may take long time.</f:facet>
-                <p:graphicImage library="images" name="gear.gif" />
+                <center>
+                    <p:graphicImage library="images" name="gear.gif" />
+                </center>
             </p:dialog>
-            
+
             <p:ajaxStatus/>
             <p:dialog widgetVar="commentDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
                 <f:facet name="header">Comment is updating...</f:facet>
-                <p:graphicImage library="images" name="gear.gif" />
+                <center>
+                    <p:graphicImage library="images" name="gear.gif" />
+                </center>
             </p:dialog>
-            
+
             <p:ajaxStatus/>
             <p:dialog widgetVar="deleteDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
                 <f:facet name="header">Baby is deleting. It may take long time...</f:facet>
-                <p:graphicImage library="images" name="gear.gif" />
+                <center>
+                    <p:graphicImage library="images" name="gear.gif" />
+                </center>
             </p:dialog>
-            
+
             <p:separator/>
             <p:panelGrid columns="2">
                 <f:facet name="header">Add Baby</f:facet>
