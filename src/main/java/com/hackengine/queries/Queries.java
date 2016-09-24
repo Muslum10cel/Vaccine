@@ -11,7 +11,7 @@ package com.hackengine.queries;
  */
 public class Queries {
 
-    public static final String LOG_IN_QUERY = "FROM User U WHERE U.username = ?";
+    public static final String LOG_IN_QUERY = "FROM User U WHERE U.username =:username";
     public static final String GET_USERS = "FROM User U WHERE U.logLevel = ?";
     public static final String GET_BABIES = "FROM Baby B WHERE B.user.ID = ?";
     public static final String GET_COMMENTS = "FROM Comment C";

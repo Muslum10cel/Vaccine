@@ -40,4 +40,5 @@ public class Tags {
     public static final String OPA = "Opa";
     public static final String RVA = "Rva";
     public static final String OTHERS = "Others";
+    public static final String USERNAME = "username";
 }

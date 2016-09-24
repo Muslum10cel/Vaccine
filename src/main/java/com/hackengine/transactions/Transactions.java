@@ -61,7 +61,7 @@ public class Transactions {
         try {
             openSession();
             if (session.isConnected() && session.isOpen()) {
-                User u = (User) session.createQuery(Queries.LOG_IN_QUERY).setString(0, username).uniqueResult();
+                User u = (User) session.createQuery(Queries.LOG_IN_QUERY).setString(Tags.USERNAME, username).uniqueResult();
                 if (u != null) {
                     if (u.getPassword().equals(password)) {
                         SessionUtils.getSession().setAttribute(Tags.LOGGED_USER, u);
