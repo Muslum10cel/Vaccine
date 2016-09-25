@@ -59,9 +59,14 @@ public class Transactions {
     }
 
     public String logIn(String username, String password) {
+        User u = (User) SessionUtils.getSession().getAttribute(Tags.LOGGED_USER);
+        if (u != null) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, Messages.LOG_IN_ERROR, Messages.ALREADY_LOGGED_IN));
+            return null;
+        }
         try {
             openSession();
-            User u = (User) session.createQuery(Queries.LOG_IN_QUERY).setString(Tags.USERNAME, username).uniqueResult();
+            u = (User) session.createQuery(Queries.LOG_IN_QUERY).setString(Tags.USERNAME, username).uniqueResult();
             if (u != null) {
                 if (u.getPassword().equals(password)) {
                     SessionUtils.getSession().setAttribute(Tags.LOGGED_USER, u);

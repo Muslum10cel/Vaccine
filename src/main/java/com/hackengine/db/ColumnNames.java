@@ -20,6 +20,7 @@ public class ColumnNames {
     public static final String FULL_NAME = "FULL_NAME";
     public static final String LOG_LEVEL = "LOG_LEVEL";
     public static final String JOINED_DATE = "JOINED_DATE";
+    public static final String LOG = "LOG";
 
     public static final String USER_ID = "USER_ID";
     public static final String BABY_ID = "BABY_ID";
