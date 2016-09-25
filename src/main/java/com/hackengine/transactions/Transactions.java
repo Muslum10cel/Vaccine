@@ -80,10 +80,11 @@ public class Transactions {
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, Tags.LOG_IN_ERROR, username + Tags.LOG_IN_ERROR_DETAIL));
                 }
             }
-        } catch (Exception e) {
+        } catch (JDBCConnectionException e) {
             System.out.println(e.toString());
+            return Tags.FAIL;
         }
-        return Tags.FAIL;
+        return null;
     }
 
     public List<User> getDoctors() {
