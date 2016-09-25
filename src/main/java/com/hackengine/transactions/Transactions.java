@@ -61,25 +61,23 @@ public class Transactions {
     public String logIn(String username, String password) {
         try {
             openSession();
-            if (session.isConnected() && session.isOpen()) {
-                User u = (User) session.createQuery(Queries.LOG_IN_QUERY).setString(Tags.USERNAME, username).uniqueResult();
-                if (u != null) {
-                    if (u.getPassword().equals(password)) {
-                        SessionUtils.getSession().setAttribute(Tags.LOGGED_USER, u);
-                        switch (u.getLogLevel()) {
-                            case USER:
-                                return Tags.USER_PAGE;
-                            case DOCTOR:
-                                return Tags.DOCTOR_PAGE;
-                            case ADMIN:
-                                return Tags.ADMIN_PAGE;
-                        }
-                    } else {
-                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, Messages.PASSWORD_ERROR, Messages.PASSWORD_ERROR_DETAIL + username));
+            User u = (User) session.createQuery(Queries.LOG_IN_QUERY).setString(Tags.USERNAME, username).uniqueResult();
+            if (u != null) {
+                if (u.getPassword().equals(password)) {
+                    SessionUtils.getSession().setAttribute(Tags.LOGGED_USER, u);
+                    switch (u.getLogLevel()) {
+                        case USER:
+                            return Tags.USER_PAGE;
+                        case DOCTOR:
+                            return Tags.DOCTOR_PAGE;
+                        case ADMIN:
+                            return Tags.ADMIN_PAGE;
                     }
                 } else {
-                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, Messages.LOG_IN_ERROR, username + Messages.LOG_IN_ERROR_DETAIL));
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, Messages.PASSWORD_ERROR, Messages.PASSWORD_ERROR_DETAIL + username));
                 }
+            } else {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, Messages.LOG_IN_ERROR, username + Messages.LOG_IN_ERROR_DETAIL));
             }
         } catch (JDBCConnectionException e) {
             System.out.println(e.toString());
