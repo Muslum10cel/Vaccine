@@ -74,32 +74,31 @@ public class Transactions {
                                 return Tags.ADMIN_PAGE;
                         }
                     } else {
-                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Pasword Error", "Password is not correct for " + username));
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, Tags.PASSWORD_ERROR, Tags.PASSWORD_ERROR_DETAIL + username));
                     }
                 } else {
-                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Login Error", username + " is not a valid username"));
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, Tags.LOG_IN_ERROR, username + Tags.LOG_IN_ERROR_DETAIL));
                 }
             }
         } catch (Exception e) {
             System.out.println(e.toString());
-            return Tags.FAIL;
         }
-        return null;
+        return Tags.FAIL;
     }
 
     public List<User> getDoctors() {
         openSession();
-        return session.createQuery(Queries.GET_USERS).setString(0, LogLevel.DOCTOR.name()).list();
+        return session.createQuery(Queries.GET_USERS).setString(Tags.LOG_LEVEL, LogLevel.DOCTOR.name()).list();
     }
 
     public List<User> getNormalUsers() {
         openSession();
-        return session.createQuery(Queries.GET_USERS).setString(0, LogLevel.USER.name()).list();
+        return session.createQuery(Queries.GET_USERS).setString(Tags.LOG_LEVEL, LogLevel.USER.name()).list();
     }
 
     public List<Baby> getBabies(int id) {
         openSession();
-        return session.createQuery(Queries.GET_BABIES).setInteger(0, id).list();
+        return session.createQuery(Queries.GET_BABIES).setInteger(Tags.USER_ID, id).list();
     }
 
     public List<Comment> getComments() {
@@ -109,42 +108,42 @@ public class Transactions {
 
     public List<DabtIpaHib> dabtIpaHibs(int baby_id) {
         openSession();
-        return session.createQuery(Queries.GET_DABT_IPA_HIB).setInteger(0, baby_id).list();
+        return session.createQuery(Queries.GET_DABT_IPA_HIB).setInteger(Tags.BABY_ID, baby_id).list();
     }
 
     public List<HepatitisA> hepatitisAs(int baby_id) {
         openSession();
-        return session.createQuery(Queries.GET_HEPATITIS_A).setInteger(0, baby_id).list();
+        return session.createQuery(Queries.GET_HEPATITIS_A).setInteger(Tags.BABY_ID, baby_id).list();
     }
 
     public List<HepatitisB> hepatitisBs(int baby_id) {
         openSession();
-        return session.createQuery(Queries.GET_HEPATITIS_B).setInteger(0, baby_id).list();
+        return session.createQuery(Queries.GET_HEPATITIS_B).setInteger(Tags.BABY_ID, baby_id).list();
     }
 
     public List<Kkk> kkks(int baby_id) {
         openSession();
-        return session.createQuery(Queries.GET_KKK).setInteger(0, baby_id).list();
+        return session.createQuery(Queries.GET_KKK).setInteger(Tags.BABY_ID, baby_id).list();
     }
 
     public List<Kpa> kpas(int baby_id) {
         openSession();
-        return session.createQuery(Queries.GET_KPA).setInteger(0, baby_id).list();
+        return session.createQuery(Queries.GET_KPA).setInteger(Tags.BABY_ID, baby_id).list();
     }
 
     public List<Opa> opas(int baby_id) {
         openSession();
-        return session.createQuery(Queries.GET_OPA).setInteger(0, baby_id).list();
+        return session.createQuery(Queries.GET_OPA).setInteger(Tags.BABY_ID, baby_id).list();
     }
 
     public List<Rva> rvas(int baby_id) {
         openSession();
-        return session.createQuery(Queries.GET_RVA).setInteger(0, baby_id).list();
+        return session.createQuery(Queries.GET_RVA).setInteger(Tags.BABY_ID, baby_id).list();
     }
 
     public List<OtherVaccines> otherVaccines(int baby_id) {
         openSession();
-        return session.createQuery(Queries.GET_OTHER_VACCINES).setInteger(0, baby_id).list();
+        return session.createQuery(Queries.GET_OTHER_VACCINES).setInteger(Tags.BABY_ID, baby_id).list();
     }
 
     public void addDoctor(User doctor) {
