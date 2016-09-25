@@ -17,6 +17,7 @@ import com.hackengine.entities.OtherVaccines;
 import com.hackengine.entities.Rva;
 import com.hackengine.entities.User;
 import com.hackengine.loglevel.LogLevel;
+import com.hackengine.messages.Messages;
 import com.hackengine.queries.Queries;
 import com.hackengine.service.Service;
 import com.hackengine.tags.Tags;
@@ -74,10 +75,10 @@ public class Transactions {
                                 return Tags.ADMIN_PAGE;
                         }
                     } else {
-                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, Tags.PASSWORD_ERROR, Tags.PASSWORD_ERROR_DETAIL + username));
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, Messages.PASSWORD_ERROR, Messages.PASSWORD_ERROR_DETAIL + username));
                     }
                 } else {
-                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, Tags.LOG_IN_ERROR, username + Tags.LOG_IN_ERROR_DETAIL));
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, Messages.LOG_IN_ERROR, username + Messages.LOG_IN_ERROR_DETAIL));
                 }
             }
         } catch (JDBCConnectionException e) {

@@ -44,8 +44,5 @@ public class Tags {
     public static final String BABY_ID = "baby_id";
     public static final String USER_ID = "user_id";
     public static final String LOG_LEVEL = "log_level";
-    public static final String PASSWORD_ERROR = "Password Error";
-    public static final String PASSWORD_ERROR_DETAIL = "Password is not correct for ";
-    public static final String LOG_IN_ERROR = "Login Error";
-    public static final String LOG_IN_ERROR_DETAIL = " is not a valid username";
+    
 }
