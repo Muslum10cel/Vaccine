@@ -31,6 +31,8 @@ There will be 3 types of user in this application:
 
 http://hackengine-er.com/er/er.pdf
 
-# Demo Link
+# Referenced Article
+
+http://www.cocukenfeksiyon.org/sayilar/39/buyuk/%C3%87ED-2015%E2%80%931-11_son.pdf
 
 
