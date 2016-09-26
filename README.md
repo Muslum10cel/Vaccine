@@ -21,7 +21,7 @@ There will be 3 types of user in this application:
     
 * Primefaces for I/O processes
 
-* Hibernate for database transactions such as insert, delete etc.
+* Hibernate for database transactions such as insert, delete, update etc.
 
 * JSF for view
 
