@@ -31,6 +31,14 @@ There will be 3 types of user in this application:
 
 http://hackengine-er.com/vaccine/er/er.pdf
 
+# UI
+
+User Main Page : http://hackengine-er.com/vaccine/ui/mainpage.png
+
+After click detail link for any baby : http://hackengine-er.com/vaccine/ui/detail.png
+
+Dabt Ipa Hib details : http://hackengine-er.com/vaccine/ui/dabtdetail.png
+
 # Referenced Article
 
 http://www.cocukenfeksiyon.org/sayilar/39/buyuk/%C3%87ED-2015%E2%80%931-11_son.pdf
