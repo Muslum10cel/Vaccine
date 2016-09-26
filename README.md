@@ -29,7 +29,7 @@ There will be 3 types of user in this application:
 
 # ER Diagram
 
-http://hackengine-er.com/er/er.pdf
+http://hackengine-er.com/vaccine/er/er.pdf
 
 # Referenced Article
 
