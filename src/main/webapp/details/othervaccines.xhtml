@@ -44,31 +44,47 @@ and open the template in the editor.
                         <p:column headerText="Mark as Done/Undone"/>
                     </p:row>
                 </p:columnGroup>
+
                 <p:column>
-                    <p:outputLabel value="#{ot.bcgDate}"/>
-                </p:column>
-                <p:column>
-                    <p:selectBooleanCheckbox value="#{ot.bcgStatus}">
-                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(1)}" update="others :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{ot.bcgDate}"/>
+                    </div>
                 </p:column>
 
                 <p:column>
-                    <p:outputLabel value="#{ot.dabtIpa}"/>
-                </p:column>
-                <p:column>
-                    <p:selectBooleanCheckbox value="#{ot.dabtIpaStatus}">
-                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(2)}" update="others :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{ot.bcgStatus}">
+                            <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(1)}" update="others :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
 
                 <p:column>
-                    <p:outputLabel value="#{ot.hpa}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{ot.dabtIpa}"/>
+                    </div>
                 </p:column>
+
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{ot.hpaStatus}">
-                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(3)}" update="others :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{ot.dabtIpaStatus}">
+                            <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(2)}" update="others :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
+                </p:column>
+
+                <p:column>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{ot.hpa}"/>
+                    </div>
+                </p:column>
+
+                <p:column>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{ot.hpaStatus}">
+                            <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(3)}" update="others :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
             </p:dataTable>
 
@@ -92,31 +108,47 @@ and open the template in the editor.
                         <p:column headerText="Mark as Done/Undone"/>
                     </p:row>
                 </p:columnGroup>
+
                 <p:column>
-                    <p:outputLabel value="#{oth.influenza}"/>
-                </p:column>
-                <p:column>
-                    <p:selectBooleanCheckbox value="#{oth.influenzaStatus}">
-                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(4)}" update="otherss :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{oth.influenza}"/>
+                    </div>
                 </p:column>
 
                 <p:column>
-                    <p:outputLabel value="#{oth.kma4}"/>
-                </p:column>
-                <p:column>
-                    <p:selectBooleanCheckbox value="#{oth.kma4Status}">
-                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(5)}" update="otherss :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{oth.influenzaStatus}">
+                            <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(4)}" update="otherss :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
 
                 <p:column>
-                    <p:outputLabel value="#{oth.varicellaDate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{oth.kma4}"/>
+                    </div>
                 </p:column>
+
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{oth.varicellaStatus}">
-                        <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(6)}" update="otherss :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{oth.kma4Status}">
+                            <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(5)}" update="otherss :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
+                </p:column>
+
+                <p:column>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{oth.varicellaDate}"/>
+                    </div>
+                </p:column>
+
+                <p:column>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{oth.varicellaStatus}">
+                            <p:ajax listener="#{otherVaccinesBean.updateOtherVaccines(6)}" update="otherss :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
             </p:dataTable>
         </h:form>

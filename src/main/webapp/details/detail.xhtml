@@ -23,9 +23,13 @@ and open the template in the editor.
             <p:dataTable var="vac"
                          value="#{detailBean.vaccines}">
                 <f:facet name="header">Vaccine Names</f:facet>
+                
                 <p:column>
-                    <p:commandLink value="#{vac}" action="#{detailBean.displayDetailsOfVaccine(vac)}"/>
+                    <div style="text-align: center">
+                        <p:commandLink value="#{vac}" action="#{detailBean.displayDetailsOfVaccine(vac)}"/>
+                    </div>
                 </p:column>
+                
             </p:dataTable>
         </h:form>
         <p:separator/>

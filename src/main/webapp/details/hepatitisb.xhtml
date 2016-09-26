@@ -44,31 +44,49 @@ and open the template in the editor.
                         <p:column headerText="Mark as Done/Undone"/>
                     </p:row>
                 </p:columnGroup>
+                
                 <p:column>
-                    <p:outputLabel value="#{hepb.firstHepatitisBDate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{hepb.firstHepatitisBDate}"/>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{hepb.firstHepatitisBStatus}">
-                        <p:ajax listener="#{hepatitisBBean.updateHepatitisB(1)}" update="hepatitisb :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{hepb.firstHepatitisBStatus}">
+                            <p:ajax listener="#{hepatitisBBean.updateHepatitisB(1)}" update="hepatitisb :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
 
                 <p:column>
-                    <p:outputLabel value="#{hepb.secondHepatitisBDate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{hepb.secondHepatitisBDate}"/>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{hepb.secondHepatitisBStatus}">
-                        <p:ajax listener="#{hepatitisBBean.updateHepatitisB(2)}" update="hepatitisb :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{hepb.secondHepatitisBStatus}">
+                            <p:ajax listener="#{hepatitisBBean.updateHepatitisB(2)}" update="hepatitisb :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:outputLabel value="#{hepb.thirdHepatitisBDate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{hepb.thirdHepatitisBDate}"/>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{hepb.thirdHepatitisBStatus}">
-                        <p:ajax listener="#{hepatitisBBean.updateHepatitisB(3)}" update="hepatitisb :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{hepb.thirdHepatitisBStatus}">
+                            <p:ajax listener="#{hepatitisBBean.updateHepatitisB(3)}" update="hepatitisb :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
+                
             </p:dataTable>
         </h:form>
         <p:separator/>

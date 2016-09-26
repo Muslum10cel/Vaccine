@@ -41,22 +41,35 @@ and open the template in the editor.
                         <p:column headerText="Mark as Done/Undone"/>
                     </p:row>
                 </p:columnGroup>
+
                 <p:column>
-                    <p:outputLabel value="#{op.firstOpaDate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{op.firstOpaDate}"/>
+                    </div>
                 </p:column>
+
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{op.firstOpaStatus}">
-                        <p:ajax listener="#{opaBean.updateOpa(1)}" update="opa :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{op.firstOpaStatus}">
+                            <p:ajax listener="#{opaBean.updateOpa(1)}" update="opa :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
+
                 <p:column>
-                    <p:outputLabel value="#{op.secondOpaDate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{op.secondOpaDate}"/>
+                    </div>
                 </p:column>
+
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{op.secondOpaStatus}">
-                        <p:ajax listener="#{opaBean.updateOpa(2)}" update="opa :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{op.secondOpaStatus}">
+                            <p:ajax listener="#{opaBean.updateOpa(2)}" update="opa :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
+                
             </p:dataTable>
         </h:form>
         <p:separator/>

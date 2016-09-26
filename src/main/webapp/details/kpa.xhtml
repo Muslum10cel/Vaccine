@@ -47,38 +47,63 @@ and open the template in the editor.
                         <p:column headerText="Mark as Done/Undone"/>
                     </p:row>
                 </p:columnGroup>
+                
                 <p:column>
-                    <p:outputLabel value="#{kp.firstKpaDate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{kp.firstKpaDate}"/>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{kp.firstKpaStatus}">
-                        <p:ajax listener="#{kpaBean.updateKpa(1)}" update="kpa :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{kp.firstKpaStatus}">
+                            <p:ajax listener="#{kpaBean.updateKpa(1)}" update="kpa :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:outputLabel value="#{kp.secondKpaDate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{kp.secondKpaDate}"/>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{kp.secondKpaStatus}">
-                        <p:ajax listener="#{kpaBean.updateKpa(2)}" update="kpa :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{kp.secondKpaStatus}">
+                            <p:ajax listener="#{kpaBean.updateKpa(2)}" update="kpa :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:outputLabel value="#{kp.thirdKpaDate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{kp.thirdKpaDate}"/>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{kp.thirdKpaStatus}">
-                        <p:ajax listener="#{kpaBean.updateKpa(3)}" update="kpa :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{kp.thirdKpaStatus}">
+                            <p:ajax listener="#{kpaBean.updateKpa(3)}" update="kpa :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:outputLabel value="#{kp.fourthKpaDate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{kp.fourthKpaDate}"/>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{kp.fourthKpaStatus}">
-                        <p:ajax listener="#{kpaBean.updateKpa(4)}" update="kpa :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{kp.fourthKpaStatus}">
+                            <p:ajax listener="#{kpaBean.updateKpa(4)}" update="kpa :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
+                
             </p:dataTable>
         </h:form>
         <p:separator/>

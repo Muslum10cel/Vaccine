@@ -41,22 +41,35 @@ and open the template in the editor.
                         <p:column headerText="Mark as Done/Undone"/>
                     </p:row>
                 </p:columnGroup>
+                
                 <p:column>
-                    <p:outputLabel value="#{k.firstKkkDate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{k.firstKkkDate}"/>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{k.firstKkkStatus}">
-                        <p:ajax listener="#{kkkBean.updateKkk(1)}" update="kkk :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{k.firstKkkStatus}">
+                            <p:ajax listener="#{kkkBean.updateKkk(1)}" update="kkk :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:outputLabel value="#{k.secondKkkDate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{k.secondKkkDate}"/>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{k.secondKkkStatus}">
-                        <p:ajax listener="#{kkkBean.updateKkk(2)}" update="kkk :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{k.secondKkkStatus}">
+                            <p:ajax listener="#{kkkBean.updateKkk(2)}" update="kkk :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
+                
             </p:dataTable>
         </h:form>
         <p:separator/>

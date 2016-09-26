@@ -41,23 +41,35 @@ and open the template in the editor.
                         <p:column headerText="Mark as Done/Undone"/>
                     </p:row>
                 </p:columnGroup>
+                
                 <p:column>
-                    <p:outputLabel value="#{hepa.firstHepatitisADate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{hepa.firstHepatitisADate}"/>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{hepa.firstHepatitisAStatus}">
-                        <p:ajax listener="#{hepatitisABean.updateHepatitisA(1)}" update="hepatitisa :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{hepa.firstHepatitisAStatus}">
+                            <p:ajax listener="#{hepatitisABean.updateHepatitisA(1)}" update="hepatitisa :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
 
                 <p:column>
-                    <p:outputLabel value="#{hepa.secondHepatitisADate}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{hepa.secondHepatitisADate}"/>
+                    </div>
                 </p:column>
+                
                 <p:column>
-                    <p:selectBooleanCheckbox value="#{hepa.secondHepatitisAStatus}">
-                        <p:ajax listener="#{hepatitisABean.updateHepatitisA(2)}" update="hepatitisa :form1:msg" immediate="true"/>
-                    </p:selectBooleanCheckbox>
+                    <div style="text-align: center">
+                        <p:selectBooleanCheckbox value="#{hepa.secondHepatitisAStatus}">
+                            <p:ajax listener="#{hepatitisABean.updateHepatitisA(2)}" update="hepatitisa :form1:msg" immediate="true"/>
+                        </p:selectBooleanCheckbox>
+                    </div>
                 </p:column>
+                
             </p:dataTable>
         </h:form>
         <p:separator/>

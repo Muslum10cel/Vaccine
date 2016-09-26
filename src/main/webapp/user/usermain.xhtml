@@ -85,18 +85,26 @@ and open the template in the editor.
                          >
                 <f:facet name="heder">Babies</f:facet>
                 <p:column headerText="BABY NAME">
-                    <p:outputLabel value="#{baby.babyName}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{baby.babyName}"/>
+                    </div>
                 </p:column>
                 <p:column headerText="Gender">
-                    <p:outputLabel value="#{baby.gender}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{baby.gender}"/>
+                    </div>
                 </p:column>
                 <p:column headerText="Birthday">
-                    <p:outputLabel value="#{baby.dateOfBirth}"/>
+                    <div style="text-align: center">
+                        <p:outputLabel value="#{baby.dateOfBirth}"/>
+                    </div>
                 </p:column>
                 <p:column headerText="Action">
-                    <p:commandLink value="Delete Baby" action="#{babyBean.deleteBaby(baby)}" ajax="true" update="babies" onstart="PF('deleteDialog').show()" onsuccess="PF('deleteDialog').hide()"/>
-                    <p:outputLabel value="&#160;"/>
-                    <p:commandLink value="Details" action="#{babyBean.goToDetails(baby)}"/>
+                    <div style="text-align: center">
+                        <p:commandLink value="Delete Baby" action="#{babyBean.deleteBaby(baby)}" ajax="true" update="babies" onstart="PF('deleteDialog').show()" onsuccess="PF('deleteDialog').hide()"/>
+                        <p:outputLabel value="&#160;"/>
+                        <p:commandLink value="Details" action="#{babyBean.goToDetails(baby)}"/>
+                    </div>
                 </p:column>
             </p:dataTable>
         </h:form>
