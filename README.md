@@ -1,3 +1,9 @@
+# About
+
+This is online baby vaccines tracking application. There are mainly 8 vaccines and all of them have sub-vaccines, totally there are 28 vaccines from birth.
+They have standard date periods and they are calculated automatically by application. You may add a baby and display vaccines status and dates together. You 
+may delete baby if you wish. Also you may write a comment for vaccine. Those comments are displayed by doctors.
+
 # Users
 
 There will be 3 types of user in this application:
