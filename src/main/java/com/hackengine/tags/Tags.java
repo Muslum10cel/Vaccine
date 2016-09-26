@@ -44,5 +44,4 @@ public class Tags {
     public static final String BABY_ID = "baby_id";
     public static final String USER_ID = "user_id";
     public static final String LOG_LEVEL = "log_level";
-    
 }

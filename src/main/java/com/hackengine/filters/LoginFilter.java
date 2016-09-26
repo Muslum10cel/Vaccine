@@ -35,8 +35,8 @@ public class LoginFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         try {
-            User username = (User) req.getSession(false).getAttribute(Tags.LOGGED_USER);
-            if (username == null) {
+            User user = (User) req.getSession(false).getAttribute(Tags.LOGGED_USER);
+            if (user == null) {
                 resp.sendRedirect(req.getContextPath() + Tags.INDEX_PAGE);
             } else {
                 chain.doFilter(request, response);
