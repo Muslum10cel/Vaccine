@@ -26,6 +26,8 @@ import java.util.Date;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.persistence.NonUniqueResultException;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -41,8 +43,8 @@ public class Transactions {
     private static final Service service = new Service();
     private Session session = null;
 
-    private void openSession() {
-        session = factory.openSession();
+    private void openSession(){
+            session = factory.openSession();
     }
 
     public String register(User user) {
@@ -52,7 +54,7 @@ public class Transactions {
             session.save(user);
             session.getTransaction().commit();
             return Tags.SUCCESS;
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
         return Tags.FAIL;
@@ -66,23 +68,27 @@ public class Transactions {
         }
         try {
             openSession();
-            u = (User) session.createQuery(Queries.LOG_IN_QUERY).setString(Tags.USERNAME, username).uniqueResult();
-            if (u != null) {
-                if (u.getPassword().equals(password)) {
-                    SessionUtils.getSession().setAttribute(Tags.LOGGED_USER, u);
-                    switch (u.getLogLevel()) {
-                        case USER:
-                            return Tags.USER_PAGE;
-                        case DOCTOR:
-                            return Tags.DOCTOR_PAGE;
-                        case ADMIN:
-                            return Tags.ADMIN_PAGE;
+            try {
+                u = (User) session.createQuery(Queries.LOG_IN_QUERY).setString(Tags.USERNAME, username).uniqueResult();
+                if (u != null) {
+                    if (u.getPassword().equals(password)) {
+                        SessionUtils.getSession().setAttribute(Tags.LOGGED_USER, u);
+                        switch (u.getLogLevel()) {
+                            case USER:
+                                return Tags.USER_PAGE;
+                            case DOCTOR:
+                                return Tags.DOCTOR_PAGE;
+                            case ADMIN:
+                                return Tags.ADMIN_PAGE;
+                        }
+                    } else {
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, Messages.PASSWORD_ERROR, Messages.PASSWORD_ERROR_DETAIL + username));
                     }
                 } else {
-                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, Messages.PASSWORD_ERROR, Messages.PASSWORD_ERROR_DETAIL + username));
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, Messages.LOG_IN_ERROR, username + Messages.LOG_IN_ERROR_DETAIL));
                 }
-            } else {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, Messages.LOG_IN_ERROR, username + Messages.LOG_IN_ERROR_DETAIL));
+            } catch (NonUniqueResultException e) {
+                System.out.println(e.toString());
             }
         } catch (JDBCConnectionException e) {
             System.out.println(e.toString());
@@ -157,7 +163,7 @@ public class Transactions {
             session.beginTransaction();
             session.save(doctor);
             session.getTransaction().commit();
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
 
@@ -168,7 +174,7 @@ public class Transactions {
             session.beginTransaction();
             session.delete(user);
             session.getTransaction().commit();
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
     }
@@ -178,7 +184,7 @@ public class Transactions {
             session.beginTransaction();
             session.delete(baby);
             session.getTransaction().commit();
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
     }
@@ -216,7 +222,7 @@ public class Transactions {
             baby.setOtherVaccines(otherVaccines);
             user.getBabies().add(baby);
             session.getTransaction().commit();
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
     }
@@ -230,7 +236,7 @@ public class Transactions {
             user.getComments().add(comment);
             session.getTransaction().commit();
             return true;
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
         return false;
@@ -241,7 +247,7 @@ public class Transactions {
             session.beginTransaction();
             session.delete(comment);
             session.getTransaction().commit();
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
     }
@@ -253,7 +259,7 @@ public class Transactions {
             session.update(dabtIpaHib);
             session.getTransaction().commit();
             return true;
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
         return false;
@@ -266,7 +272,7 @@ public class Transactions {
             session.update(hepatitisA);
             session.getTransaction().commit();
             return true;
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
         return false;
@@ -279,7 +285,7 @@ public class Transactions {
             session.update(hepatitisB);
             session.getTransaction().commit();
             return true;
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
         return false;
@@ -292,7 +298,7 @@ public class Transactions {
             session.update(kkk);
             session.getTransaction().commit();
             return true;
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
         return false;
@@ -305,7 +311,7 @@ public class Transactions {
             session.update(kpa);
             session.getTransaction().commit();
             return true;
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
         return false;
@@ -318,7 +324,7 @@ public class Transactions {
             session.update(opa);
             session.getTransaction().commit();
             return true;
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
         return false;
@@ -331,7 +337,7 @@ public class Transactions {
             session.update(rva);
             session.getTransaction().commit();
             return true;
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
         return false;
@@ -344,7 +350,7 @@ public class Transactions {
             session.update(otherVaccines);
             session.getTransaction().commit();
             return true;
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println(e.toString());
         }
         return false;
