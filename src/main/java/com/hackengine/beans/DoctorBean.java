@@ -6,9 +6,11 @@
 package com.hackengine.beans;
 
 import com.hackengine.entities.Comment;
+import com.hackengine.genders.Gender;
 import com.hackengine.tags.Tags;
 import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
+import com.hackengine.vaccines.Vaccines;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -33,6 +35,14 @@ public class DoctorBean implements Serializable {
         comments = transaction.getComments();
     }
 
+    public Gender[] getGenders() {
+        return Gender.values();
+    }
+
+    public String[] getVaccines() {
+        return Vaccines.allVaccines;
+    }
+
     public String logOut() {
         transaction.closeSession();
         SessionUtils.getSession().invalidate();
@@ -51,8 +61,8 @@ public class DoctorBean implements Serializable {
         transaction.deleteComment(comment);
         comments = transaction.getComments();
     }
-    
-    public void newComments(){
+
+    public void newComments() {
         comments = transaction.getComments();
     }
 }
