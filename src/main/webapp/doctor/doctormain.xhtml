@@ -76,7 +76,7 @@ and open the template in the editor.
                 <p:column headerText="Comment">
                     <p:outputLabel value="#{comment.comment}"/>
                 </p:column>
-                <p:column headerText="Action">
+                <p:column headerText="Action" exportable="false">
                     <p:commandLink value="Delete Comment" action="#{doctorBean.deleteComment(comment)}" ajax="true" update="comments"/>
                 </p:column>
             </p:dataTable>
