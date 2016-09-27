@@ -25,9 +25,10 @@ and open the template in the editor.
                     <p:graphicImage library="images" name="gear.gif" />
                 </center>
             </p:dialog>
-            <p:poll interval="10" listener="#{doctorBean.newComments()}" update="comments"/>
+            <p:poll interval="360" listener="#{doctorBean.newComments()}" update="comments"/>
             <p:dataTable id="comments"
                          var="comment"
+                         widgetVar="comTable"
                          value="#{doctorBean.comments}"
                          paginator="true" 
                          rows="20" 
@@ -41,10 +42,22 @@ and open the template in the editor.
                          {LastPageLink} 
                          {RowsPerPageDropdown}">
                 <f:facet name="header">Comments</f:facet>
-                <p:column headerText="Vaccine Name">
+                <p:column headerText="Vaccine Name" filterBy="#{comment.vaccineName}" filterMatchMode="exact">
+                    <f:facet name="filter">
+                        <p:selectOneMenu onchange="PF('comTable').filter()">
+                            <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
+                            <f:selectItems value="#{commentBean.vaccines}"/>
+                        </p:selectOneMenu>
+                    </f:facet>
                     <p:outputLabel value="#{comment.vaccineName}"/>
                 </p:column>
-                <p:column headerText="Gender">
+                <p:column headerText="Gender" filterBy="#{comment.gender}" filterMatchMode="exact">
+                    <f:facet name="filter">
+                        <p:selectOneMenu onchange="PF('comTable').filter()">
+                            <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
+                            <f:selectItems value="#{commentBean.genders}"/>
+                        </p:selectOneMenu>
+                    </f:facet>
                     <p:outputLabel value="#{comment.gender}"/>
                 </p:column>
                 <p:column headerText="Comment">
