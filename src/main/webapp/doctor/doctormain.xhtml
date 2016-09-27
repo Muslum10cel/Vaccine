@@ -46,7 +46,7 @@ and open the template in the editor.
                     <f:facet name="filter">
                         <p:selectOneMenu onchange="PF('comTable').filter()">
                             <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
-                            <f:selectItems value="#{commentBean.vaccines}"/>
+                            <f:selectItems value="#{doctorBean.vaccines}"/>
                         </p:selectOneMenu>
                     </f:facet>
                     <p:outputLabel value="#{comment.vaccineName}"/>
@@ -55,7 +55,7 @@ and open the template in the editor.
                     <f:facet name="filter">
                         <p:selectOneMenu onchange="PF('comTable').filter()">
                             <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
-                            <f:selectItems value="#{commentBean.genders}"/>
+                            <f:selectItems value="#{doctorBean.genders}"/>
                         </p:selectOneMenu>
                     </f:facet>
                     <p:outputLabel value="#{comment.gender}"/>
