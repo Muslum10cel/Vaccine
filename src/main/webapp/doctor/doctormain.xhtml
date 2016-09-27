@@ -18,14 +18,14 @@ and open the template in the editor.
         <h:form>
             <p:commandLink value="Log Out" action="#{doctorBean.logOut()}" global="false"/>
             <p:separator/>
-            <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+            <p:ajaxStatus/>
             <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
                 <f:facet name="header">Checking for new comments...</f:facet>
                 <center>
                     <p:graphicImage library="images" name="gear.gif" />
                 </center>
             </p:dialog>
-            <p:poll interval="360" listener="#{doctorBean.newComments()}" update="comments"/>
+            <p:poll interval="10" listener="#{doctorBean.newComments()}" update="comments" onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()"/>
             <p:dataTable id="comments"
                          var="comment"
                          widgetVar="comTable"
@@ -34,13 +34,26 @@ and open the template in the editor.
                          rows="20" 
                          stickyHeader="true"
                          scrollable="true"
+                         style="margin-bottom:20px"
                          paginatorTemplate="{CurrentPageReport} 
                          {FirstPageLink} 
                          {PreviousPageLink} 
                          {PageLinks} 
                          {NextPageLink} 
                          {LastPageLink} 
-                         {RowsPerPageDropdown}">
+                         {RowsPerPageDropdown}
+                         {Exporters}">
+                <f:facet name="{Exporters}">
+                    <h:commandLink>
+                        <p:graphicImage library="images" name="pdf.png" width="24"/>
+                        <p:dataExporter type="pdf" target="comments" fileName="filterResult"/>
+                    </h:commandLink>
+                    
+                    <h:commandLink>
+                        <p:graphicImage library="images" name="csv.png" width="24"/>
+                        <p:dataExporter type="csv" target="comments" fileName="filterResult"/>
+                    </h:commandLink>
+                </f:facet>
                 <f:facet name="header">Comments</f:facet>
                 <p:column headerText="Vaccine Name" filterBy="#{comment.vaccineName}" filterMatchMode="exact">
                     <f:facet name="filter">
