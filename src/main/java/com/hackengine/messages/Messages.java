@@ -23,4 +23,7 @@ public class Messages {
     public static final String LOG_IN_ERROR_DETAIL = " is not a valid username";
 
     public static final String ALREADY_LOGGED_IN = "Already Logged In";
+
+    public static final String COMMENT_MESSAGE = "Comments";
+    public static final String COMMENT_MESSAGE_DETAIL = "New Comments Available";
 }

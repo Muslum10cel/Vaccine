@@ -20,6 +20,9 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.primefaces.push.EventBus;
+import org.primefaces.push.EventBusFactory;
 
 /**
  *
@@ -83,8 +86,14 @@ public class CommentBean implements Serializable {
     public void addComment() {
         if (transaction.addComment(user, new Comment(vaccinename, gender, new Date(), comment))) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(Messages.COMMENT_UPLOADED));
+            notification();
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(Messages.COMMENT_UPLOAD_ERROR));
         }
+    }
+
+    private void notification() {
+        EventBus eventBus = EventBusFactory.getDefault().eventBus();
+        eventBus.publish(Tags.NOTIFY, new FacesMessage(StringEscapeUtils.escapeHtml3(Messages.COMMENT_MESSAGE), StringEscapeUtils.escapeHtml3(Messages.COMMENT_MESSAGE_DETAIL)));
     }
 }

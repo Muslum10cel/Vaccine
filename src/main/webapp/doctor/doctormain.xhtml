@@ -18,14 +18,20 @@ and open the template in the editor.
         <h:form>
             <p:commandLink value="Log Out" action="#{doctorBean.logOut()}" global="false"/>
             <p:separator/>
-            <p:ajaxStatus/>
-            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
-                <f:facet name="header">Checking for new comments...</f:facet>
-                <center>
-                    <p:graphicImage library="images" name="gear.gif" />
-                </center>
-            </p:dialog>
-            <p:poll interval="10" listener="#{doctorBean.newComments()}" update="comments" onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()"/>
+
+            <p:growl id="msj" widgetVar="wmsj" showDetail="true" sticky="true"/>
+
+            <p:socket onMessage="handleMessage" channel="/notify" >
+                <p:ajax event="message" update="comments" />
+            </p:socket>
+
+            <script type="text/javascript">
+                function handleMessage(facesmessage) {
+                    facesmessage.severity = 'info';
+
+                    PF('wmsj').show([facesmessage]);
+                }
+            </script>  
             <p:dataTable id="comments"
                          var="comment"
                          widgetVar="comTable"
@@ -48,7 +54,7 @@ and open the template in the editor.
                         <p:graphicImage library="images" name="pdf.png" width="24"/>
                         <p:dataExporter type="pdf" target="comments" fileName="filterResult"/>
                     </h:commandLink>
-                    
+
                     <h:commandLink>
                         <p:graphicImage library="images" name="csv.png" width="24"/>
                         <p:dataExporter type="csv" target="comments" fileName="filterResult"/>
