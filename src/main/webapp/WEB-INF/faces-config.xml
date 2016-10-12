@@ -9,7 +9,7 @@
             <default-locale>tr</default-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>tr</base-name>
+            <base-name>langprop</base-name>
             <var>lang</var>
         </resource-bundle>
     </application>
