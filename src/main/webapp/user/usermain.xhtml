@@ -83,27 +83,27 @@ and open the template in the editor.
                          var="baby"
                          value="#{babyBean.babies}"
                          >
-                <f:facet name="heder">Babies</f:facet>
-                <p:column headerText="Baby Name">
+                <f:facet name="heder">#{lang.babies}</f:facet>
+                <p:column headerText="#{lang.babyName}">
                     <div style="text-align: center">
                         <p:outputLabel value="#{baby.babyName}"/>
                     </div>
                 </p:column>
-                <p:column headerText="Gender">
+                <p:column headerText="#{lang.gender}">
                     <div style="text-align: center">
                         <p:outputLabel value="#{baby.gender}"/>
                     </div>
                 </p:column>
-                <p:column headerText="Birthday">
+                <p:column headerText="#{lang.birthday}">
                     <div style="text-align: center">
                         <p:outputLabel value="#{baby.dateOfBirth}"/>
                     </div>
                 </p:column>
-                <p:column headerText="Action">
+                <p:column headerText="#{lang.action}">
                     <div style="text-align: center">
-                        <p:commandLink value="Delete Baby" action="#{babyBean.deleteBaby(baby)}" ajax="true" update="babies" onstart="PF('deleteDialog').show()" onsuccess="PF('deleteDialog').hide()"/>
+                        <p:commandLink value="#{lang.delBaby}" action="#{babyBean.deleteBaby(baby)}" ajax="true" update="babies" onstart="PF('deleteDialog').show()" onsuccess="PF('deleteDialog').hide()"/>
                         <p:outputLabel value="&#160;"/>
-                        <p:commandLink value="Details" action="#{babyBean.goToDetails(baby)}"/>
+                        <p:commandLink value="#{lang.detail}" action="#{babyBean.goToDetails(baby)}"/>
                     </div>
                 </p:column>
             </p:dataTable>
