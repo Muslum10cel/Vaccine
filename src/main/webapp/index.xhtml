@@ -22,10 +22,10 @@ and open the template in the editor.
             <br></br>
             <h:panelGrid columns="2">
                 Language/Dil :
-                <h:selectOneMenu value="#{languageBean.localeCode}" onchange="submit()"
+                <p:selectOneMenu value="#{languageBean.localeCode}" onchange="submit()"
                                  valueChangeListener="#{languageBean.countryLocaleCodeChanged}">
                     <f:selectItems value="#{languageBean.countriesInMap}" />
-                </h:selectOneMenu>
+                </p:selectOneMenu>
 
             </h:panelGrid>
         </h:form>
