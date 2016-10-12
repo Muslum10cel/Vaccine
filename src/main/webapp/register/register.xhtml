@@ -17,52 +17,52 @@ and open the template in the editor.
         <div>
             <h:form id="registerForm">
                 <p:panelGrid columns="3">
-                    <f:facet name="header">Registration Form</f:facet>
+                    <f:facet name="header">#{lang.rForm}</f:facet>
 
-                    <p:outputLabel value="Username : "/>
+                    <p:outputLabel value="#{lang.username} : "/>
                     <p:inputText value="#{registerBean.username}" 
                                  id="username" 
                                  required="true" 
-                                 requiredMessage="Enter a username!"/>
+                                 requiredMessage="#{lang.userRequired}"/>
                     <p:message for="username" />
 
-                    <p:outputLabel value="Password : "/>
+                    <p:outputLabel value="#{lang.password} : "/>
                     <p:password value="#{registerBean.password}" 
                                 id="password" 
                                 match="passwordConfirm" 
                                 feedback="true" 
-                                promptLabel="Password Strength"
+                                promptLabel="#{lang.promptLabel}"
                                 required="true" 
-                                requiredMessage="Provide Password!" 
-                                label="Password"
-                                validatorMessage="Passwords are not matching!"/>
+                                requiredMessage="#{lang.passRequired}" 
+                                label="#{lang.password}"
+                                validatorMessage="#{lang.passValidate}"/>
                     <p:message for="password"/>
 
-                    <p:outputLabel value="Password Confirm : "/>
+                    <p:outputLabel value="#{lang.cPassword} : "/>
                     <p:password id="passwordConfirm" 
                                 value="#{registerBean.password}" 
                                 feedback="true" 
-                                promptLabel="Password Strength"
+                                promptLabel="#{lang.promptLabel}"
                                 required="true" 
-                                label="Confirm Password" 
-                                validatorMessage="Passwords are not matching!" 
-                                requiredMessage="Provide Password!"/>
+                                label="#{lang.cPassword}" 
+                                validatorMessage="#{lang.passValidate}" 
+                                requiredMessage="#{lang.passRequired}"/>
                     <p:message for="passwordConfirm"/>
 
                     <p:outputLabel value="Email :"/>
                     <p:inputText value="#{registerBean.email}" 
                                  id="mail" 
-                                 validatorMessage="Invalid e-mail!" 
+                                 validatorMessage="#{lang.wrongEmail}!" 
                                  required="true" 
-                                 requiredMessage="Enter a valid e-mail!">
+                                 requiredMessage="#{lang.mailRequired}">
                         <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
                     </p:inputText>
                     <p:message for="mail"/>
 
-                    <p:outputLabel value="Full Name:"/>
+                    <p:outputLabel value="#{lang.fullName}:"/>
                     <p:inputText value="#{registerBean.fullname}"/>
                 </p:panelGrid>
-                <p:commandButton value="Register" action="#{registerBean.register()}" update=":registerForm"/>
+                <p:commandButton value="#{lang.register}" action="#{registerBean.register()}" update=":registerForm"/>
             </h:form>
         </div>
     </h:body>

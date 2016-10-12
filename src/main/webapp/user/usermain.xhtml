@@ -16,12 +16,12 @@ and open the template in the editor.
     <h:body>
         <div>TODO write content</div>
         <h:form>
-            <p:commandLink value="Log Out" action="#{userBean.logOut()}" global="false"/>
+            <p:commandLink value="#{lang.logOut}" action="#{userBean.logOut()}" global="false"/>
             <p:growl id="msg"/>
 
             <p:ajaxStatus/>
             <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
-                <f:facet name="header">Baby is adding. It may take long time.</f:facet>
+                <f:facet name="header">#{lang.babyAdd}</f:facet>
                 <center>
                     <p:graphicImage library="images" name="gear.gif" />
                 </center>
@@ -29,7 +29,7 @@ and open the template in the editor.
 
             <p:ajaxStatus/>
             <p:dialog widgetVar="commentDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
-                <f:facet name="header">Comment is updating...</f:facet>
+                <f:facet name="header">#{lang.commentAdd}</f:facet>
                 <center>
                     <p:graphicImage library="images" name="gear.gif" />
                 </center>
@@ -37,7 +37,7 @@ and open the template in the editor.
 
             <p:ajaxStatus/>
             <p:dialog widgetVar="deleteDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
-                <f:facet name="header">Baby is deleting. It may take long time...</f:facet>
+                <f:facet name="header">#{lang.deleteBaby}</f:facet>
                 <center>
                     <p:graphicImage library="images" name="gear.gif" />
                 </center>
@@ -45,38 +45,38 @@ and open the template in the editor.
 
             <p:separator/>
             <p:panelGrid columns="2">
-                <f:facet name="header">Add Baby</f:facet>
+                <f:facet name="header">#{lang.addBaby}</f:facet>
 
-                <p:outputLabel value="Baby Name:"/>
+                <p:outputLabel value="#{lang.babyName}:"/>
                 <p:inputText value="#{babyBean.babyname}"/>
 
-                <p:outputLabel value="Gender:"/>
+                <p:outputLabel value="#{lang.gender}"/>
                 <p:selectOneMenu value="#{babyBean.gender}">
                     <f:selectItems value="#{babyBean.genders}"/>
                 </p:selectOneMenu>
 
-                <p:outputLabel value="Birthday:"/>
+                <p:outputLabel value="#{lang.birthday}"/>
                 <p:calendar value="#{babyBean.birthday}"/>
 
-                <p:commandButton value="Add Baby" action="#{babyBean.addBaby()}" ajax="true" update="babies" onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()"/>
+                <p:commandButton value="#{lang.addBaby}" action="#{babyBean.addBaby()}" ajax="true" update="babies" onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()"/>
             </p:panelGrid>
             <p:separator/>
             <p:panelGrid columns="2">
-                <f:facet name="header">Add Comment</f:facet>
+                <f:facet name="header">#{lang.addComment}</f:facet>
 
-                <p:outputLabel value="Vaccine Name:"/>
+                <p:outputLabel value="#{lang.vaccineName}:"/>
                 <p:selectOneMenu value="#{commentBean.vaccinename}">
                     <f:selectItems value="#{commentBean.vaccines}"/>
                 </p:selectOneMenu>
 
-                <p:outputLabel value="Gender:"/>
+                <p:outputLabel value="#{lang.gender}:"/>
                 <p:selectOneMenu value="#{commentBean.gender}">
                     <f:selectItems value="#{commentBean.genders}"/>
                 </p:selectOneMenu>
 
-                <p:outputLabel value="Comment:"/>
+                <p:outputLabel value="#{lang.comment}:"/>
                 <p:inputTextarea value="#{commentBean.comment}"/>
-                <p:commandButton value="Add Comment" action="#{commentBean.addComment()}" ajax="true" update="msg" onstart="PF('commentDialog').show()" onsuccess="PF('commentDialog').hide()"/>
+                <p:commandButton value="#{lang.addComment}" action="#{commentBean.addComment()}" ajax="true" update="msg" onstart="PF('commentDialog').show()" onsuccess="PF('commentDialog').hide()"/>
             </p:panelGrid>
             <p:separator/>
             <p:dataTable id="babies"
