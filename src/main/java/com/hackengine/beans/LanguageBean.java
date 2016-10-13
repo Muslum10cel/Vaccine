@@ -31,6 +31,7 @@ public class LanguageBean implements Serializable {
         countries = new LinkedHashMap<>();
         countries.put("English", Locale.ENGLISH); //label, value
         countries.put("Türkçe", new Locale("tr"));
+        locale = FacesContext.getCurrentInstance().getApplication().getDefaultLocale();
     }
 
     public Map<String, Object> getCountriesInMap() {
