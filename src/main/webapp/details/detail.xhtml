@@ -17,13 +17,13 @@ and open the template in the editor.
         <h:body>
             <p:separator/>
             <h1 style="text-decoration: underline; color: #009999">
-                For displaying vaccine details of #{detailBean.baby.babyName}, please click vaccine name
+                #{lang.detail1}
             </h1>
             <h:form>
                 <p:separator/>
                 <p:dataTable var="vac"
                              value="#{detailBean.vaccines}">
-                    <f:facet name="header">Vaccine Names</f:facet>
+                    <f:facet name="header">#{lang.vaccines}</f:facet>
 
                     <p:column>
                         <div style="text-align: center">

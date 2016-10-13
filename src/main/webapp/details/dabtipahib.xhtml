@@ -21,7 +21,7 @@ and open the template in the editor.
                 <p:growl id="msg"/>
                 <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
                 <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
-                    <f:facet name="header">Status is updating...</f:facet>
+                    <f:facet name="header">#{lang.statusUpdate}</f:facet>
                     <center>
                         <p:graphicImage library="images" name="gear.gif" />
                     </center>
@@ -29,21 +29,21 @@ and open the template in the editor.
                 <p:dataTable id="dabt"
                              var="dabtipahib"
                              value="#{dabtIpaHibBean.dabtIpaHibs}">
-                    <f:facet name="header">Dabt Ipa Hib Details</f:facet>
+                    <f:facet name="header">#{lang.dabtDetails}</f:facet>
                     <p:columnGroup type="header">
                         <p:row>
-                            <p:column headerText="First" colspan="2"/>
-                            <p:column headerText="Second" colspan="2"/>
-                            <p:column headerText="Third" colspan="2"/>
+                            <p:column headerText="#{lang.first}" colspan="2"/>
+                            <p:column headerText="#{lang.second}" colspan="2"/>
+                            <p:column headerText="#{lang.third}" colspan="2"/>
 
                         </p:row>
                         <p:row>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
                         </p:row>
                     </p:columnGroup>
 
@@ -98,17 +98,17 @@ and open the template in the editor.
                              value="#{dabtIpaHibBean.dabtIpaHibs}">
                     <p:columnGroup type="header">
                         <p:row>
-                            <p:column headerText="Fourth" colspan="2"/>
-                            <p:column headerText="Fifth" colspan="2"/>
-                            <p:column headerText="Sixth" colspan="2"/>
+                            <p:column headerText="#{lang.fourth}" colspan="2"/>
+                            <p:column headerText="#{lang.fifth}" colspan="2"/>
+                            <p:column headerText="#{lang.sixth}" colspan="2"/>
                         </p:row>
                         <p:row>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
                         </p:row>
                     </p:columnGroup>
 

@@ -17,21 +17,21 @@ and open the template in the editor.
         <h:body>
             <div>TODO write content</div>
             <h:form>
-                <p:commandLink value="Log Out" action="#{adminBean.logOut()}"/>
+                <p:commandLink value="#{lang.logOut}" action="#{adminBean.logOut()}"/>
                 <p:separator/>
                 <p:panelGrid columns="3">
-                    <f:facet name="header">Add Doctor</f:facet>
-                    <p:outputLabel value="Username:"/>
+                    <f:facet name="header">#{lang.adddoctor}</f:facet>
+                    <p:outputLabel value="#{lang.username}:"/>
                     <p:inputText id="username" value="#{adminBean.doctorusername}" required="true"
-                                 requiredMessage="Enter a username!"/>
+                                 requiredMessage="#{lang.userRequired}"/>
                     <p:message for="username"/>
 
-                    <p:outputLabel value="Password:"/>
+                    <p:outputLabel value="#{lang.password}:"/>
                     <p:password id="password" value="#{adminBean.doctorpassword}" required="true"
-                                requiredMessage="Enter a password!"/>
+                                requiredMessage="#{lang.passRequired}"/>
                     <p:message for="password"/>
 
-                    <p:outputLabel value="Full Name:"/>
+                    <p:outputLabel value="#{lang.fullName}:"/>
                     <p:inputText value="#{adminBean.doctorfullname}"/>
                     <p:outputLabel value=""/>
 
@@ -39,42 +39,42 @@ and open the template in the editor.
                     <p:inputText value="#{adminBean.doctormail}">
                     </p:inputText>
                     <p:outputLabel value=""/>
-                    <p:commandButton value="Add Doctor" action="#{adminBean.addDoctor()}" ajax="true" update="doctors"/>
+                    <p:commandButton value="#{lang.adddoctor}" action="#{adminBean.addDoctor()}" ajax="true" update="doctors"/>
                 </p:panelGrid>
                 <p:separator/>
                 <p:dataTable id="users"
                              var="user"
                              value="#{adminBean.users}">
-                    <f:facet name="header">Users</f:facet>
-                    <p:column headerText="USERNAME">
+                    <f:facet name="header">#{lang.users}</f:facet>
+                    <p:column headerText="#{lang.username}">
                         <p:outputLabel value="#{user.username}"/>
                     </p:column>
-                    <p:column headerText="FULL NAME">
+                    <p:column headerText="#{lang.fullName}">
                         <p:outputLabel value="#{user.fullName}"/>
                     </p:column>
                     <p:column headerText="E MAIL">
                         <p:outputLabel value="#{user.email}"/>
                     </p:column>
-                    <p:column headerText="ACTION">
-                        <p:commandLink value="Delete" action="#{adminBean.deleteUser(user)}" ajax="true" update="users"/>
+                    <p:column headerText="#{lang.action}">
+                        <p:commandLink value="#{lang.deleteuser}" action="#{adminBean.deleteUser(user)}" ajax="true" update="users"/>
                     </p:column>
                 </p:dataTable>
                 <p:separator/>
                 <p:dataTable id="doctors"
                              var="doctor"
                              value="#{adminBean.doctors}">
-                    <f:facet name="header">Doctors</f:facet>
-                    <p:column headerText="USERNAME">
+                    <f:facet name="header">#{lang.doctors}</f:facet>
+                    <p:column headerText="#{lang.username}">
                         <p:outputLabel value="#{doctor.username}"/>
                     </p:column>
-                    <p:column headerText="FULL NAME">
+                    <p:column headerText="#{lang.fullName}">
                         <p:outputLabel value="#{doctor.fullName}"/>
                     </p:column>
                     <p:column headerText="E MAIL">
                         <p:outputLabel value="#{doctor.email}"/>
                     </p:column>
-                    <p:column headerText="ACTION">
-                        <p:commandLink value="Delete" action="#{adminBean.deleteDoctor(doctor)}" ajax="true" update="doctors"/>
+                    <p:column headerText="#{lang.action}">
+                        <p:commandLink value="#{lang.deleteuser}" action="#{adminBean.deleteDoctor(doctor)}" ajax="true" update="doctors"/>
                     </p:column>
                 </p:dataTable>
             </h:form>

@@ -17,7 +17,7 @@ and open the template in the editor.
         <h:body>
             <div>TODO write content</div>
             <h:form>
-                <p:commandLink value="Log Out" action="#{doctorBean.logOut()}" global="false"/>
+                <p:commandLink value="#{lang.logOut}" action="#{doctorBean.logOut()}" global="false"/>
                 <p:separator/>
 
                 <p:growl id="msj" widgetVar="wmsj" showDetail="true" sticky="true"/>
@@ -61,11 +61,11 @@ and open the template in the editor.
                             <p:dataExporter type="csv" target="comments" fileName="filterResult"/>
                         </h:commandLink>
                     </f:facet>
-                    <f:facet name="header">Comments</f:facet>
-                    <p:column headerText="Vaccine Name" filterBy="#{comment.vaccineName}" filterMatchMode="exact">
+                    <f:facet name="header">#{lang.comments}</f:facet>
+                    <p:column headerText="#{lang.vaccineName}" filterBy="#{comment.vaccineName}" filterMatchMode="exact">
                         <f:facet name="filter">
                             <p:selectOneMenu onchange="PF('comTable').filter()">
-                                <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
+                                <f:selectItem itemLabel="#{lang.selectone}" itemValue="#{null}" noSelectionOption="true" />
                                 <f:selectItems value="#{doctorBean.vaccines}"/>
                             </p:selectOneMenu>
                         </f:facet>
@@ -74,17 +74,17 @@ and open the template in the editor.
                     <p:column headerText="Gender" filterBy="#{comment.gender}" filterMatchMode="exact">
                         <f:facet name="filter">
                             <p:selectOneMenu onchange="PF('comTable').filter()">
-                                <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
+                                <f:selectItem itemLabel="#{lang.selectone}" itemValue="#{null}" noSelectionOption="true" />
                                 <f:selectItems value="#{doctorBean.genders}"/>
                             </p:selectOneMenu>
                         </f:facet>
                         <p:outputLabel value="#{comment.gender}"/>
                     </p:column>
-                    <p:column headerText="Comment">
+                    <p:column headerText="#{lang.comment}">
                         <p:outputLabel value="#{comment.comment}"/>
                     </p:column>
-                    <p:column headerText="Action" exportable="false">
-                        <p:commandLink value="Delete Comment" action="#{doctorBean.deleteComment(comment)}" ajax="true" update="comments"/>
+                    <p:column headerText="#{lang.action}" exportable="false">
+                        <p:commandLink value="#{lang.deletecomment}" action="#{doctorBean.deleteComment(comment)}" ajax="true" update="comments"/>
                     </p:column>
                 </p:dataTable>
             </h:form>

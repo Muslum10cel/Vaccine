@@ -21,7 +21,7 @@ and open the template in the editor.
                 <p:growl id="msg"/>
                 <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
                 <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
-                    <f:facet name="header">Status is updating...</f:facet>
+                    <f:facet name="header">#{lang.statusUpdate}</f:facet>
                     <center>
                         <p:graphicImage library="images" name="gear.gif" />
                     </center>
@@ -29,7 +29,7 @@ and open the template in the editor.
                 <p:dataTable id="others"
                              var="ot"
                              value="#{otherVaccinesBean.others}">
-                    <f:facet name="header">Other Vaccines Details</f:facet>
+                    <f:facet name="header">#{lang.otherdetails}</f:facet>
                     <p:columnGroup type="header">
                         <p:row>
                             <p:column headerText="BCG" colspan="2"/>
@@ -37,12 +37,12 @@ and open the template in the editor.
                             <p:column headerText="Hpa" colspan="2"/>
                         </p:row>
                         <p:row>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
                         </p:row>
                     </p:columnGroup>
 
@@ -101,12 +101,12 @@ and open the template in the editor.
                             <p:column headerText="Varicella" colspan="2"/>
                         </p:row>
                         <p:row>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
                         </p:row>
                     </p:columnGroup>
 

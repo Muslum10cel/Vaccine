@@ -21,7 +21,7 @@ and open the template in the editor.
                 <p:growl id="msg"/>
                 <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
                 <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
-                    <f:facet name="header">Status is updating...</f:facet>
+                    <f:facet name="header">#{lang.statusUpdate}</f:facet>
                     <center>
                         <p:graphicImage library="images" name="gear.gif" />
                     </center>
@@ -29,17 +29,17 @@ and open the template in the editor.
                 <p:dataTable id="kkk"
                              var="k"
                              value="#{kkkBean.kkks}">
-                    <f:facet name="header">Kkk Details</f:facet>
+                    <f:facet name="header">#{lang.kkksdetails}</f:facet>
                     <p:columnGroup type="header">
                         <p:row>
-                            <p:column headerText="First" colspan="2"/>
-                            <p:column headerText="Second" colspan="2"/>
+                            <p:column headerText="#{lang.first}" colspan="2"/>
+                            <p:column headerText="#{lang.second}" colspan="2"/>
                         </p:row>
                         <p:row>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
-                            <p:column headerText="Date"/>
-                            <p:column headerText="Mark as Done/Undone"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
+                            <p:column headerText="#{lang.date}"/>
+                            <p:column headerText="#{lang.mark}"/>
                         </p:row>
                     </p:columnGroup>
 
