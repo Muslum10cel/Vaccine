@@ -4,13 +4,14 @@
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
         http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
               version="2.2">
+    
     <application>
         <locale-config>
-            <default-locale>tr</default-locale>
-            <supported-locale>en</supported-locale>
+            <default-locale>en</default-locale>
+            <supported-locale>tr</supported-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>langprop</base-name>
+            <base-name>welcome</base-name>
             <var>lang</var>
         </resource-bundle>
     </application>
