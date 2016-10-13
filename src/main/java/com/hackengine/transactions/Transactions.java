@@ -24,6 +24,8 @@ import com.hackengine.tags.Tags;
 import com.hackengine.utils.SessionUtils;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.persistence.NonUniqueResultException;
@@ -39,12 +41,13 @@ import org.hibernate.exception.JDBCConnectionException;
  */
 public class Transactions {
 
+    private static final Logger LOG = Logger.getLogger(Transactions.class.getName());
     private static final SessionFactory factory = new Configuration().configure().buildSessionFactory();
     private static final Service service = new Service();
     private Session session = null;
 
-    private void openSession(){
-            session = factory.openSession();
+    private void openSession() {
+        session = factory.openSession();
     }
 
     public String register(User user) {
@@ -53,8 +56,10 @@ public class Transactions {
             session.beginTransaction();
             session.save(user);
             session.getTransaction().commit();
+            LOG.log(Level.INFO, Messages.REGISTRATION, user);
             return Tags.SUCCESS;
         } catch (HibernateException e) {
+            LOG.log(Level.SEVERE, Messages.REGISTRATION_EXCEPTION, e);
             System.out.println(e.toString());
         }
         return Tags.FAIL;
@@ -72,6 +77,7 @@ public class Transactions {
                 u = (User) session.createQuery(Queries.LOG_IN_QUERY).setString(Tags.USERNAME, username).uniqueResult();
                 if (u != null) {
                     if (u.getPassword().equals(password)) {
+                        LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.LOG_IN, u);
                         SessionUtils.getSession().setAttribute(Tags.LOGGED_USER, u);
                         switch (u.getLogLevel()) {
                             case USER:
@@ -82,16 +88,18 @@ public class Transactions {
                                 return Tags.ADMIN_PAGE;
                         }
                     } else {
+                        LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.PASSWORD_ERROR_LOGIN, u);
                         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, Messages.PASSWORD_ERROR, Messages.PASSWORD_ERROR_DETAIL + username));
                     }
                 } else {
+                    LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.INVALID_USERNAME_ERROR, username);
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, Messages.LOG_IN_ERROR, username + Messages.LOG_IN_ERROR_DETAIL));
                 }
             } catch (NonUniqueResultException e) {
-                System.out.println(e.toString());
+                LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.NONUNIQUE_RESULT_EXCEPTION, e);
             }
         } catch (JDBCConnectionException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.JDBC_EXCEPTION, e);
             return Tags.FAIL;
         }
         return null;
@@ -163,8 +171,9 @@ public class Transactions {
             session.beginTransaction();
             session.save(doctor);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.DOCTOR_ADDED, doctor);
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
 
     }
@@ -174,8 +183,9 @@ public class Transactions {
             session.beginTransaction();
             session.delete(user);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.USER_DELETED, user);
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
     }
 
@@ -184,8 +194,9 @@ public class Transactions {
             session.beginTransaction();
             session.delete(baby);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.BABY_DELETED, baby);
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
     }
 
@@ -222,8 +233,9 @@ public class Transactions {
             baby.setOtherVaccines(otherVaccines);
             user.getBabies().add(baby);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.BABY_ADDED, new Object[]{baby, user});
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
     }
 
@@ -235,9 +247,10 @@ public class Transactions {
             comment.setUser(user);
             user.getComments().add(comment);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.COMMENT_ADDED, new Object[]{comment, user});
             return true;
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
         return false;
     }
@@ -247,8 +260,9 @@ public class Transactions {
             session.beginTransaction();
             session.delete(comment);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.COMMENT_DELETED, comment);
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
     }
 
@@ -258,9 +272,10 @@ public class Transactions {
             session.beginTransaction();
             session.update(dabtIpaHib);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.VACCINE_UPDATED, dabtIpaHib);
             return true;
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
         return false;
     }
@@ -271,9 +286,10 @@ public class Transactions {
             session.beginTransaction();
             session.update(hepatitisA);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.VACCINE_UPDATED, hepatitisA);
             return true;
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
         return false;
     }
@@ -284,9 +300,10 @@ public class Transactions {
             session.beginTransaction();
             session.update(hepatitisB);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.VACCINE_UPDATED, hepatitisB);
             return true;
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
         return false;
     }
@@ -297,9 +314,10 @@ public class Transactions {
             session.beginTransaction();
             session.update(kkk);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.VACCINE_UPDATED, kkk);
             return true;
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
         return false;
     }
@@ -310,9 +328,10 @@ public class Transactions {
             session.beginTransaction();
             session.update(kpa);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.VACCINE_UPDATED, kpa);
             return true;
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
         return false;
     }
@@ -323,9 +342,10 @@ public class Transactions {
             session.beginTransaction();
             session.update(opa);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.VACCINE_UPDATED, opa);
             return true;
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
         return false;
     }
@@ -336,9 +356,10 @@ public class Transactions {
             session.beginTransaction();
             session.update(rva);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.VACCINE_UPDATED, rva);
             return true;
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
         return false;
     }
@@ -349,14 +370,16 @@ public class Transactions {
             session.beginTransaction();
             session.update(otherVaccines);
             session.getTransaction().commit();
+            LOG.logp(Level.INFO, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.VACCINE_UPDATED, otherVaccines);
             return true;
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
         }
         return false;
     }
 
     public void closeSession() {
+        LOG.log(Level.INFO, Messages.SESSION_CLOSED);
         openSession();
         session.clear();
         session.disconnect();
