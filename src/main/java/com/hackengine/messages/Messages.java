@@ -26,4 +26,30 @@ public class Messages {
 
     public static final String COMMENT_MESSAGE = "Comments";
     public static final String COMMENT_MESSAGE_DETAIL = "New Comments Available";
+
+    public static final String REGISTRATION = "Registration {0}";
+    public static final String REGISTRATION_EXCEPTION = "Registration Exception {0}";
+
+    public static final String LOG_IN = "Login By {0}";
+    public static final String PASSWORD_ERROR_LOGIN = "Password Error {0}";
+    public static final String INVALID_USERNAME_ERROR = "Invalid Username Error {0}";
+
+    public static final String NONUNIQUE_RESULT_EXCEPTION = "NonUniqueResultException {0}";
+    public static final String JDBC_EXCEPTION = "JDBCConnectionException {0}";
+    public static final String HIBERNATE_EXCEPTION = "HibernateException {0}";
+
+    public static final String DOCTOR_ADDED = "{0} Added";
+
+    public static final String USER_DELETED = "{0} Deleted";
+
+    public static final String BABY_DELETED = "{0} Deleted";
+
+    public static final String COMMENT_ADDED = "{0} Added By {1}";
+    public static final String COMMENT_DELETED = "{0} Deleted";
+
+    public static final String BABY_ADDED = "{0} Mapped To {1}";
+
+    public static final String SESSION_CLOSED = "Session Closed!";
+
+    public static final String VACCINE_UPDATED = "{0} Updated!";
 }
