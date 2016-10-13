@@ -8,7 +8,7 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      >
+          >
 
     <h:body>
 
@@ -17,19 +17,19 @@ and open the template in the editor.
      <h:form>
 
 	<h2>
-            <h:outputText value="#{lang.register}" />
+            <h:outputText value="#{lang.action}" />
 	</h2>
 
 	<h:panelGrid columns="2">
 
 		Language :
-		<h:selectOneMenu value="#{language.localeCode}" onchange="submit()"
-			valueChangeListener="#{language.countryLocaleCodeChanged}">
-   			<f:selectItems value="#{language.countriesInMap}" />
+                <h:selectOneMenu value="#{languageBean.localeCode}" onchange="submit()"
+			valueChangeListener="#{languageBean.countryLocaleCodeChanged}">
+   			<f:selectItems value="#{languageBean.countriesInMap}" />
    		</h:selectOneMenu>
 
 	</h:panelGrid>
-
+         
       </h:form>
 
     </h:body>
