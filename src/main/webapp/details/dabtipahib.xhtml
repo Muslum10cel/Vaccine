@@ -13,148 +13,150 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
-    <h:body>
-        <div>TODO write content</div>
-        <p:separator/>
-        <h:form id="form1">
-            <p:growl id="msg"/>
-            <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
-            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
-                <f:facet name="header">Status is updating...</f:facet>
-                <center>
-                    <p:graphicImage library="images" name="gear.gif" />
-                </center>
-            </p:dialog>
-            <p:dataTable id="dabt"
-                         var="dabtipahib"
-                         value="#{dabtIpaHibBean.dabtIpaHibs}">
-                <f:facet name="header">Dabt Ipa Hib Details</f:facet>
-                <p:columnGroup type="header">
-                    <p:row>
-                        <p:column headerText="First" colspan="2"/>
-                        <p:column headerText="Second" colspan="2"/>
-                        <p:column headerText="Third" colspan="2"/>
-
-                    </p:row>
-                    <p:row>
-                        <p:column headerText="Date"/>
-                        <p:column headerText="Mark as Done/Undone"/>
-                        <p:column headerText="Date"/>
-                        <p:column headerText="Mark as Done/Undone"/>
-                        <p:column headerText="Date"/>
-                        <p:column headerText="Mark as Done/Undone"/>
-                    </p:row>
-                </p:columnGroup>
-
-                <p:column>
-                    <div style="text-align: center">
-                        <p:outputLabel value="#{dabtipahib.firstDabtIpaHib}"/>
-                    </div>
-                </p:column>
-
-                <p:column>
-                    <div style="text-align: center">
-                        <p:selectBooleanCheckbox value="#{dabtipahib.firstDabtIpaHibStatus}">
-                            <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(1)}" update="dabt :form1:msg" immediate="true"/>
-                        </p:selectBooleanCheckbox>
-                    </div>
-                </p:column>
-                
-                <p:column>
-                    <div style="text-align: center">
-                        <p:outputLabel value="#{dabtipahib.secondDabtIpaHib}"/>
-                    </div>
-                </p:column>
-                
-                <p:column>
-                    <div style="text-align: center">
-                        <p:selectBooleanCheckbox value="#{dabtipahib.secondDabtIpaHibStatus}">
-                            <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(2)}" update="dabt :form1:msg" immediate="true"/>
-                        </p:selectBooleanCheckbox>
-                    </div>
-                </p:column>
-                
-                <p:column>
-                    <div style="text-align: center">
-                        <p:outputLabel value="#{dabtipahib.thirdDabtIpaHib}"/>
-                    </div>
-                </p:column>
-                
-                <p:column>
-                    <div style="text-align: center">
-                        <p:selectBooleanCheckbox value="#{dabtipahib.thirdDabtIpaHibStatus}">
-                            <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(3)}" update="dabt :form1:msg" immediate="true"/>
-                        </p:selectBooleanCheckbox>
-                    </div>
-                </p:column>
-
-            </p:dataTable>
-
+    <f:view locale="#{languageBean.locale}">
+        <h:body>
+            <div>TODO write content</div>
             <p:separator/>
+            <h:form id="form1">
+                <p:growl id="msg"/>
+                <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+                <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
+                    <f:facet name="header">Status is updating...</f:facet>
+                    <center>
+                        <p:graphicImage library="images" name="gear.gif" />
+                    </center>
+                </p:dialog>
+                <p:dataTable id="dabt"
+                             var="dabtipahib"
+                             value="#{dabtIpaHibBean.dabtIpaHibs}">
+                    <f:facet name="header">Dabt Ipa Hib Details</f:facet>
+                    <p:columnGroup type="header">
+                        <p:row>
+                            <p:column headerText="First" colspan="2"/>
+                            <p:column headerText="Second" colspan="2"/>
+                            <p:column headerText="Third" colspan="2"/>
 
-            <p:dataTable id="dabtt"
-                         var="dabtipahibb"
-                         value="#{dabtIpaHibBean.dabtIpaHibs}">
-                <p:columnGroup type="header">
-                    <p:row>
-                        <p:column headerText="Fourth" colspan="2"/>
-                        <p:column headerText="Fifth" colspan="2"/>
-                        <p:column headerText="Sixth" colspan="2"/>
-                    </p:row>
-                    <p:row>
-                        <p:column headerText="Date"/>
-                        <p:column headerText="Mark as Done/Undone"/>
-                        <p:column headerText="Date"/>
-                        <p:column headerText="Mark as Done/Undone"/>
-                        <p:column headerText="Date"/>
-                        <p:column headerText="Mark as Done/Undone"/>
-                    </p:row>
-                </p:columnGroup>
-                
-                <p:column>
-                    <div style="text-align: center">
-                        <p:outputLabel value="#{dabtipahibb.fourthDabtIpaHib}"/>
-                    </div>
-                </p:column>
-                
-                <p:column>
-                    <div style="text-align: center">
-                        <p:selectBooleanCheckbox value="#{dabtipahibb.fourthDabtIpaHibStatus}">
-                            <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(4)}" update="dabtt :form1:msg" immediate="true"/>
-                        </p:selectBooleanCheckbox>
-                    </div>
-                </p:column>
-                
-                <p:column>
-                    <div style="text-align: center">
-                        <p:outputLabel value="#{dabtipahibb.fifthDabtIpaHib}"/>
-                    </div>
-                </p:column>
-                
-                <p:column>
-                    <div style="text-align: center">
-                        <p:selectBooleanCheckbox value="#{dabtipahibb.fifthDabtIpaHibStatus}">
-                            <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(5)}" update="dabtt :form1:msg" immediate="true"/>
-                        </p:selectBooleanCheckbox>
-                    </div>
-                </p:column>
-                
-                <p:column>
-                    <div style="text-align: center">
-                        <p:outputLabel value="#{dabtipahibb.sixthDabtIpaHib}"/>
-                    </div>
-                </p:column>
-                
-                <p:column>
-                    <div style="text-align: center">
-                        <p:selectBooleanCheckbox value="#{dabtipahibb.sixthDabtIpaHibStatus}">
-                            <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(6)}" update="dabtt :form1:msg" immediate="true"/>
-                        </p:selectBooleanCheckbox>
-                    </div>
-                </p:column>
-                
-            </p:dataTable>
-        </h:form>
-        <p:separator/>
-    </h:body>
+                        </p:row>
+                        <p:row>
+                            <p:column headerText="Date"/>
+                            <p:column headerText="Mark as Done/Undone"/>
+                            <p:column headerText="Date"/>
+                            <p:column headerText="Mark as Done/Undone"/>
+                            <p:column headerText="Date"/>
+                            <p:column headerText="Mark as Done/Undone"/>
+                        </p:row>
+                    </p:columnGroup>
+
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:outputLabel value="#{dabtipahib.firstDabtIpaHib}"/>
+                        </div>
+                    </p:column>
+
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:selectBooleanCheckbox value="#{dabtipahib.firstDabtIpaHibStatus}">
+                                <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(1)}" update="dabt :form1:msg" immediate="true"/>
+                            </p:selectBooleanCheckbox>
+                        </div>
+                    </p:column>
+
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:outputLabel value="#{dabtipahib.secondDabtIpaHib}"/>
+                        </div>
+                    </p:column>
+
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:selectBooleanCheckbox value="#{dabtipahib.secondDabtIpaHibStatus}">
+                                <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(2)}" update="dabt :form1:msg" immediate="true"/>
+                            </p:selectBooleanCheckbox>
+                        </div>
+                    </p:column>
+
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:outputLabel value="#{dabtipahib.thirdDabtIpaHib}"/>
+                        </div>
+                    </p:column>
+
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:selectBooleanCheckbox value="#{dabtipahib.thirdDabtIpaHibStatus}">
+                                <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(3)}" update="dabt :form1:msg" immediate="true"/>
+                            </p:selectBooleanCheckbox>
+                        </div>
+                    </p:column>
+
+                </p:dataTable>
+
+                <p:separator/>
+
+                <p:dataTable id="dabtt"
+                             var="dabtipahibb"
+                             value="#{dabtIpaHibBean.dabtIpaHibs}">
+                    <p:columnGroup type="header">
+                        <p:row>
+                            <p:column headerText="Fourth" colspan="2"/>
+                            <p:column headerText="Fifth" colspan="2"/>
+                            <p:column headerText="Sixth" colspan="2"/>
+                        </p:row>
+                        <p:row>
+                            <p:column headerText="Date"/>
+                            <p:column headerText="Mark as Done/Undone"/>
+                            <p:column headerText="Date"/>
+                            <p:column headerText="Mark as Done/Undone"/>
+                            <p:column headerText="Date"/>
+                            <p:column headerText="Mark as Done/Undone"/>
+                        </p:row>
+                    </p:columnGroup>
+
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:outputLabel value="#{dabtipahibb.fourthDabtIpaHib}"/>
+                        </div>
+                    </p:column>
+
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:selectBooleanCheckbox value="#{dabtipahibb.fourthDabtIpaHibStatus}">
+                                <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(4)}" update="dabtt :form1:msg" immediate="true"/>
+                            </p:selectBooleanCheckbox>
+                        </div>
+                    </p:column>
+
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:outputLabel value="#{dabtipahibb.fifthDabtIpaHib}"/>
+                        </div>
+                    </p:column>
+
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:selectBooleanCheckbox value="#{dabtipahibb.fifthDabtIpaHibStatus}">
+                                <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(5)}" update="dabtt :form1:msg" immediate="true"/>
+                            </p:selectBooleanCheckbox>
+                        </div>
+                    </p:column>
+
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:outputLabel value="#{dabtipahibb.sixthDabtIpaHib}"/>
+                        </div>
+                    </p:column>
+
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:selectBooleanCheckbox value="#{dabtipahibb.sixthDabtIpaHibStatus}">
+                                <p:ajax listener="#{dabtIpaHibBean.updateDabtIpaHib(6)}" update="dabtt :form1:msg" immediate="true"/>
+                            </p:selectBooleanCheckbox>
+                        </div>
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+            <p:separator/>
+        </h:body>
+    </f:view>
 </html>

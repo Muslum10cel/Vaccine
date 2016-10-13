@@ -9,32 +9,34 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </h:head>
-    <h:body>
-        <h:form id="loginForm">
-            <p:growl id="msg" showDetail="true" sticky="true"/>
-            <div>
-                <p:panelGrid columns="3">
-                    <f:facet name="header">#{lang.lForm}</f:facet>
-                    <p:inputText id="username" 
-                                 value="#{loginBean.username}" 
-                                 required="true"
-                                 requiredMessage="Enter username!"/>
-                    <p:watermark for="username" value="#{lang.username} *"/>
-                    <p:message for="username"/>
+    <f:view locale="#{languageBean.locale}">
+        <h:head>
+            <title>TODO supply a title</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </h:head>
+        <h:body>
+            <h:form id="loginForm">
+                <p:growl id="msg" showDetail="true" sticky="true"/>
+                <div>
+                    <p:panelGrid columns="3">
+                        <f:facet name="header">#{lang.lForm}</f:facet>
+                        <p:inputText id="username" 
+                                     value="#{loginBean.username}" 
+                                     required="true"
+                                     requiredMessage="Enter username!"/>
+                        <p:watermark for="username" value="#{lang.username} *"/>
+                        <p:message for="username"/>
 
-                    <p:password id="password"
-                                value="#{loginBean.password}"
-                                required="true"
-                                requiredMessage="Provide Password"/>
-                    <p:watermark for="password" value="#{lang.password} *"/>
-                    <p:message for="password"/>
-                    <p:commandButton value="#{lang.login}" action="#{loginBean.logIn()}" ajax="true" update="msg"/>
-                </p:panelGrid>
-            </div>
-        </h:form>
-    </h:body>
+                        <p:password id="password"
+                                    value="#{loginBean.password}"
+                                    required="true"
+                                    requiredMessage="Provide Password"/>
+                        <p:watermark for="password" value="#{lang.password} *"/>
+                        <p:message for="password"/>
+                        <p:commandButton value="#{lang.login}" action="#{loginBean.logIn()}" ajax="true" update="msg"/>
+                    </p:panelGrid>
+                </div>
+            </h:form>
+        </h:body>
+    </f:view>
 </html>

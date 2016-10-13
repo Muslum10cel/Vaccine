@@ -6,13 +6,16 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="refresh" content="3;/Vaccine/login/login.xhtml"/>
     </h:head>
-    <h:body>
-        <div>Registration is successful. You will be redirected automatically to login page...</div>
-    </h:body>
+    <f:view locale="#{languageBean.locale}">
+        <h:body>
+            <div>#{lang.registersuccess}</div>
+        </h:body>
+    </f:view>
 </html>

@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -24,20 +23,14 @@ import javax.faces.event.ValueChangeEvent;
 public class LanguageBean implements Serializable {
 
     private String localeCode;
-    public Locale locale;
+    public static Locale locale;
 
     private static final Map<String, Object> countries;
 
     static {
         countries = new LinkedHashMap<>();
-        countries.put("English", Locale.ENGLISH);
+        countries.put("English", Locale.ENGLISH); //label, value
         countries.put("Türkçe", new Locale("tr"));
-    }
-
-    @PostConstruct
-    public void init() {
-        locale = FacesContext.getCurrentInstance().getExternalContext().getRequestLocale();
-        FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
     }
 
     public Map<String, Object> getCountriesInMap() {
@@ -57,7 +50,7 @@ public class LanguageBean implements Serializable {
     }
 
     public void setLocale(Locale locale) {
-        this.locale = locale;
+        LanguageBean.locale = locale;
     }
 
     public void countryLocaleCodeChanged(ValueChangeEvent e) {
@@ -68,6 +61,7 @@ public class LanguageBean implements Serializable {
                 locale = (Locale) entry.getValue();
             }
         }
+        setLocale(locale);
         FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
     }
 }

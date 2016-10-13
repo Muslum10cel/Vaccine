@@ -13,25 +13,27 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
-    <h:body>
-        <p:separator/>
-        <h1 style="text-decoration: underline; color: #009999">
-            For displaying vaccine details of #{detailBean.baby.babyName}, please click vaccine name
-        </h1>
-        <h:form>
+    <f:view locale="#{languageBean.locale}">
+        <h:body>
             <p:separator/>
-            <p:dataTable var="vac"
-                         value="#{detailBean.vaccines}">
-                <f:facet name="header">Vaccine Names</f:facet>
-                
-                <p:column>
-                    <div style="text-align: center">
-                        <p:commandLink value="#{vac}" action="#{detailBean.displayDetailsOfVaccine(vac)}"/>
-                    </div>
-                </p:column>
-                
-            </p:dataTable>
-        </h:form>
-        <p:separator/>
-    </h:body>
+            <h1 style="text-decoration: underline; color: #009999">
+                For displaying vaccine details of #{detailBean.baby.babyName}, please click vaccine name
+            </h1>
+            <h:form>
+                <p:separator/>
+                <p:dataTable var="vac"
+                             value="#{detailBean.vaccines}">
+                    <f:facet name="header">Vaccine Names</f:facet>
+
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:commandLink value="#{vac}" action="#{detailBean.displayDetailsOfVaccine(vac)}"/>
+                        </div>
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+            <p:separator/>
+        </h:body>
+    </f:view>
 </html>

@@ -9,25 +9,27 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </h:head>
-    <h:body>
-        <div>TODO write content</div>
-        <h:form>
-            <p:commandLink value="#{lang.register}" action="/register/register.xhtml?faces-redirect=true" ajax="true"/>
-            <br></br>
-            <p:commandLink value="#{lang.login}" action="/login/login.xhtnl?faces-redirect=true" ajax="true"/>
-            <br></br>
-            <h:panelGrid columns="2">
-                Language/Dil :
-                <p:selectOneMenu value="#{languageBean.localeCode}" onchange="submit()"
-                                 valueChangeListener="#{languageBean.countryLocaleCodeChanged}">
-                    <f:selectItems value="#{languageBean.countriesInMap}" />
-                </p:selectOneMenu>
+    <f:view locale="#{languageBean.locale}">
+        <h:head>
+            <title>TODO supply a title</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </h:head>
+        <h:body>
+            <div>TODO write content</div>
+            <h:form>
+                <p:commandLink value="#{lang.register}" action="/register/register.xhtml?faces-redirect=true" ajax="true"/>
+                <br></br>
+                <p:commandLink value="#{lang.login}" action="/login/login.xhtnl?faces-redirect=true" ajax="true"/>
+                <br></br>
+                <h:panelGrid columns="2">
+                    Language/Dil :
+                    <p:selectOneMenu value="#{languageBean.localeCode}" onchange="submit()"
+                                     valueChangeListener="#{languageBean.countryLocaleCodeChanged}">
+                        <f:selectItems value="#{languageBean.countriesInMap}" />
+                    </p:selectOneMenu>
 
-            </h:panelGrid>
-        </h:form>
-    </h:body>
+                </h:panelGrid>
+            </h:form>
+        </h:body>
+    </f:view>
 </html>

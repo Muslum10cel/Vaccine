@@ -13,82 +13,84 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
-    <h:body>
-        <div>TODO write content</div>
-        <p:separator/>
-        <h:form id="form1">
-            <p:growl id="msg"/>
-            <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
-            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
-                <f:facet name="header">Status is updating...</f:facet>
-                <center>
-                    <p:graphicImage library="images" name="gear.gif" />
-                </center>
-            </p:dialog>
-            <p:dataTable id="rva"
-                         var="rv"
-                         value="#{rvaBean.rvas}">
-                <f:facet name="header">Rva Details</f:facet>
-                <p:columnGroup type="header">
-                    <p:row>
-                        <p:column headerText="First" colspan="2"/>
-                        <p:column headerText="Second" colspan="2"/>
-                        <p:column headerText="Third" colspan="2"/>
-                    </p:row>
-                    <p:row>
-                        <p:column headerText="Date"/>
-                        <p:column headerText="Mark As Done/Undone"/>
-                        <p:column headerText="Date"/>
-                        <p:column headerText="Mark As Done/Undone"/>
-                        <p:column headerText="Date"/>
-                        <p:column headerText="Mark As Done/Undone"/>
-                    </p:row>
-                </p:columnGroup>
+    <f:view locale="#{languageBean.locale}">
+        <h:body>
+            <div>TODO write content</div>
+            <p:separator/>
+            <h:form id="form1">
+                <p:growl id="msg"/>
+                <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+                <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
+                    <f:facet name="header">Status is updating...</f:facet>
+                    <center>
+                        <p:graphicImage library="images" name="gear.gif" />
+                    </center>
+                </p:dialog>
+                <p:dataTable id="rva"
+                             var="rv"
+                             value="#{rvaBean.rvas}">
+                    <f:facet name="header">Rva Details</f:facet>
+                    <p:columnGroup type="header">
+                        <p:row>
+                            <p:column headerText="First" colspan="2"/>
+                            <p:column headerText="Second" colspan="2"/>
+                            <p:column headerText="Third" colspan="2"/>
+                        </p:row>
+                        <p:row>
+                            <p:column headerText="Date"/>
+                            <p:column headerText="Mark As Done/Undone"/>
+                            <p:column headerText="Date"/>
+                            <p:column headerText="Mark As Done/Undone"/>
+                            <p:column headerText="Date"/>
+                            <p:column headerText="Mark As Done/Undone"/>
+                        </p:row>
+                    </p:columnGroup>
 
-                <p:column>
-                    <div style="text-align: center">
-                        <p:outputLabel value="#{rv.firstRvaDate}"/>
-                    </div>
-                </p:column>
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:outputLabel value="#{rv.firstRvaDate}"/>
+                        </div>
+                    </p:column>
 
-                <p:column>
-                    <div style="text-align: center">
-                        <p:selectBooleanCheckbox value="#{rv.firstRvaStatus}">
-                            <p:ajax listener="#{rvaBean.updateRva(1)}" update="rva :form1:msg" immediate="true"/>
-                        </p:selectBooleanCheckbox>
-                    </div>
-                </p:column>
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:selectBooleanCheckbox value="#{rv.firstRvaStatus}">
+                                <p:ajax listener="#{rvaBean.updateRva(1)}" update="rva :form1:msg" immediate="true"/>
+                            </p:selectBooleanCheckbox>
+                        </div>
+                    </p:column>
 
-                <p:column>
-                    <div style="text-align: center">
-                        <p:outputLabel value="#{rv.secondRvaDate}"/>
-                    </div>
-                </p:column>
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:outputLabel value="#{rv.secondRvaDate}"/>
+                        </div>
+                    </p:column>
 
-                <p:column>
-                    <div style="text-align: center">
-                        <p:selectBooleanCheckbox value="#{rv.secondRvaStatus}">
-                            <p:ajax listener="#{rvaBean.updateRva(2)}" update="rva :form1:msg" immediate="true"/>
-                        </p:selectBooleanCheckbox>
-                    </div>
-                </p:column>
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:selectBooleanCheckbox value="#{rv.secondRvaStatus}">
+                                <p:ajax listener="#{rvaBean.updateRva(2)}" update="rva :form1:msg" immediate="true"/>
+                            </p:selectBooleanCheckbox>
+                        </div>
+                    </p:column>
 
-                <p:column>
-                    <div style="text-align: center">
-                        <p:outputLabel value="#{rv.thirdRvaDate}"/>
-                    </div>
-                </p:column>
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:outputLabel value="#{rv.thirdRvaDate}"/>
+                        </div>
+                    </p:column>
 
-                <p:column>
-                    <div style="text-align: center">
-                        <p:selectBooleanCheckbox value="#{rv.thirdRvaStatus}">
-                            <p:ajax listener="#{rvaBean.updateRva(3)}" update="rva :form1:msg" immediate="true"/>
-                        </p:selectBooleanCheckbox>
-                    </div>
-                </p:column>
-                
-            </p:dataTable>
-        </h:form>
-        <p:separator/>
-    </h:body>
+                    <p:column>
+                        <div style="text-align: center">
+                            <p:selectBooleanCheckbox value="#{rv.thirdRvaStatus}">
+                                <p:ajax listener="#{rvaBean.updateRva(3)}" update="rva :form1:msg" immediate="true"/>
+                            </p:selectBooleanCheckbox>
+                        </div>
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+            <p:separator/>
+        </h:body>
+    </f:view>
 </html>

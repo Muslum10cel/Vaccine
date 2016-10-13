@@ -13,79 +13,81 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
-    <h:body>
-        <div>TODO write content</div>
-        <h:form>
-            <p:commandLink value="Log Out" action="#{doctorBean.logOut()}" global="false"/>
-            <p:separator/>
+    <f:view locale="#{languageBean.locale}">
+        <h:body>
+            <div>TODO write content</div>
+            <h:form>
+                <p:commandLink value="Log Out" action="#{doctorBean.logOut()}" global="false"/>
+                <p:separator/>
 
-            <p:growl id="msj" widgetVar="wmsj" showDetail="true" sticky="true"/>
+                <p:growl id="msj" widgetVar="wmsj" showDetail="true" sticky="true"/>
 
-            <p:socket onMessage="handleMessage" channel="/notify" >
-                <p:ajax event="message" update="comments" />
-            </p:socket>
+                <p:socket onMessage="handleMessage" channel="/notify" >
+                    <p:ajax event="message" update="comments" />
+                </p:socket>
 
-            <script type="text/javascript">
-                function handleMessage(facesmessage) {
-                    facesmessage.severity = 'info';
+                <script type="text/javascript">
+                    function handleMessage(facesmessage) {
+                        facesmessage.severity = 'info';
 
-                    PF('wmsj').show([facesmessage]);
-                }
-            </script>  
-            <p:dataTable id="comments"
-                         var="comment"
-                         widgetVar="comTable"
-                         value="#{doctorBean.comments}"
-                         paginator="true" 
-                         rows="20" 
-                         stickyHeader="true"
-                         scrollable="true"
-                         style="margin-bottom:20px"
-                         paginatorTemplate="{CurrentPageReport} 
-                         {FirstPageLink} 
-                         {PreviousPageLink} 
-                         {PageLinks} 
-                         {NextPageLink} 
-                         {LastPageLink} 
-                         {RowsPerPageDropdown}
-                         {Exporters}">
-                <f:facet name="{Exporters}">
-                    <h:commandLink>
-                        <p:graphicImage library="images" name="pdf.png" width="24"/>
-                        <p:dataExporter type="pdf" target="comments" fileName="filterResult"/>
-                    </h:commandLink>
+                        PF('wmsj').show([facesmessage]);
+                    }
+                </script>  
+                <p:dataTable id="comments"
+                             var="comment"
+                             widgetVar="comTable"
+                             value="#{doctorBean.comments}"
+                             paginator="true" 
+                             rows="20" 
+                             stickyHeader="true"
+                             scrollable="true"
+                             style="margin-bottom:20px"
+                             paginatorTemplate="{CurrentPageReport} 
+                             {FirstPageLink} 
+                             {PreviousPageLink} 
+                             {PageLinks} 
+                             {NextPageLink} 
+                             {LastPageLink} 
+                             {RowsPerPageDropdown}
+                             {Exporters}">
+                    <f:facet name="{Exporters}">
+                        <h:commandLink>
+                            <p:graphicImage library="images" name="pdf.png" width="24"/>
+                            <p:dataExporter type="pdf" target="comments" fileName="filterResult"/>
+                        </h:commandLink>
 
-                    <h:commandLink>
-                        <p:graphicImage library="images" name="csv.png" width="24"/>
-                        <p:dataExporter type="csv" target="comments" fileName="filterResult"/>
-                    </h:commandLink>
-                </f:facet>
-                <f:facet name="header">Comments</f:facet>
-                <p:column headerText="Vaccine Name" filterBy="#{comment.vaccineName}" filterMatchMode="exact">
-                    <f:facet name="filter">
-                        <p:selectOneMenu onchange="PF('comTable').filter()">
-                            <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
-                            <f:selectItems value="#{doctorBean.vaccines}"/>
-                        </p:selectOneMenu>
+                        <h:commandLink>
+                            <p:graphicImage library="images" name="csv.png" width="24"/>
+                            <p:dataExporter type="csv" target="comments" fileName="filterResult"/>
+                        </h:commandLink>
                     </f:facet>
-                    <p:outputLabel value="#{comment.vaccineName}"/>
-                </p:column>
-                <p:column headerText="Gender" filterBy="#{comment.gender}" filterMatchMode="exact">
-                    <f:facet name="filter">
-                        <p:selectOneMenu onchange="PF('comTable').filter()">
-                            <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
-                            <f:selectItems value="#{doctorBean.genders}"/>
-                        </p:selectOneMenu>
-                    </f:facet>
-                    <p:outputLabel value="#{comment.gender}"/>
-                </p:column>
-                <p:column headerText="Comment">
-                    <p:outputLabel value="#{comment.comment}"/>
-                </p:column>
-                <p:column headerText="Action" exportable="false">
-                    <p:commandLink value="Delete Comment" action="#{doctorBean.deleteComment(comment)}" ajax="true" update="comments"/>
-                </p:column>
-            </p:dataTable>
-        </h:form>
-    </h:body>
+                    <f:facet name="header">Comments</f:facet>
+                    <p:column headerText="Vaccine Name" filterBy="#{comment.vaccineName}" filterMatchMode="exact">
+                        <f:facet name="filter">
+                            <p:selectOneMenu onchange="PF('comTable').filter()">
+                                <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
+                                <f:selectItems value="#{doctorBean.vaccines}"/>
+                            </p:selectOneMenu>
+                        </f:facet>
+                        <p:outputLabel value="#{comment.vaccineName}"/>
+                    </p:column>
+                    <p:column headerText="Gender" filterBy="#{comment.gender}" filterMatchMode="exact">
+                        <f:facet name="filter">
+                            <p:selectOneMenu onchange="PF('comTable').filter()">
+                                <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
+                                <f:selectItems value="#{doctorBean.genders}"/>
+                            </p:selectOneMenu>
+                        </f:facet>
+                        <p:outputLabel value="#{comment.gender}"/>
+                    </p:column>
+                    <p:column headerText="Comment">
+                        <p:outputLabel value="#{comment.comment}"/>
+                    </p:column>
+                    <p:column headerText="Action" exportable="false">
+                        <p:commandLink value="Delete Comment" action="#{doctorBean.deleteComment(comment)}" ajax="true" update="comments"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </h:body>
+    </f:view>
 </html>
