@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:view locale="#{languageBean.locale}">
+        <h:head>
+            <title>TODO supply a title</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </h:head>
+        <h:body>
+            <div>TODO write content</div>
+            <p:accordionPanel>
+                <p:tab title="#{lang.whatisvaccine}">
+                    <h:panelGrid columns="1" cellpadding="10">
+                        <p:outputLabel value="#{infoBean.info}"/>
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="#{lang.inourountry}">
+                    <h:panelGrid columns="1" cellpadding="10">
+                        <p:outputLabel value="#{infoBean.inOurCountry}"/>
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="#{lang.aims}">
+                    <h:panelGrid columns="1" cellpadding="10">
+                        <p:outputLabel value="#{infoBean.aims}"/>
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+        </h:body>
+    </f:view>
+</html>

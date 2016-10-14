@@ -21,7 +21,8 @@ and open the template in the editor.
                 <p:growl id="msg"/>
                 <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
                 <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="true">
-                    <f:facet name="header"#{lang.statusUpdate}></f:facet>
+                    <f:facet name="header">#{lang.statusUpdate}
+                    </f:facet>
                     <center>
                         <p:graphicImage library="images" name="gear.gif" />
                     </center>
