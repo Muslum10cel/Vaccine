@@ -34,9 +34,9 @@ public class InfoBean implements Serializable {
 
     public String getInfo() throws IOException {
         InputStreamReader inputStream = null;
-        if (locale.toString().equals(Tags.EN)) {
+        if (isLocaleEn()) {
             inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.EN_RESOURCES + Files.WHAT_IS_VACCINATION));
-        } else if (locale.toString().equals(Tags.TR)) {
+        } else if (isLocaleTR()) {
             inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.TR_RESOURCES + Files.WHAT_IS_VACCINATION));
         }
         return readFromFile(inputStream);
@@ -44,9 +44,9 @@ public class InfoBean implements Serializable {
 
     public String getInOurCountry() throws IOException {
         InputStreamReader inputStream = null;
-        if (locale.toString().equals(Tags.EN)) {
+        if (isLocaleEn()) {
             inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.EN_RESOURCES + Files.IN_OUR_COUNTRY));
-        } else if (locale.toString().equals(Tags.TR)) {
+        } else if (isLocaleTR()) {
             inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.TR_RESOURCES + Files.IN_OUR_COUNTRY));
         }
         return readFromFile(inputStream);
@@ -54,9 +54,9 @@ public class InfoBean implements Serializable {
 
     public String getAims() throws IOException {
         InputStreamReader inputStream = null;
-        if (locale.toString().equals(Tags.EN)) {
+        if (isLocaleEn()) {
             inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.EN_RESOURCES + Files.AIMS));
-        } else if (locale.toString().equals(Tags.TR)) {
+        } else if (isLocaleTR()) {
             inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.TR_RESOURCES + Files.AIMS));
         }
         return readFromFile(inputStream);
@@ -68,8 +68,16 @@ public class InfoBean implements Serializable {
         String line;
         while ((line = bufferedReader.readLine()) != null) {
             builder.append(line);
-            builder.append("\n");
+            builder.append(Tags.NEW_LINE);
         }
         return builder.toString();
+    }
+
+    private boolean isLocaleEn() {
+        return locale.toString().equals(Tags.EN);
+    }
+
+    private boolean isLocaleTR() {
+        return locale.toString().equals(Tags.TR);
     }
 }
