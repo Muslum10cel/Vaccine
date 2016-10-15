@@ -47,7 +47,7 @@ public class Tags {
     public static final String NOTIFY = "/notify";
     public static final String EN = "en";
     public static final String TR = "tr";
-    public static final String EN_RESOURCES = "/resources/file/en/";
-    public static final String TR_RESOURCES = "/resources/file/tr/";
+    public static final String EN_RESOURCES = "/WEB-INF/resources/file/en/";
+    public static final String TR_RESOURCES = "/WEB-INF/resources/file/tr/";
     public static final String NEW_LINE = "\n";
 }
