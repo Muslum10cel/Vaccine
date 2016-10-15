@@ -18,6 +18,8 @@ and open the template in the editor.
             <div>TODO write content</div>
             <h:form>
                 <p:commandLink value="#{lang.logOut}" action="#{doctorBean.logOut()}" global="false"/>
+                <p:outputLabel value="&#160;"/>
+                <p:commandLink value="#{lang.faq}" action="faq.xhtml?faces-redirect=true" />
                 <p:separator/>
 
                 <p:growl id="msj" widgetVar="wmsj" showDetail="true" sticky="true"/>
