@@ -1,0 +1,26 @@
+Ülkemizde son vahşi polio virüsüne bağlı paralitik hastalık 1998 yılında görülmüştür. 
+Eradikasyon tamamen sağlanmış bölgelerde her zaman için importasyon riski vardır. 
+Ülkemizin jeopolitik durumu göz önüne alındığında polio aşı programında oral polio aşısına gereksinim olduğu açıktır. 
+OPA aynı zamanda kullanım kolaylığı, düşük maliyet, doğal kazanılmış enfeksiyonu taklit etmesi ve hızlı bir şekilde 
+viral geçişi durdurması nedeniyle de tercih edilmektedir. Aynı zamanda OPV mukozal immuniteyi de indüklemektedir. 
+OPA ilişkili paralitik poliomiyelit (VAPP) gelişimi en korkulan yan etkidir. OPA kullanan ülkelerde insidansı yaklaşık olarak 
+yıllık 2-4/1.000.000’dur, en sık aşının ilk dozundan sonra görülürken, takip eden dozlarda risk azalmaktadır. 
+Klasik IPA 1950’li yıllarda kullanılmaya başlanmış ve 1960’lı yıllarda yerini OPA’ya bırakmış ve 1990’lı yılların ikinci yarısına 
+gelene kadar Amerika Birleşik Devletleri’nde kullanılan tüm polio virüs aşılarının sadece %2’sini oluşturmuştur. 
+Ancak özellikle Kuzey Avrupa Ülkelerinde baştan beri kullanılmakta olan IPA, 1978 yılında farklı bir metod ile üretilerek 
+daha antijenik hale getirilmiştir. Amerika Birleşik Devletleri’nde 2, 4, 12-18 aylarda yapılan IPA ile 2. dozdan iki ay sonra 
+%99-%100 her üç tipe karşı koruyucu antikor oluşumu tespit edilmiştir. Ayrıca IPA aşısı VAPP’e karşı da etkilidir. 
+Amerika Birleşik Devletleri’nde 1997-2000 yılları arasında yapılan bir çalışmada15, infantlarda IPA ve OPA’nın ardışık dozlarında 
+(iki doz IPA ardından OPA) VAPP’ın önlendiği gösterilmiştir. Ancak IPA, OPA’ya göre daha az mukozal immun yanıta neden olmaktadır. 
+Bu nedenlerden dolayı ülkemizde ardışık polio şeması yürütülmektedir. VAPP’ın önlenebilmesi için 
+yeterli serum antikor düzeyine iki doz IPA’dan sonra ulaşıldığından, OPA uygulaması öncesi iki doz IPA yapılması ardışık şemanın 
+temelini oluşturmaktadır. IPA 2, 4, 6 ve 18. aylarda beşli karma aşı (DTaB-IPA-Hib) olarak uygulanmaktadır, 
+OPA 6. ve 18. aylarda uygulanmaktadır. 
+IPV, daha önceki IPV uygulanması ve OPV’de daha önceki OPV dozu sırasında anafilaktik reaksiyon geliştirenlere uygulanmamalıdır.
+Ayrıca evlerinde immünkompromize kişiler bulunanlara OPV verilmişse, 4-6 hafta hem aşılanan hem de immünkompromize kişi 
+temastan kaçınmalıdır. Eğer bu mümkün değilse temizlik kurallarına azami özen gösterilmeli ve aşılanan kişinin 
+gaitası ve tükrüğü ile temastan kaçınılmalıdır. Ancak bu yöntemler yeteri kadar koruyucu olmayabilir. 
+Aşıdan sonra virüs gaitada 4 hafta maksimum oranlarda atılır, ancak 6 haftaya kadar gaitada atılım devam eder.
+Anne sütü ile beslenme, hafif ishal, üst solunum yolu enfeksiyonları, düzelme döneminde olan hastalıklar OPV ve IPV için 
+kontrendikasyon teşkil etmezler. OPV sonrasında çocuk kusarsa (5-10 dakika içinde) OPV dozu tekrarlanmalıdır. 
+Eğer ikinci defa da kusması gözlenirse doz bir sonraki vizitte uygulanmalıdır. 

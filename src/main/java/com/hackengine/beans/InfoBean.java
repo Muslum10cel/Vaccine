@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.Locale;
+import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -33,75 +34,126 @@ public class InfoBean implements Serializable {
     }
 
     public String getInfo() throws IOException {
-        InputStreamReader inputStream = null;
 
         if (isLocaleEn()) {
-            inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.EN_RESOURCES + Files.WHAT_IS_VACCINATION));
+            return readFromFile(prepareFile(0, 0));
         } else if (isLocaleTR()) {
-            inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.TR_RESOURCES + Files.WHAT_IS_VACCINATION));
+            return readFromFile(prepareFile(0, 1));
         }
-
-        return readFromFile(inputStream);
+        return null;
     }
 
     public String getInOurCountry() throws IOException {
-        InputStreamReader inputStream = null;
 
         if (isLocaleEn()) {
-            inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.EN_RESOURCES + Files.IN_OUR_COUNTRY));
+            return readFromFile(prepareFile(1, 0));
         } else if (isLocaleTR()) {
-            inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.TR_RESOURCES + Files.IN_OUR_COUNTRY));
+            return readFromFile(prepareFile(1, 1));
         }
-
-        return readFromFile(inputStream);
+        return null;
     }
 
     public String getAims() throws IOException {
-        InputStreamReader inputStream = null;
 
         if (isLocaleEn()) {
-            inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.EN_RESOURCES + Files.AIMS));
+            return readFromFile(prepareFile(2, 0));
         } else if (isLocaleTR()) {
-            inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.TR_RESOURCES + Files.AIMS));
+            return readFromFile(prepareFile(2, 1));
         }
-        return readFromFile(inputStream);
+        return null;
     }
 
     public String getHepatitisB() throws IOException {
-        InputStreamReader inputStream = null;
-        if (isLocaleEn()) {
-            inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.EN_RESOURCES + Files.HEPATITIS_B));
-        } else if (isLocaleTR()) {
-            inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.EN_RESOURCES + Files.HEPATITIS_B));
-        }
 
-        return readFromFile(inputStream);
+        if (isLocaleEn()) {
+            return readFromFile(prepareFile(3, 0));
+        } else if (isLocaleTR()) {
+            return readFromFile(prepareFile(3, 1));
+        }
+        return null;
     }
 
     public String getBcg() throws IOException {
-        InputStreamReader inputStream = null;
 
         if (isLocaleEn()) {
-            inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.EN_RESOURCES + Files.BCG));
+            return readFromFile(prepareFile(4, 0));
         } else if (isLocaleTR()) {
-            inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.EN_RESOURCES + Files.BCG));
+            return readFromFile(prepareFile(4, 1));
         }
-
-        return readFromFile(inputStream);
+        return null;
     }
 
-     public String getDabtIpaHib() throws IOException {
-        InputStreamReader inputStream = null;
+    public String getDabtIpaHib() throws IOException {
 
         if (isLocaleEn()) {
-            inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.EN_RESOURCES + Files.DABT_IPA_HIB));
+            return readFromFile(prepareFile(5, 0));
         } else if (isLocaleTR()) {
-            inputStream = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.EN_RESOURCES + Files.DABT_IPA_HIB));
+            return readFromFile(prepareFile(5, 1));
         }
+        return null;
+    }
 
-        return readFromFile(inputStream);
+    public String getOpa() throws IOException {
+        
+        if (isLocaleEn()) {
+            return readFromFile(prepareFile(6, 0));
+        } else if (isLocaleTR()) {
+            return readFromFile(prepareFile(6, 1));
+        }
+        return null;
+    }
+
+    public String getKpa() throws IOException{
+        
+        if (isLocaleEn()) {
+            return readFromFile(prepareFile(7, 0));
+        } else if (isLocaleTR()) {
+            return readFromFile(prepareFile(7, 1));
+        }
+        return null;
     }
     
+    private InputStreamReader prepareFile(int file, int lang) {
+        // lang -> 0 en lang -> 1 TR
+        StringBuilder builder = new StringBuilder();
+        switch (lang) {
+            case 0:
+                builder.append(Tags.EN_RESOURCES);
+                break;
+            case 1:
+                builder.append(Tags.TR_RESOURCES);
+        }
+
+        switch (file) {
+            case 0:
+                builder.append(Files.WHAT_IS_VACCINATION);
+                break;
+            case 1:
+                builder.append(Files.IN_OUR_COUNTRY);
+                break;
+            case 2:
+                builder.append(Files.AIMS);
+                break;
+            case 3:
+                builder.append(Files.HEPATITIS_B);
+                break;
+            case 4:
+                builder.append(Files.BCG);
+                break;
+            case 5:
+                builder.append(Files.DABT_IPA_HIB);
+                break;
+            case 6:
+                builder.append(Files.OPA);
+                break;
+            case 7:
+                builder.append(Files.KPA);
+                break;
+        }
+
+        return new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(builder.toString()));
+    }
+
     private String readFromFile(InputStreamReader reader) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(reader);
         StringBuilder builder = new StringBuilder();
