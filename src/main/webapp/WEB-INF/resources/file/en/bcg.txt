@@ -1,0 +1,31 @@
+BCG aşısı tüberküloz basilinin tüm yapısal özelliklerini taşıyan ancak hastalık oluşturma yeteneği yok edilmiş 
+bir Mycobacterium bovis suşudur. BCG aşısı temel olarak kan ve lenfatik sistemle basilin yayılmasını engellerken, 
+akciğer tüberkülozunun önlemedeki etkinliği daha düşüktür. Genel olarak BCG aşısının etkinliği %0-80 arasında bildirilmektedir. 
+Bu nedenle ülkeler arasında aşı politikaları açısından farklılıklar bulunmaktadır. Özellikle tüberküloz prevalansı ve 
+insidansı çok düşük ülkeler BCG aşısını rutin aşılamadan çıkartarak sadece yüksek riskli grupları aşılamaktadır. 
+Hollanda, Amerika Birleşik Devletleri, Finlandiya ve İsveç gibi ülkeler BCG aşısını rutin aşılama programlarından çıkarmışlardır.
+Tüberküloz ülkemizde halen ciddi bir sorundur. Bu nedenle BCG aşısı ülkemizde rutin olarak tek doz, sol omuza, 
+intradermal yolla ikinci ayını dolduran bebeklere uygulanmaktadır, 0-3 ay bebeklere uygulanabilirse de yenidoğan döneminde 
+lokal ülserasyon ve lenfadenit riski daha yüksek olmaktadır. Bir yaş altında 0.05 ml (0.5 diziyem), 
+bir yaş üzerinde 0.1 ml (1 diziyem) olarak uygulanmalıdır. Üç aydan küçük çocuklara BCG aşısı direk olarak uygulanırken, 
+üç aydan büyük çocuklarda tüberkülin deri testi (TDT) uygulanıp sonuç negatif ise BCG aşısı yapılmalıdır. 
+PPD solüsyonunun temin edilemediği durumlarda 6 aya kadar BCG aşısı direk olarak uygulanabilmektedir. 
+PPD pozitifliği olan kişilerin aşılanması fayda sağlamamakla birlikte aşının uygulama bölgesinde 
+erken reaksiyon gelişimine de neden olmaktadır. BCG yapılmamış ve PPD deri testi ile endürasyon çapı >10 mm ise, 
+bebek, ayrıntılı öykü, aile öyküsü, fizik ve laboratuvar incelemeleri ile tüberküloz yönünden araştırılmalıdır 
+ve aile taraması önerilmelidir. Altı yaşından sonra BCG aşısı önerilmemektedir, BCG aşısı yapıldığı bilinen ancak 
+skar oluşmamış çocuklara tekrar BCG aşısı yapılmamalıdır. BCG aşısının etkinliğini araştırmak amacıyla PPD yapılması 
+ve sonucuna göre BCG uygulanması da gerekli değildir.
+BCG tüm aşılarla aynı anda uygulanabilmektedir. Burada dikkat edilmesi gereken nokta kızamık aşısı uygulaması sonrası 
+lenfopeni gelişme olasılığı nedeniyle kızamık aşısı yapıldıktan en az 4 hafta sonra BCG aşısı uygulanmalıdır, 
+ancak önce BCG aşısı yapıldıysa kızamık aşısı için 4 hafta bırakmaya gerek yoktur. Canlı virüs aşıları TDT’i bozabilir, 
+bu nedenle PPD uygulaması kızamık içeren aşılar ile aynı günde veya 4–6 hafta sonra yapılmalıdır.
+BCG aşısı güvenilir bir aşıdır. Aşı sonrası gelişen komplikasyonlar aşının uygulama bölgesi ve derinliğine, u
+ygulanan doza, uygulanan kişinin yaşına ve immun sistem özelliklerine göre değişmektedir. 
+Nadir olarak (tüm aşılamaların %1-2’si) bölgesel lenfadenopati, ciltaltı uygulamalarda derin ülser ve apseler görülebilmektedir. 
+Daha nadir olarak görülen ve uzun kemiklerin epifizini etkileyen osteitis, BCG aşılamasından yıllar sonra görülebilmektedir. 
+Dissemine enfeksiyon hemen her zaman ağır immun yetmezlikli hastalarda yaklaşık olarak 1 milyon kişinin 2’sinde gelişmektedir. 
+BCG aşısına bağlı komplikasyon gelişen hastalar mutlaka tüberküloz konusunda uzman bir hekime yönlendirilmelidir.
+BCG aşısı yanık ve cilt enfeksiyonu olan kişilere, ateşli hastalığı olanlara, primer ve sekonder immun yetmezliği olanlara 
+(lösemi, lenfoma, steroid veya immunsupresif tedavi kullananlara, radyoterapi alanlara), HIV pozitiflere, 
+her ne kadar fetüs üzerine zararlı etkisi gösterilmese de gebelere de önerilmemektedir.

@@ -1,0 +1,29 @@
+Ülkemizde difteri-tetanoz-boğmaca aşısı 2008 yılı Şubat ayından itibaren asellüler boğmaca aşısı, 
+Haemophilus influenzae tip b ve inaktif polio aşısını içeren haliyle beşli kombine aşı olarak dört doz uygulanmaya başlamıştır. 
+Beşli karma aşı, 2 ay arayla (2, 4 ve 6. aylarda) 3 kez yapılan primer aşılama ardından 18-24. ayda 4. aşı (rapel doz) olarak 
+toplam 4 kez uygulanır. Primer aşılama, salgın sırasında 2, 3 ve 4. aylarda yapılabilmektedir. 
+Dördüncü DTaB-İPA-Hib aşısı, 12. ay bitiminde ve 3. aşıdan en az 6 ay sonra yapılabilir.  
+Beşinci doz (2. rapel) DTaB okula başlamadan önce 4-6 yaş arasında (ilköğretim 1. sınıf) önerilir. 
+Dördüncü aşı ≥ 4 yaş yapılmışsa, DTaB içeren 5. aşı yapılmayabilir. Difteri-tetanoz-boğmaca komponentlerini içeren aşılar 
+en erken altıncı haftadan sonra uygulanabilir, ikinci doz ilk dozdan ve üçüncü doz ikinci dozdan 4-8 hafta sonra uygulanmalıdır, 
+önerilen sürelerden daha erken uygulanan aşılar yapılmamış sayılmalıdır. Eğer aşılar arasındaki süre daha uzun olursa 
+aşı tekrarına gerek yoktur, aşı programına kaldığı yerden devam edilmelidir. Yedi yaş ve üzerindekilerde DTaB aşısı içindeki 
+difteri toksoidine bağlı istenmeyen etkiler daha fazla olduğundan ve daha az miktardaki difteri toksoidi ile 
+istenilen aşı yanıtı sağlanabildiğinden azaltılmış difteri toksoidi bulunan aşılar kullanılmaktadır (Tdap). 
+7-10 yaş arası primer aşılama yapılmayan veya aşılama durumu bilinmeyen çocuklara tek doz Tdap yapılmalıdır. 
+Td aşısı her 10 yılda bir adolesan ve erişkinlere rapel doz önerilmektedir.
+DTaB aşısına bağlı en sık görülen komplikasyonlar enjeksiyon bölgesinde kızarıklık, şişlik, hassasiyet ve endürasyondur. 
+Daha nadir olarak huzursuzluk, iştahsızlık, kusma, ağlama ve hafif-orta derecede ateştir. Bu yan etkiler sıklıkla aşı yapıldıktan
+sonraki birkaç saatte görülür ve 48 saat içinde düzelir. Bazen asellüler boğmaca aşılarının dördüncü ve beşinci uygulamaları 
+sonrasında uyluk ve üst kolda şişlik aşılamaların %2-3’nde görülmektedir. Bu tabloya ateş, ağrı ve eritem eşlik edebilir 
+ancak kendiliğinden tamamen düzelen bu tablo enfeksiyon ile karıştırılmamalıdır. Daha önceden kullanılan DTB aşısına bağlı 
+ilk 48 saatte görülen konvülsiyonlar 1750 dozda 1 iken, DTaB kullanımı ile bu insidans azalmıştır. Boğmaca aşısına bağlı 
+konvülsiyonlar genellikle febril konvülsiyon şeklindedir ve bu konvülsiyonların epilepsiye veya diğer nörolojik sekellere 
+neden olduğu gösterilmemiştir. Aşıdan sonraki ilk 48 saat içinde başka bir nedene bağlanamayan 40.5 °C ateş, 
+hipotonik-hiporesponsif atak (kollaps veya şok benzeri durum), 3 saatten uzun süren ve sakinleştirilemeyen inatçı ağlama, 
+febril/afebril konvülsiyon, daha önceki aşıdan sonraki ilk 6 hafta içinde Guillain Barre sendromu öyküsü bulunması durumunda 
+dikkat edilmeli ve önlem alınmalıdır. 
+DTaB aşısının kontrendike olduğu durumlar uygulanan kişide ciddi yan etki gelişme riskinin artmasıdır ve bu durumlarda aşı 
+uygulanmamalıdır. Tüm aşılarda olduğu gibi en önemli kontrendikasyon önceki doz aşıdan veya aşı içeriğinden sonra ciddi alerjik 
+reaksiyon (anafilaksi) gelişmesidir. Başka bir nedene bağlanamayan aşı dozundan sonraki ilk 7 gün içinde 
+gelişen ensefalopati durumunda da sonraki doz boğmaca aşısı içeren aşılar önerilmemektedir. 

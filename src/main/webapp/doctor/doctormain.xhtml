@@ -57,7 +57,6 @@ and open the template in the editor.
                             <p:graphicImage library="images" name="pdf.png" width="24"/>
                             <p:dataExporter type="pdf" target="comments" fileName="filterResult"/>
                         </h:commandLink>
-
                         <h:commandLink>
                             <p:graphicImage library="images" name="csv.png" width="24"/>
                             <p:dataExporter type="csv" target="comments" fileName="filterResult"/>
@@ -73,7 +72,7 @@ and open the template in the editor.
                         </f:facet>
                         <p:outputLabel value="#{comment.vaccineName}"/>
                     </p:column>
-                    <p:column headerText="Gender" filterBy="#{comment.gender}" filterMatchMode="exact">
+                    <p:column headerText="#{lang.gender}" filterBy="#{comment.gender}" filterMatchMode="exact">
                         <f:facet name="filter">
                             <p:selectOneMenu onchange="PF('comTable').filter()">
                                 <f:selectItem itemLabel="#{lang.selectone}" itemValue="#{null}" noSelectionOption="true" />

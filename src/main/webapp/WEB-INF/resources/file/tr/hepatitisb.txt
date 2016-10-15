@@ -1,0 +1,34 @@
+Ülkemizde uygulanan aşı rekombinant DNA teknolojisi ile üretilen, 
+mililitresinde 10-40 miligram HBsAg (hepatit B yüzey antijeni) proteini içeren aşıdır yani inaktif (ölü) bir aşıdır 
+ve kas içine (intramuskuler) uygulanır. Bu aşı Ulusal Aşı Takvimi’ne 1997 yılında girmiştir. 
+Bebeklerde primer aşılama genellikle doğumdan sonra başlanan 0, 1 ve 6. ay şeklinde uygulanmaktadır. 
+İlk aşı bebeğin doğduğu gün yapılmalıdır. İkinci doz hepatit B aşısı birinciden en az 4 hafta, 
+üçüncü doz ilkinden en az 16 hafta, ikincisinden en az 8 hafta sonra yapılmalıdır. 
+Son (3 ya da 4.) hepatit B aşısı, en erken 24. hafta (164 gün) bitiminde yapılabilir. 
+Primer aşılama dışındaki adolesanlar ve erişkinler için de aşı şeması benzer şeklindedir 
+ve aşı uygulanmamış kişilerin en kısa sürede aşılanması sağlanmalıdır.
+Primer immunizasyonla hepatit B enfeksiyonu ile birlikte kronik hepatit B gelişimi de önlenmek istendiğinden 
+annelerin hepatit B serolojilerinin de bilinmesi önemlidir. HBsAg pozitif annelerden doğan tüm prematüre, 
+düşük doğum ağırlıklı ve term bebeklere doğumdan sonraki ilk 12 saat içinde hepatit B aşısı ve farklı bir 
+anatomik bölgeden hepatit B immunglobulini (HBİG) uygulanmalıdır. HBİG’nin etkili olması için 0.5 ml dozunda 
+ve doğumdan sonraki 7 gün içinde uygulanması gereklidir. Eğer annesi HBsAg pozitif prematüre bebekler 2000 gramın altında ise 
+doğum sonrası uygulanan ilk doz hepatit B aşısı serinin ilk dozu olarak kabul edilmemeli, 
+bebek 1 aylık olduğunda başlanmak üzere 3 doz hepatit B aşısı uygulanmalıdır. 
+HBsAg pozitif annelerden doğan bebeklerin aşılama sonrası HBsAg ve anti-HBs sevilerine aşılama serisi tamamlandıktan 
+en az 3 ay sonra, bebek 9-18 aylık olduğunda bakılmalıdır. 
+Anti-HBs düzeyi 10 mIU/ml’in altında olanlara 0, 1, 6. Aylarda uygulanan üç dozluk seri tekrar uygulanmalıdır 
+ve 1-3 ay sonra serolojik inceleme tekrar edilmelidir. 
+Annesinin HBsAg durumu bilinmeyen bebeklere ilk 12 saat içinde hepatit B aşısı yapılmalıdır 
+ve annenin HBsAg durumu en kısa sürede belirlenmelidir. Belirlenemediği durumlarda bazı otörler 
+bu bebeklere 7 gün içinde HBİG önermektedir. Doğum ağırlığı 2000 gramın altında olan bebekler için anne 
+HBsAg durumu 12 saat içinde belirlenemeyecekse hepatit B aşısına karşı immün yanıt düşük olacağından 
+aşı ile birlikte HBİG vakit kaybedilmeden yapılmalıdır (ilk 12 saat içinde).
+Sağlıklı çocuklarda üç doz aşının uygulanması ile istenilen düzeyde koruyucu antikor seviyesi sağlanabilmektedir. 
+Bu nedenle rutin aşılama yapılan çocuklarda koruyucu antikor seviyesinin bakılması önerilmez. 
+Sadece hemodiyaliz hastaları, HIV enfekte kişiler, sağlık personelleri veya kullanılmış enjektör iğnesi ile yaralanma, 
+HBV ile temas riski yüksek immün yetmezlikli hastalar, 
+HBsAg pozitif kişilerle cinsel ilişki yaşayan kişilerde Anti-HBs düzeyi bakılmalıdır. 
+Hepatit B aşısı oldukça güvenilir bir aşıdır ve uygulananların büyük kısmında ciddi bir yan etki görülmemektedir. 
+Uygulama bölgesinde ağrı (her 4 kişiden birinde) ve 37.7 °C ve üzerinde ateş (her 15 kişiden birinde) en sık bildirilen 
+yan etkilerdir. Ciddi alerjik reaksiyon sıklığı ise 1.1 milyon dozda birdir. 
+Sadece aşı sonrası ciddi alerjik reaksiyon gelişenlerde aşı kontrendikedir. 
