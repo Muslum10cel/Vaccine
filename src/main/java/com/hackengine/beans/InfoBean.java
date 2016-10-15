@@ -94,7 +94,7 @@ public class InfoBean implements Serializable {
     }
 
     public String getOpa() throws IOException {
-        
+
         if (isLocaleEn()) {
             return readFromFile(prepareFile(6, 0));
         } else if (isLocaleTR()) {
@@ -103,8 +103,8 @@ public class InfoBean implements Serializable {
         return null;
     }
 
-    public String getKpa() throws IOException{
-        
+    public String getKpa() throws IOException {
+
         if (isLocaleEn()) {
             return readFromFile(prepareFile(7, 0));
         } else if (isLocaleTR()) {
@@ -112,10 +112,41 @@ public class InfoBean implements Serializable {
         }
         return null;
     }
-    
+
+    public String getKkk() throws IOException {
+
+        if (isLocaleEn()) {
+            return readFromFile(prepareFile(8, 0));
+        } else if (isLocaleTR()) {
+            return readFromFile(prepareFile(8, 1));
+        }
+        return null;
+    }
+
+    public String getHepatitisA() throws IOException {
+
+        if (isLocaleEn()) {
+            return readFromFile(prepareFile(9, 0));
+        } else if (isLocaleTR()) {
+            return readFromFile(prepareFile(9, 1));
+        }
+        return null;
+    }
+
+    public String getRva() throws IOException {
+
+        if (isLocaleEn()) {
+            return readFromFile(prepareFile(10, 0));
+        } else if (isLocaleTR()) {
+            return readFromFile(prepareFile(10, 1));
+        }
+        return null;
+    }
+
     private InputStreamReader prepareFile(int file, int lang) {
-        // lang -> 0 en lang -> 1 TR
+
         StringBuilder builder = new StringBuilder();
+
         switch (lang) {
             case 0:
                 builder.append(Tags.EN_RESOURCES);
@@ -149,12 +180,22 @@ public class InfoBean implements Serializable {
             case 7:
                 builder.append(Files.KPA);
                 break;
+            case 8:
+                builder.append(Files.KKK);
+                break;
+            case 9:
+                builder.append(Files.HEPATITIS_A);
+                break;
+            case 10:
+                builder.append(Files.RVA);
+                break;
         }
 
         return new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(builder.toString()));
     }
 
     private String readFromFile(InputStreamReader reader) throws IOException {
+
         BufferedReader bufferedReader = new BufferedReader(reader);
         StringBuilder builder = new StringBuilder();
         String line;
