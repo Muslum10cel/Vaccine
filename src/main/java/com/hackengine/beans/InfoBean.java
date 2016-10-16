@@ -35,9 +35,9 @@ public class InfoBean implements Serializable {
     public String getInfo() throws IOException {
 
         if (isLocaleEn()) {
-            return readFromFile(prepareFile(0, 0));
+            return readFromFile(0, 0);
         } else if (isLocaleTR()) {
-            return readFromFile(prepareFile(0, 1));
+            return readFromFile(0, 1);
         }
         return null;
     }
@@ -45,9 +45,9 @@ public class InfoBean implements Serializable {
     public String getInOurCountry() throws IOException {
 
         if (isLocaleEn()) {
-            return readFromFile(prepareFile(1, 0));
+            return readFromFile(1, 0);
         } else if (isLocaleTR()) {
-            return readFromFile(prepareFile(1, 1));
+            return readFromFile(1, 1);
         }
         return null;
     }
@@ -55,9 +55,9 @@ public class InfoBean implements Serializable {
     public String getAims() throws IOException {
 
         if (isLocaleEn()) {
-            return readFromFile(prepareFile(2, 0));
+            return readFromFile(2, 0);
         } else if (isLocaleTR()) {
-            return readFromFile(prepareFile(2, 1));
+            return readFromFile(2, 1);
         }
         return null;
     }
@@ -65,9 +65,9 @@ public class InfoBean implements Serializable {
     public String getHepatitisB() throws IOException {
 
         if (isLocaleEn()) {
-            return readFromFile(prepareFile(3, 0));
+            return readFromFile(3, 0);
         } else if (isLocaleTR()) {
-            return readFromFile(prepareFile(3, 1));
+            return readFromFile(3, 1);
         }
         return null;
     }
@@ -75,9 +75,9 @@ public class InfoBean implements Serializable {
     public String getBcg() throws IOException {
 
         if (isLocaleEn()) {
-            return readFromFile(prepareFile(4, 0));
+            return readFromFile(4, 0);
         } else if (isLocaleTR()) {
-            return readFromFile(prepareFile(4, 1));
+            return readFromFile(4, 1);
         }
         return null;
     }
@@ -85,9 +85,9 @@ public class InfoBean implements Serializable {
     public String getDabtIpaHib() throws IOException {
 
         if (isLocaleEn()) {
-            return readFromFile(prepareFile(5, 0));
+            return readFromFile(5, 0);
         } else if (isLocaleTR()) {
-            return readFromFile(prepareFile(5, 1));
+            return readFromFile(5, 1);
         }
         return null;
     }
@@ -95,9 +95,9 @@ public class InfoBean implements Serializable {
     public String getOpa() throws IOException {
 
         if (isLocaleEn()) {
-            return readFromFile(prepareFile(6, 0));
+            return readFromFile(6, 0);
         } else if (isLocaleTR()) {
-            return readFromFile(prepareFile(6, 1));
+            return readFromFile(6, 1);
         }
         return null;
     }
@@ -105,9 +105,9 @@ public class InfoBean implements Serializable {
     public String getKpa() throws IOException {
 
         if (isLocaleEn()) {
-            return readFromFile(prepareFile(7, 0));
+            return readFromFile(7, 0);
         } else if (isLocaleTR()) {
-            return readFromFile(prepareFile(7, 1));
+            return readFromFile(7, 1);
         }
         return null;
     }
@@ -115,9 +115,9 @@ public class InfoBean implements Serializable {
     public String getKkk() throws IOException {
 
         if (isLocaleEn()) {
-            return readFromFile(prepareFile(8, 0));
+            return readFromFile(8, 0);
         } else if (isLocaleTR()) {
-            return readFromFile(prepareFile(8, 1));
+            return readFromFile(8, 1);
         }
         return null;
     }
@@ -125,9 +125,9 @@ public class InfoBean implements Serializable {
     public String getHepatitisA() throws IOException {
 
         if (isLocaleEn()) {
-            return readFromFile(prepareFile(9, 0));
+            return readFromFile(9, 0);
         } else if (isLocaleTR()) {
-            return readFromFile(prepareFile(9, 1));
+            return readFromFile(9, 1);
         }
         return null;
     }
@@ -135,14 +135,14 @@ public class InfoBean implements Serializable {
     public String getRva() throws IOException {
 
         if (isLocaleEn()) {
-            return readFromFile(prepareFile(10, 0));
+            return readFromFile(10, 0);
         } else if (isLocaleTR()) {
-            return readFromFile(prepareFile(10, 1));
+            return readFromFile(10, 1);
         }
         return null;
     }
 
-    private InputStreamReader prepareFile(int file, int lang) {
+    private String readFromFile(int file, int lang) throws IOException {
 
         StringBuilder builder = new StringBuilder();
 
@@ -190,13 +190,9 @@ public class InfoBean implements Serializable {
                 break;
         }
 
-        return new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(builder.toString()));
-    }
-
-    private String readFromFile(InputStreamReader reader) throws IOException {
-
+        InputStreamReader reader = new InputStreamReader(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(builder.toString()));
         BufferedReader bufferedReader = new BufferedReader(reader);
-        StringBuilder builder = new StringBuilder();
+        builder = new StringBuilder();
         String line;
         while ((line = bufferedReader.readLine()) != null) {
             builder.append(line);
