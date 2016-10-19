@@ -20,4 +20,6 @@ public class Pages {
     public static final String OPA_PAGE = "opa";
     public static final String RVA_PAGE = "rva";
     public static final String OTHERS_PAGE = "others";
+
+    public static final String[] ALL_PAGES = {DABT_IPA_HIB_PAGE, HEPATITIS_A_PAGE, HEPATITIS_B_PAGE, KKK_PAGE, KPA_PAGE, OPA_PAGE, RVA_PAGE, OTHERS_PAGE};
 }
