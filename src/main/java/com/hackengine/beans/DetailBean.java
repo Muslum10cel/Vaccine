@@ -14,6 +14,10 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import org.primefaces.model.DashboardColumn;
+import org.primefaces.model.DashboardModel;
+import org.primefaces.model.DefaultDashboardColumn;
+import org.primefaces.model.DefaultDashboardModel;
 import org.primefaces.model.menu.DefaultMenuItem;
 import org.primefaces.model.menu.DefaultMenuModel;
 import org.primefaces.model.menu.DefaultSubMenu;
@@ -31,11 +35,13 @@ public class DetailBean implements Serializable {
 
     private MenuModel menuModel;
 
+    private DashboardModel dashboardModel;
+
     @PostConstruct
     public void init() {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
-        menuModel = new DefaultMenuModel();
 
+        menuModel = new DefaultMenuModel();
         DefaultSubMenu defaultSubMenu = new DefaultSubMenu(Tags.VACCINES);
         int i = 0;
         menuModel.addElement(defaultSubMenu);
@@ -46,6 +52,31 @@ public class DetailBean implements Serializable {
             menuModel.addElement(item);
             i++;
         }
+
+        dashboardModel = new DefaultDashboardModel();
+
+        DashboardColumn column1 = new DefaultDashboardColumn();
+        DashboardColumn column2 = new DefaultDashboardColumn();
+        DashboardColumn column3 = new DefaultDashboardColumn();
+        DashboardColumn column4 = new DefaultDashboardColumn();
+
+        column1.addWidget(Pages.DABT_IPA_HIB_PAGE);
+        column1.addWidget(Pages.HEPATITIS_A_PAGE);
+
+        column2.addWidget(Pages.HEPATITIS_B_PAGE);
+        column2.addWidget(Pages.KKK_PAGE);
+
+        column3.addWidget(Pages.KPA_PAGE);
+        column3.addWidget(Pages.OPA_PAGE);
+        
+        column4.addWidget(Pages.RVA_PAGE);
+        column4.addWidget(Pages.OTHERS_PAGE);
+
+        dashboardModel.addColumn(column1);
+        dashboardModel.addColumn(column2);
+        dashboardModel.addColumn(column3);
+        dashboardModel.addColumn(column4);
+
     }
 
     public Baby getBaby() {
@@ -56,4 +87,10 @@ public class DetailBean implements Serializable {
         return menuModel;
     }
 
+    public DashboardModel getDashboardModel() {
+        return dashboardModel;
+    }
+    
+    
+    
 }

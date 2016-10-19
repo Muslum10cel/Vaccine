@@ -16,7 +16,67 @@ and open the template in the editor.
     <f:view locale="#{languageBean.locale}">
         <h:body>
             <h:form>
-                <p:menu model="#{detailBean.menuModel}" toggleable="true"/>
+                
+                <table border="1">
+                    <tr>
+                        <td>
+                            <p:menu model="#{detailBean.menuModel}"/>
+                        </td>
+                        <td>
+                            <p:dashboard id="board" model="#{detailBean.dashboardModel}">
+                                
+                                <p:panel id="dabtipahib" header="#{lang.dabtipahib}">
+
+                                    <h:panelGrid columns="3">
+                                        <p:outputLabel value="#{lang.total}"/>
+                                        <p:outputLabel value=""/>
+                                        <p:outputLabel value="5"/>
+                                        
+                                        <p:outputLabel value="#{lang.done}" style="color: green"/>
+                                        <p:outputLabel value=""/>
+                                        <p:outputLabel value="3" style="color: green"/>
+
+                                        <p:outputLabel value="#{lang.remain}" style="color: blue"/>
+                                        <p:outputLabel value=""/>
+                                        <p:outputLabel value="2" style="color: blue"/>
+
+                                        <p:outputLabel value="#{lang.delay}" style="color: red"/>
+                                        <p:outputLabel value=""/>
+                                        <p:outputLabel value="1" style="color: red"/>
+                                    </h:panelGrid>
+                                </p:panel>
+
+                                <p:panel id="hepatitisa" header="#{lang.hepatita}">
+                                    <h:outputText value="Finance Content" />
+                                </p:panel>
+
+                                <p:panel id="hepatitisb" header="#{lang.hepatitB}">
+                                    <h:outputText value="Lifestyle Content"  />
+                                </p:panel>
+
+                                <p:panel id="kkk" header="#{lang.kkk}">
+                                    <h:outputText value="Weather Content" />
+                                </p:panel>
+
+                                <p:panel id="kpa" header="#{lang.kpa}">
+                                    <h:outputText value="Politics Content" />
+                                </p:panel>
+
+                                <p:panel id="opa" header="#{lang.opa}">
+                                    <h:outputText value="Politics Content" />
+                                </p:panel>
+
+                                <p:panel id="rva" header="#{lang.rva}">
+                                    <h:outputText value="Politics Content" />
+                                </p:panel>
+
+                                <p:panel id="others" header="#{lang.others}">
+                                    <h:outputText value="Politics Content" />
+                                </p:panel>
+                            </p:dashboard>
+                        </td>
+                    </tr>
+                </table>
             </h:form>
             <p:separator/>
         </h:body>
