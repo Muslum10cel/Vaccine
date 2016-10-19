@@ -14,6 +14,10 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import org.primefaces.model.menu.DefaultMenuItem;
+import org.primefaces.model.menu.DefaultMenuModel;
+import org.primefaces.model.menu.DefaultSubMenu;
+import org.primefaces.model.menu.MenuModel;
 
 /**
  *
@@ -25,6 +29,8 @@ public class DetailBean implements Serializable {
 
     private Baby baby = null;
 
+    private MenuModel menuModel;
+
     public String[] getVaccines() {
         return Vaccines.vaccines;
     }
@@ -32,31 +38,26 @@ public class DetailBean implements Serializable {
     @PostConstruct
     public void init() {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
-    }
+        menuModel = new DefaultMenuModel();
 
-    public String displayDetailsOfVaccine(String vaccine) {
-        switch (vaccine) {
-            case Tags.DABT_IPA_HIB:
-                return Pages.DABT_IPA_HIB_PAGE;
-            case Tags.HEPATITIS_A:
-                return Pages.HEPATITIS_A_PAGE;
-            case Tags.HEPATITIS_B:
-                return Pages.HEPATITIS_B_PAGE;
-            case Tags.KKK:
-                return Pages.KKK_PAGE;
-            case Tags.KPA:
-                return Pages.KPA_PAGE;
-            case Tags.OPA:
-                return Pages.OPA_PAGE;
-            case Tags.RVA:
-                return Pages.RVA_PAGE;
-            case Tags.OTHERS:
-                return Pages.OTHERS_PAGE;
+        DefaultSubMenu defaultSubMenu = new DefaultSubMenu("Vaccines");
+        int i = 0;
+        menuModel.addElement(defaultSubMenu);
+        for (String vc : Vaccines.vaccines) {
+            DefaultMenuItem item = new DefaultMenuItem(vc);
+            item.setAjax(false);
+            item.setOutcome(Pages.ALL_PAGES[i]);
+            menuModel.addElement(item);
+            i++;
         }
-        return null;
     }
 
     public Baby getBaby() {
         return baby;
     }
+
+    public MenuModel getMenuModel() {
+        return menuModel;
+    }
+    
 }
