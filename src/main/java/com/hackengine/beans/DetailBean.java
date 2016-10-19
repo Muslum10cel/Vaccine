@@ -40,7 +40,7 @@ public class DetailBean implements Serializable {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
         menuModel = new DefaultMenuModel();
 
-        DefaultSubMenu defaultSubMenu = new DefaultSubMenu("Vaccines");
+        DefaultSubMenu defaultSubMenu = new DefaultSubMenu(Tags.VACCINES);
         int i = 0;
         menuModel.addElement(defaultSubMenu);
         for (String vc : Vaccines.vaccines) {
@@ -59,5 +59,5 @@ public class DetailBean implements Serializable {
     public MenuModel getMenuModel() {
         return menuModel;
     }
-    
+
 }
