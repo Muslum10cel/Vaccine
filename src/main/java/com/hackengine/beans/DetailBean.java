@@ -31,10 +31,6 @@ public class DetailBean implements Serializable {
 
     private MenuModel menuModel;
 
-    public String[] getVaccines() {
-        return Vaccines.vaccines;
-    }
-
     @PostConstruct
     public void init() {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
