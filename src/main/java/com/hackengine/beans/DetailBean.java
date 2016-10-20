@@ -62,6 +62,20 @@ public class DetailBean implements Serializable {
 
     private int hepaDelayed;
 
+    private int hepbDelayed;
+
+    private int kkkDelayed;
+
+    private int kpaDelayed;
+
+    private int opaDelayed;
+
+    private int rvaDelayed;
+
+    private int otherDelayed;
+
+    private static final Calendar calendar = Calendar.getInstance();
+
     @PostConstruct
     public void init() {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
@@ -124,6 +138,30 @@ public class DetailBean implements Serializable {
         return hepaDelayed;
     }
 
+    public int getHepbDelayed() {
+        return hepbDelayed;
+    }
+
+    public int getKkkDelayed() {
+        return kkkDelayed;
+    }
+
+    public int getKpaDelayed() {
+        return kpaDelayed;
+    }
+
+    public int getOpaDelayed() {
+        return opaDelayed;
+    }
+
+    public int getRvaDelayed() {
+        return rvaDelayed;
+    }
+
+    public int getOtherDelayed() {
+        return otherDelayed;
+    }
+
     public String goToDetail(String vaccine) {
         switch (vaccine) {
             case Tags.DABT_IPA_HIB:
@@ -172,8 +210,6 @@ public class DetailBean implements Serializable {
                 ++count;
             }
         }
-
-        Calendar calendar = Calendar.getInstance();
         for (DabtIpaHib dab1 : dab) {
             Calendar temp = Calendar.getInstance();
             temp.setTime(dab1.getFirstDabtIpaHib());
@@ -213,7 +249,6 @@ public class DetailBean implements Serializable {
             }
         }
 
-        Calendar calendar = Calendar.getInstance();
         for (HepatitisA a : hepatitisAs) {
             Calendar temp = Calendar.getInstance();
             temp.setTime(a.getFirstHepatitisADate());
@@ -248,6 +283,22 @@ public class DetailBean implements Serializable {
             }
         }
 
+        for (HepatitisB hb : hepatitisBs) {
+            Calendar temp = Calendar.getInstance();
+            temp.setTime(hb.getFirstHepatitisBDate());
+            if (calendar.after(temp) && !hb.isFirstHepatitisBStatus()) {
+                ++hepbDelayed;
+            }
+            temp.setTime(hb.getSecondHepatitisBDate());
+            if (calendar.after(temp) && !hb.isSecondHepatitisBStatus()) {
+                ++hepbDelayed;
+            }
+            temp.setTime(hb.getThirdHepatitisBDate());
+            if (calendar.after(temp) && !hb.isThirdHepatitisBStatus()) {
+                ++hepbDelayed;
+            }
+        }
+
         hepbPie.set(Tags.DONE, count);
         hepbPie.set(Tags.REMAIN, 3 - count);
         hepbPie.setLegendPosition(Tags.LEGEND_POSITION);
@@ -264,6 +315,13 @@ public class DetailBean implements Serializable {
             }
             if (k.isSecondKkkStatus()) {
                 ++count;
+            }
+        }
+        for (Kkk k : kkks) {
+            Calendar temp = Calendar.getInstance();
+            temp.setTime(k.getFirstKkkDate());
+            if (calendar.after(temp) && !k.isFirstKkkStatus()) {
+                ++kkkDelayed;
             }
         }
         kkkPie.set(Tags.DONE, count);
@@ -291,6 +349,26 @@ public class DetailBean implements Serializable {
             }
         }
 
+        for (Kpa k : kpas) {
+            Calendar temp = Calendar.getInstance();
+            temp.setTime(k.getFirstKpaDate());
+            if (calendar.after(temp) && !k.isFirstKpaStatus()) {
+                ++kpaDelayed;
+            }
+            temp.setTime(k.getSecondKpaDate());
+            if (calendar.after(temp) && !k.isSecondKpaStatus()) {
+                ++kpaDelayed;
+            }
+            temp.setTime(k.getThirdKpaDate());
+            if (calendar.after(temp) && !k.isThirdKpaStatus()) {
+                ++kpaDelayed;
+            }
+            temp.setTime(k.getFourthKpaDate());
+            if (calendar.after(temp) && !k.isFourthKpaStatus()) {
+                ++kpaDelayed;
+            }
+        }
+
         kpaPie.set(Tags.DONE, count);
         kpaPie.set(Tags.REMAIN, 4 - count);
         kpaPie.setLegendPosition(Tags.LEGEND_POSITION);
@@ -307,6 +385,18 @@ public class DetailBean implements Serializable {
             }
             if (o.isSecondOpaStatus()) {
                 ++count;
+            }
+        }
+
+        for (Opa o : opas) {
+            Calendar temp = Calendar.getInstance();
+            temp.setTime(o.getFirstOpaDate());
+            if (calendar.after(temp) && !o.isFirstOpaStatus()) {
+                ++opaDelayed;
+            }
+            temp.setTime(o.getSecondOpaDate());
+            if (calendar.after(temp) && !o.isSecondOpaStatus()) {
+                ++opaDelayed;
             }
         }
         opaPie.set(Tags.DONE, count);
@@ -328,6 +418,22 @@ public class DetailBean implements Serializable {
             }
             if (rva.isThirdRvaStatus()) {
                 ++count;
+            }
+        }
+
+        for (Rva rva : rvas) {
+            Calendar temp = Calendar.getInstance();
+            temp.setTime(rva.getFirstRvaDate());
+            if (calendar.after(temp) && !rva.isFirstRvaStatus()) {
+                ++rvaDelayed;
+            }
+            temp.setTime(rva.getSecondRvaDate());
+            if (calendar.after(temp) && !rva.isSecondRvaStatus()) {
+                ++rvaDelayed;
+            }
+            temp.setTime(rva.getThirdRvaDate());
+            if (calendar.after(temp) && !rva.isThirdRvaStatus()) {
+                ++rvaDelayed;
             }
         }
         rvaPie.set(Tags.DONE, count);
@@ -358,6 +464,17 @@ public class DetailBean implements Serializable {
             }
             if (ov.isVaricellaStatus()) {
                 ++count;
+            }
+        }
+        for (OtherVaccines ov : others) {
+            Calendar temp = Calendar.getInstance();
+            temp.setTime(ov.getBcgDate());
+            if (calendar.after(temp) && !ov.isBcgStatus()) {
+                ++otherDelayed;
+            }
+            temp.setTime(ov.getVaricellaDate());
+            if (calendar.after(temp) && !ov.isVaricellaStatus()) {
+                ++otherDelayed;
             }
         }
         otherPie.set(Tags.DONE, count);
