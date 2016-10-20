@@ -23,11 +23,15 @@ and open the template in the editor.
                                 <p:panel style="width:322px;">
                                     <p:chart type="pie" model="#{detailBean.dabtPie}" responsive="true"/>
                                     <p:separator/>
+                                    <p:outputLabel value="#{lang.delay} : #{detailBean.dabtDelayed}" style="color: red"/>
+                                    <p:separator/>
                                     <p:commandButton value="#{lang.detail1}" style="width:285px;" action="#{detailBean.goToDetail('Dabt Ipa Hib')}"/>
                                 </p:panel>
 
                                 <p:panel style="width:322px;">
                                     <p:chart type="pie" model="#{detailBean.hepaPie}" responsive="true"/>
+                                    <p:separator/>
+                                    <p:outputLabel value="#{lang.delay} : #{detailBean.hepaDelayed}" style="color: red"/>
                                     <p:separator/>
                                     <p:commandButton value="#{lang.detail1}" style="width:285px;" action="#{detailBean.goToDetail('Hepatitis A')}"/>
                                 </p:panel>
@@ -35,11 +39,15 @@ and open the template in the editor.
                                 <p:panel style="width:322px;">
                                     <p:chart type="pie" model="#{detailBean.hepbPie}" responsive="true"/>
                                     <p:separator/>
+                                    <p:outputLabel value="#{lang.delay} : #{detailBean.dabtDelayed}" style="color: red"/>
+                                    <p:separator/>
                                     <p:commandButton value="#{lang.detail1}" style="width:285px;" action="#{detailBean.goToDetail('Hepatitis B')}"/>
                                 </p:panel>
 
                                 <p:panel style="width:322px;">
                                     <p:chart type="pie" model="#{detailBean.kkkPie}" responsive="true"/>
+                                    <p:separator/>
+                                    <p:outputLabel value="#{lang.delay} : #{detailBean.dabtDelayed}" style="color: red"/>
                                     <p:separator/>
                                     <p:commandButton value="#{lang.detail1}" style="width:285px;" action="#{detailBean.goToDetail('Kkk')}"/>
                                 </p:panel>
@@ -47,11 +55,15 @@ and open the template in the editor.
                                 <p:panel style="width:322px;">
                                     <p:chart type="pie" model="#{detailBean.kpaPie}" responsive="true"/>
                                     <p:separator/>
+                                    <p:outputLabel value="#{lang.delay} : #{detailBean.dabtDelayed}" style="color: red"/>
+                                    <p:separator/>
                                     <p:commandButton value="#{lang.detail1}" style="width:285px;" action="#{detailBean.goToDetail('Kpa')}"/>
                                 </p:panel>
 
                                 <p:panel style="width:322px;">
                                     <p:chart type="pie" model="#{detailBean.opaPie}" responsive="true"/>
+                                    <p:separator/>
+                                    <p:outputLabel value="#{lang.delay} : #{detailBean.dabtDelayed}" style="color: red"/>
                                     <p:separator/>
                                     <p:commandButton value="#{lang.detail1}" style="width:285px;" action="#{detailBean.goToDetail('Opa')}"/>
                                 </p:panel>
@@ -59,11 +71,15 @@ and open the template in the editor.
                                 <p:panel style="width:322px;">
                                     <p:chart type="pie" model="#{detailBean.rvaPie}" responsive="true"/>
                                     <p:separator/>
+                                    <p:outputLabel value="#{lang.delay} : #{detailBean.dabtDelayed}" style="color: red"/>
+                                    <p:separator/>
                                     <p:commandButton value="#{lang.detail1}" style="width:285px;" action="#{detailBean.goToDetail('Rva')}"/>
                                 </p:panel>
 
                                 <p:panel style="width:322px;">
                                     <p:chart type="pie" model="#{detailBean.otherPie}" responsive="true"/>
+                                    <p:separator/>
+                                    <p:outputLabel value="#{lang.delay} : #{detailBean.dabtDelayed}" style="color: red"/>
                                     <p:separator/>
                                     <p:commandButton value="#{lang.detail1}" style="width:285px;" action="#{detailBean.goToDetail('Others')}"/>
                                 </p:panel>
@@ -71,7 +87,6 @@ and open the template in the editor.
                         </td>
                     </tr>
                 </table>
-
             </h:form>
             <p:separator/>
         </h:body>
