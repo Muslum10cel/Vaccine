@@ -58,6 +58,10 @@ public class DetailBean implements Serializable {
 
     private PieChartModel otherPie;
 
+    private int dabtDelayed;
+
+    private int hepaDelayed;
+
     @PostConstruct
     public void init() {
         baby = (Baby) SessionUtils.getSession().getAttribute(Tags.MAPPED_BY_BABY);
@@ -112,6 +116,14 @@ public class DetailBean implements Serializable {
         return otherPie;
     }
 
+    public int getDabtDelayed() {
+        return dabtDelayed;
+    }
+
+    public int getHepaDelayed() {
+        return hepaDelayed;
+    }
+
     public String goToDetail(String vaccine) {
         switch (vaccine) {
             case Tags.DABT_IPA_HIB:
@@ -161,6 +173,27 @@ public class DetailBean implements Serializable {
             }
         }
 
+        Calendar calendar = Calendar.getInstance();
+        for (DabtIpaHib dab1 : dab) {
+            Calendar temp = Calendar.getInstance();
+            temp.setTime(dab1.getFirstDabtIpaHib());
+            if (calendar.after(temp) && !dab1.isFirstDabtIpaHibStatus()) {
+                ++dabtDelayed;
+            }
+            temp.setTime(dab1.getSecondDabtIpaHib());
+            if (calendar.after(temp) && !dab1.isSecondDabtIpaHibStatus()) {
+                ++dabtDelayed;
+            }
+            temp.setTime(dab1.getThirdDabtIpaHib());
+            if (calendar.after(temp) && !dab1.isThirdDabtIpaHibStatus()) {
+                ++dabtDelayed;
+            }
+            temp.setTime(dab1.getFourthDabtIpaHib());
+            if (calendar.after(temp) && dab1.isFourthDabtIpaHibStatus()) {
+                ++dabtDelayed;
+            }
+        }
+
         dabtPie.set(Tags.DONE, count);
         dabtPie.set(Tags.REMAIN, 6 - count);
         dabtPie.setLegendPosition(Tags.LEGEND_POSITION);
@@ -179,6 +212,20 @@ public class DetailBean implements Serializable {
                 ++count;
             }
         }
+
+        Calendar calendar = Calendar.getInstance();
+        for (HepatitisA a : hepatitisAs) {
+            Calendar temp = Calendar.getInstance();
+            temp.setTime(a.getFirstHepatitisADate());
+            if (calendar.after(temp) && !a.isFirstHepatitisAStatus()) {
+                ++hepaDelayed;
+            }
+            temp.setTime(a.getSecondHepatitisADate());
+            if (calendar.after(temp) && !a.isSecondHepatitisAStatus()) {
+                ++hepaDelayed;
+            }
+        }
+
         hepaPie.set(Tags.DONE, count);
         hepaPie.set(Tags.REMAIN, 2 - count);
         hepaPie.setLegendPosition(Tags.LEGEND_POSITION);
