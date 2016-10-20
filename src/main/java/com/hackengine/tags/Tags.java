@@ -51,4 +51,7 @@ public class Tags {
     public static final String TR_RESOURCES = "/WEB-INF/resources/file/tr/";
     public static final String NEW_LINE = "\n";
     public static final String VACCINES = "Vaccines";
+    public static final String DONE = "Done";
+    public static final String REMAIN = "Remaining";
+    public static final String LEGEND_POSITION = "s";
 }
