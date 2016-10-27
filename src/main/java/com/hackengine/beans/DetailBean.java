@@ -25,7 +25,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.PieChartModel;
 import org.primefaces.model.menu.MenuModel;
 
