@@ -25,6 +25,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.PieChartModel;
 import org.primefaces.model.menu.MenuModel;
 
@@ -161,7 +162,7 @@ public class DetailBean implements Serializable {
     public int getOtherDelayed() {
         return otherDelayed;
     }
-
+    
     public String goToDetail(String vaccine) {
         switch (vaccine) {
             case Tags.DABT_IPA_HIB:
