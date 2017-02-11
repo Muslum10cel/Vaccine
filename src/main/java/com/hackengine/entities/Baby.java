@@ -49,7 +49,7 @@ public class Baby implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(name = ColumnNames.DATE_OF_BIRTH, nullable = false)
     private Date dateOfBirth;
-
+    
     @ManyToOne
     @JoinColumn(name = ColumnNames.USER_ID)
     private User user;
