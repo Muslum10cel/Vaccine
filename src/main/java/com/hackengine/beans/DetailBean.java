@@ -186,7 +186,7 @@ public class DetailBean implements Serializable {
 
     private void createDabtPie() {
         dabtPie = new PieChartModel();
-
+        
         List<DabtIpaHib> dab = transaction.dabtIpaHibs(baby.getID());
 
         int count = 0;
