@@ -21,6 +21,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -49,7 +50,11 @@ public class Baby implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(name = ColumnNames.DATE_OF_BIRTH, nullable = false)
     private Date dateOfBirth;
-    
+
+    @Lob
+    @Column(name = ColumnNames.IMAGE, nullable = true)
+    private byte[] babyImage;
+
     @ManyToOne
     @JoinColumn(name = ColumnNames.USER_ID)
     private User user;
@@ -74,17 +79,18 @@ public class Baby implements Serializable {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
     private DabtIpaHib dabtIpaHib;
-    
+
     @OneToOne(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_BABY, cascade = CascadeType.ALL)
     private OtherVaccines otherVaccines;
-    
+
     public Baby() {
     }
 
-    public Baby(String babyName, Gender gender, Date dateOfBirth) {
+    public Baby(String babyName, Gender gender, Date dateOfBirth, byte[] profilePic) {
         this.babyName = babyName;
         this.gender = gender;
         this.dateOfBirth = dateOfBirth;
+        this.babyImage = profilePic;
     }
 
     public int getID() {
@@ -190,7 +196,15 @@ public class Baby implements Serializable {
     public OtherVaccines getOtherVaccines() {
         return otherVaccines;
     }
-    
+
+    public byte[] getBabyImage() {
+        return babyImage;
+    }
+
+    public void setBabyImage(byte[] babyImage) {
+        this.babyImage = babyImage;
+    }
+
     @Override
     public String toString() {
         return "Baby{" + "babyName=" + babyName + ", gender=" + gender + ", dateOfBirth=" + dateOfBirth + '}';

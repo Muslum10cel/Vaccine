@@ -31,6 +31,7 @@ public class ColumnNames {
     public static final String BABY_NAME = "BABY_NAME";
     public static final String DATE_OF_BIRTH = "DATE_OF_BIRTH";
     public static final String GENDER = "GENDER";
+    public static final String IMAGE = "IMAGE";
 
     /**
      * Column names of Comment table

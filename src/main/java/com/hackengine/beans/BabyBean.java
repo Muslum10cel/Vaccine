@@ -12,12 +12,22 @@ import com.hackengine.pages.Pages;
 import com.hackengine.tags.Tags;
 import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import org.apache.poi.util.IOUtils;
+import org.primefaces.model.UploadedFile;
 
 /**
  *
@@ -38,6 +48,8 @@ public class BabyBean implements Serializable {
     private Gender gender;
 
     private List<Baby> babies;
+
+    private UploadedFile image;
 
     @PostConstruct
     public void init() {
@@ -82,8 +94,16 @@ public class BabyBean implements Serializable {
         return Gender.values();
     }
 
-    public void addBaby() {
-        transaction.mapBabyToUser(user, new Baby(babyname, gender, birthday));
+    public void setImage(UploadedFile image) {
+        this.image = image;
+    }
+
+    public UploadedFile getImage() {
+        return image;
+    }
+
+    public void addBaby() throws IOException {
+        transaction.mapBabyToUser(user, new Baby(babyname, gender, birthday, IOUtils.toByteArray(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(Tags.IMAGE_RESOURCES + gender.name().toLowerCase() + Tags.IMAGE_EXTENSION))));
         babies = transaction.getBabies(user.getID());
     }
 
@@ -95,5 +115,15 @@ public class BabyBean implements Serializable {
     public String goToDetails(Baby baby) {
         SessionUtils.getSession().setAttribute(Tags.MAPPED_BY_BABY, baby);
         return Pages.DETAILS_PAGE;
+    }
+
+    public void uploadImage(Baby baby) {
+        if (image != null) {
+            FacesMessage message = new FacesMessage("Succesful", image.getFileName() + " is uploaded to baby=" + baby.getBabyName());
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+
+//        transaction.uploadImage(baby, image.getContents());
+//        babies = transaction.getBabies(user.getID());
     }
 }

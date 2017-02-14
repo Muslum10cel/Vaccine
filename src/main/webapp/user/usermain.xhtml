@@ -87,7 +87,13 @@ and open the template in the editor.
                     <f:facet name="heder">#{lang.babies}</f:facet>
                     <p:column headerText="#{lang.babyName}">
                         <div style="text-align: center">
-                            <p:outputLabel value="#{baby.babyName}"/>
+                            <!-- <p:outputLabel value="#{baby.babyName}"/> -->
+                            <h:outputLink id="content" value="#">
+                                <p:outputLabel value="#{baby.babyName}" />
+                            </h:outputLink>
+                            <p:tooltip id="toolTipContent" for="content" position="bottom">
+                                <p:graphicImage name="#{baby.babyImage}" />
+                            </p:tooltip>
                         </div>
                     </p:column>
                     <p:column headerText="#{lang.gender}">
@@ -106,6 +112,13 @@ and open the template in the editor.
                             <p:outputLabel value="&#160;"/>
                             <p:commandLink value="#{lang.detail}" action="#{babyBean.goToDetails(baby)}"/>
                         </div>
+                    </p:column>
+                    <p:column headerText="#{lang.uploadImage}">
+                        <div style="text-align: center">
+                            <p:fileUpload value="#{babyBean.image}" mode="simple" skinSimple="true"/>
+                            <p:outputLabel value="&#160;"/>
+                            <p:commandButton value="#{lang.upload}" ajax="true" action="#{babyBean.uploadImage(baby)}"/>
+                        </div> 
                     </p:column>
                 </p:dataTable>
             </h:form>

@@ -378,6 +378,18 @@ public class Transactions {
         return false;
     }
 
+    public void uploadImage(Baby baby, byte[] image) {
+        try {
+            openSession();
+            session.beginTransaction();
+            baby.setBabyImage(image);
+            session.update(baby);
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            LOG.logp(Level.SEVERE, Transactions.class.getName(), Thread.currentThread().getStackTrace()[1].getMethodName(), Messages.HIBERNATE_EXCEPTION, e);
+        }
+    }
+
     public void closeSession() {
         LOG.log(Level.INFO, Messages.SESSION_CLOSED);
         openSession();

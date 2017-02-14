@@ -49,6 +49,8 @@ public class Tags {
     public static final String TR = "tr";
     public static final String EN_RESOURCES = "/WEB-INF/resources/file/en/";
     public static final String TR_RESOURCES = "/WEB-INF/resources/file/tr/";
+    public static final String IMAGE_RESOURCES = "/WEB-INF/resources/image/";
+    public static final String IMAGE_EXTENSION = ".jpg";
     public static final String NEW_LINE = "\n";
     public static final String VACCINES = "Vaccines";
     public static final String DONE = "Done";
