@@ -27,7 +27,10 @@ public class LoginBean implements Serializable {
 
     @PostConstruct
     public void init() {
+        System.out.println("Init...");
         transaction = new Transactions();
+        if(transaction instanceof Transactions)
+            System.out.println("transaction object created...");
     }
 
     public String getPassword() {
