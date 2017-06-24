@@ -17,7 +17,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -114,8 +113,11 @@ public class BabyBean implements Serializable {
 
     public void uploadImage(Baby baby) {
         if (image != null) {
-            FacesMessage message = new FacesMessage("Succesful", image.getFileName() + " is uploaded to baby=" + baby.getBabyName());
-            FacesContext.getCurrentInstance().addMessage(null, message);
+//            FacesMessage message = new FacesMessage("Succesful", image.getFileName() + " is uploaded to baby=" + baby.getBabyName());
+//            FacesContext.getCurrentInstance().addMessage(null, message);
+//            System.out.println("deneme");
+//            transaction.uploadImage(baby, image.getContents());
+//            babies = transaction.getBabies(user.getID());
         }
 
 //        transaction.uploadImage(baby, image.getContents());

@@ -16,7 +16,7 @@ and open the template in the editor.
     <f:view locale="#{languageBean.locale}">
         <h:body>
             <div>TODO write content</div>
-            <h:form>
+            <h:form enctype="multipart/form-data">
                 <p:commandLink value="#{lang.logOut}" action="#{userBean.logOut()}" global="false"/>
                 <p:growl id="msg"/>
 
@@ -92,7 +92,7 @@ and open the template in the editor.
                                 <p:outputLabel value="#{baby.babyName}" />
                             </h:outputLink>
                             <p:tooltip id="toolTipContent" for="content" position="bottom">
-                                <p:graphicImage name="#{baby.babyImage}" />
+                                <p:graphicImage value="#{baby.babyImage}" />
                             </p:tooltip>
                         </div>
                     </p:column>
@@ -117,7 +117,7 @@ and open the template in the editor.
                         <div style="text-align: center">
                             <p:fileUpload value="#{babyBean.image}" mode="simple" skinSimple="true"/>
                             <p:outputLabel value="&#160;"/>
-                            <p:commandButton value="#{lang.upload}" ajax="true" action="#{babyBean.uploadImage(baby)}"/>
+                            <p:commandButton value="#{lang.upload}" ajax="false" action="#{babyBean.uploadImage(baby)}"/>
                         </div> 
                     </p:column>
                 </p:dataTable>
